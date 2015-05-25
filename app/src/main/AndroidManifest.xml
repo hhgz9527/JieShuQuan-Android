@@ -24,6 +24,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thoughtworks.jieshuquan_android.MainActivity" />
         </activity>
+        <activity
+            android:name=".forgetPwdActivity"
+            android:label="@string/title_activity_forget_pwd" >
+        </activity>
+        <activity
+            android:name=".registerActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
     </application>
 
 </manifest>

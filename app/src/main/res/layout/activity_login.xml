@@ -66,7 +66,8 @@
                 android:text="@string/common_forgetPwd"
                 android:id="@+id/forgetPwdButton"
                 android:layout_gravity="bottom"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:onClick="showForgetPwdView"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -74,7 +75,8 @@
                 android:text="@string/common_register"
                 android:id="@+id/registerButton"
                 android:layout_gravity="bottom"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:onClick="showRegisterView"/>
         </LinearLayout>
         >
     </LinearLayout>

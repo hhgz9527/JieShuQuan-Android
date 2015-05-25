@@ -1,5 +1,8 @@
 package com.thoughtworks.jieshuquan_android;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class loginActivity extends ActionBarActivity {
@@ -16,13 +21,30 @@ public class loginActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         Button loginButton = (Button)findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "login button click");
+                EditText nameText = (EditText) findViewById(R.id.nameText);
+                String nameString = nameText.getText().toString();
+                if (nameString.length() == 0){
+                    loginActivity.this.showErrorToast("please input name");
+                    return;
+                }
+
+                EditText pwdText = (EditText) findViewById(R.id.pwdText);
+                String pwdString = pwdText.getText().toString();
+
+                if (pwdString.length() == 0){
+                    loginActivity.this.showErrorToast("please input password");
+                    return;
+                }
             }
+
         });
+
     }
 
     @Override
@@ -45,5 +67,26 @@ public class loginActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void  showErrorToast(String errorMessage){
+        Context context = getApplicationContext();
+        CharSequence text = errorMessage;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    public  void showForgetPwdView (View v){
+        Log.d(TAG, "forgetPwd  button click");
+        Intent showForgetActivity = new Intent(this,forgetPwdActivity.class);
+        startActivity(showForgetActivity);
+    }
+
+    public void showRegisterView (View v){
+        Log.v(TAG,"register button click");
+        Intent showRegisterActivity = new Intent(this,registerActivity.class);
+        startActivity(showRegisterActivity);
     }
 }
