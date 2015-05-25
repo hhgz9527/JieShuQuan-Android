@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">jieshuquan_android</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_login">Login</string>
+    <string name="common_name">Name</string>
+    <string name="common_pwd">PassWord</string>
+    <string name="common_register">Register</string>
+    <string name="common_forgetPwd">Forget Pwd</string>
+    <string name="title_activity_login">loginActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+
+</resources>
