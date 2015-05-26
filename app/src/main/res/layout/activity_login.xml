@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:scaleType="centerCrop"
-        android:src="@drawable/login_bg" />
+        android:scaleType="fitXY"
+        android:src="@drawable/login_background" />
 
 
     <LinearLayout

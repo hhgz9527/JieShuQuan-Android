@@ -26,17 +26,18 @@ public class loginActivity extends ActionBarActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Log.d(TAG, "login button click");
+
                 EditText nameText = (EditText) findViewById(R.id.nameText);
                 String nameString = nameText.getText().toString();
                 if (nameString.length() == 0){
-                    loginActivity.this.showErrorToast("please input name");
+                    loginActivity.this.showErrorToast(getString(R.string.error_inputName));
                     return;
                 }
 
                 EditText pwdText = (EditText) findViewById(R.id.pwdText);
                 String pwdString = pwdText.getText().toString();
-
                 if (pwdString.length() == 0){
                     loginActivity.this.showErrorToast("please input password");
                     return;
@@ -79,12 +80,14 @@ public class loginActivity extends ActionBarActivity {
     }
 
     public  void showForgetPwdView (View v){
+
         Log.d(TAG, "forgetPwd  button click");
         Intent showForgetActivity = new Intent(this,forgetPwdActivity.class);
         startActivity(showForgetActivity);
     }
 
     public void showRegisterView (View v){
+
         Log.v(TAG,"register button click");
         Intent showRegisterActivity = new Intent(this,registerActivity.class);
         startActivity(showRegisterActivity);
