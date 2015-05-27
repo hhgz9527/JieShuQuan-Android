@@ -32,13 +32,14 @@
             android:id="@+id/nameText"
             android:layout_marginTop="40dp"
             android:hint="@string/common_name"
-            />
+            android:textColor="#ffffffff" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/action_sendMail"
             android:id="@+id/sendMailButton"
             android:layout_marginTop="20dp"
+            android:onClick="pressResetPwdButton"
             />
         >
     </LinearLayout>

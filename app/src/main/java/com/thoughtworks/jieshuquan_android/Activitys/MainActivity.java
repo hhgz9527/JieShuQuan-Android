@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.avos.avoscloud.AVUser;
 import com.thoughtworks.jieshuquan_android.R;
 
 
@@ -17,15 +18,15 @@ public static String TAG = "MainActivity";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button loginButton = (Button)findViewById(R.id.testLogin);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent showLoginIntent = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(showLoginIntent);
-            }
-        });
 
+        AVUser currentUser = AVUser.getCurrentUser();
+        if (currentUser != null) {
+            // 允许用户使用应用
+        } else {
+            //need login
+            Intent showLoginIntent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(showLoginIntent);
+        }
     }
 
     @Override

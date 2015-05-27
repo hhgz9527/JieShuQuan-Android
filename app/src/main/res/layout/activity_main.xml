@@ -4,12 +4,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LoginButton"
-        android:id="@+id/testLogin"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Come soon"
+        android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="203dp" />
+        android:layout_marginTop="186dp" />
 </RelativeLayout>
