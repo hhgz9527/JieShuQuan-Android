@@ -1,0 +1,7 @@
+JieShuQuan-Android.iml
+app/app.iml
+.idea/
+.gradle/
+app/build/
+build/
+local.properties
