@@ -1,12 +1,14 @@
-package com.thoughtworks.jieshuquan_android;
+package com.thoughtworks.jieshuquan_android.Activitys;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.thoughtworks.jieshuquan_android.R;
 
-public class registerActivity extends ActionBarActivity {
+
+public class RegisterActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

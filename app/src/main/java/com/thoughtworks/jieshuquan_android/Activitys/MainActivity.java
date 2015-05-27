@@ -1,13 +1,14 @@
-package com.thoughtworks.jieshuquan_android;
+package com.thoughtworks.jieshuquan_android.Activitys;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.thoughtworks.jieshuquan_android.R;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -20,7 +21,7 @@ public static String TAG = "MainActivity";
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showLoginIntent = new Intent(MainActivity.this,loginActivity.class);
+                Intent showLoginIntent = new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(showLoginIntent);
             }
         });

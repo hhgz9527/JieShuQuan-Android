@@ -1,6 +1,5 @@
-package com.thoughtworks.jieshuquan_android;
+package com.thoughtworks.jieshuquan_android.Activitys;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -13,9 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.thoughtworks.jieshuquan_android.R;
+import com.thoughtworks.jieshuquan_android.Service.AuthService;
 
-public class loginActivity extends ActionBarActivity {
-    public static String TAG = "loginActivity";
+
+public class LoginActivity extends ActionBarActivity {
+    public static String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +34,19 @@ public class loginActivity extends ActionBarActivity {
                 EditText nameText = (EditText) findViewById(R.id.nameText);
                 String nameString = nameText.getText().toString();
                 if (nameString.length() == 0){
-                    loginActivity.this.showErrorToast(getString(R.string.error_inputName));
+                    LoginActivity.this.showErrorToast(getString(R.string.error_inputName));
                     return;
                 }
 
                 EditText pwdText = (EditText) findViewById(R.id.pwdText);
                 String pwdString = pwdText.getText().toString();
                 if (pwdString.length() == 0){
-                    loginActivity.this.showErrorToast("please input password");
+                    LoginActivity.this.showErrorToast("please input password");
                     return;
                 }
+
+                AuthService auther = AuthService.getInstance();
+
             }
 
         });
@@ -82,14 +87,14 @@ public class loginActivity extends ActionBarActivity {
     public  void showForgetPwdView (View v){
 
         Log.d(TAG, "forgetPwd  button click");
-        Intent showForgetActivity = new Intent(this,forgetPwdActivity.class);
+        Intent showForgetActivity = new Intent(this,ForgetPwdActivity.class);
         startActivity(showForgetActivity);
     }
 
     public void showRegisterView (View v){
 
         Log.v(TAG,"register button click");
-        Intent showRegisterActivity = new Intent(this,registerActivity.class);
+        Intent showRegisterActivity = new Intent(this,RegisterActivity.class);
         startActivity(showRegisterActivity);
     }
 }

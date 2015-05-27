@@ -9,7 +9,7 @@
     <string name="action_login">Login</string>
     <string name="action_sendMail">Send Mail</string>
 
-    <string name="common_name">Name</string>
+    <string name="common_name">Email</string>
     <string name="common_pwd">PassWord</string>
     <string name="common_confirm_pwd">Confirm PassWord</string>
     <string name="common_register">Register</string>
