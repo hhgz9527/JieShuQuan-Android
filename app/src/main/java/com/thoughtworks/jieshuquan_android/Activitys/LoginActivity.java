@@ -2,8 +2,8 @@ package com.thoughtworks.jieshuquan_android.Activitys;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +19,7 @@ import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.Service.AuthService;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends AppCompatActivity {
     public static String TAG = "LoginActivity";
 
     @Override
@@ -92,10 +92,9 @@ public class LoginActivity extends ActionBarActivity {
 
     public void showErrorToast(String errorMessage) {
         Context context = getApplicationContext();
-        CharSequence text = errorMessage;
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, text, duration);
+        Toast toast = Toast.makeText(context, errorMessage, duration);
         toast.show();
     }
 

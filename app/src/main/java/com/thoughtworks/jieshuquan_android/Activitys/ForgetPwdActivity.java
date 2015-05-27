@@ -1,8 +1,8 @@
 package com.thoughtworks.jieshuquan_android.Activitys;
 
 import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +15,7 @@ import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.Service.AuthService;
 
 
-public class ForgetPwdActivity extends ActionBarActivity {
+public class ForgetPwdActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
