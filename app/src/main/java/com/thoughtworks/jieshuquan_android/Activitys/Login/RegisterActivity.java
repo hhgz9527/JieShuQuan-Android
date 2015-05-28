@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.Activitys;
+package com.thoughtworks.jieshuquan_android.Activitys.Login;
 
 import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
@@ -10,23 +10,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.RequestPasswordResetCallback;
+import com.avos.avoscloud.SignUpCallback;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.Service.AuthService;
 
 
-public class ForgetPwdActivity extends ActionBarActivity {
+public class RegisterActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forget_pwd);
+        setContentView(R.layout.activity_register);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_forget_pwd, menu);
+        getMenuInflater().inflate(R.menu.menu_register, menu);
         return true;
     }
 
@@ -45,26 +45,40 @@ public class ForgetPwdActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void pressResetPwdButton (View v){
-        EditText nameText = (EditText) findViewById(R.id.nameText);
-        String nameString = nameText.getText().toString();
-        if (nameString.length() == 0){
+    public void pressReisterButton(View v){
+
+        EditText emailText = (EditText) findViewById(R.id.nameText);
+        if (emailText.getText().toString().length() == 0){
             this.showErrorToast(getString(R.string.error_inputName));
             return;
         }
-        AuthService auther = AuthService.getInstance();
-        auther.resetPassword(nameString, new RequestPasswordResetCallback() {
+
+        EditText pwdText = (EditText) findViewById(R.id.pwdText);
+        if (pwdText.getText().toString().length() == 0){
+            this.showErrorToast(getString(R.string.error_inputpwd));
+            return;
+        }
+        EditText confirmPwdText = (EditText) findViewById(R.id.confirmpwdText);
+        if (confirmPwdText.getText().toString().length() == 0){
+            this.showErrorToast(getString(R.string.error_inputpwd));
+            return;
+        }
+        if(!pwdText.getText().toString().equals(confirmPwdText.getText().toString())){
+            this.showErrorToast("please confirm the password is same!");
+            return;
+        }
+
+        AuthService service = AuthService.getInstance();
+        service.signUp(emailText.getText().toString(),pwdText.getText().toString(),new SignUpCallback() {
             public void done(AVException e) {
                 if (e == null) {
-                    // 已发送一份重置密码的指令到用户的邮箱
-                    ForgetPwdActivity.this.showErrorToast("reset request is success");
+                    // successfully
                     finish();
                 } else {
-                    // 重置密码出错。
-                    ForgetPwdActivity.this.showErrorToast("reset request is failure");
+                    // failed
+                    RegisterActivity.this.showErrorToast(e.toString());
                 }
-            }
-        });
+            }});
     }
 
     public void showErrorToast(String errorMessage) {

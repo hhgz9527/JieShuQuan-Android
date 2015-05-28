@@ -23,20 +23,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activitys.LoginActivity"
-            android:label="@string/title_activity_login"
-            android:parentActivityName=".Activitys.MainActivity" >s
+            android:name=".Activitys.Login.LoginActivity"
+            android:label="@string/title_activity_login">
+        </activity>
+        <activity
+            android:name=".Activitys.Login.ForgetPwdActivity"
+            android:label="@string/title_activity_forget_pwd"
+            android:parentActivityName=".Activitys.Login.LoginActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activitys.MainActivity" />
+                android:value=".Activitys.Login.LoginActivity" />
         </activity>
         <activity
-            android:name=".Activitys.ForgetPwdActivity"
-            android:label="@string/title_activity_forget_pwd" >
-        </activity>
-        <activity
-            android:name=".Activitys.RegisterActivity"
-            android:label="@string/title_activity_register" >
+            android:name=".Activitys.Login.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:parentActivityName=".Activitys.Login.LoginActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activitys.Login.LoginActivity" />
         </activity>
     </application>
 

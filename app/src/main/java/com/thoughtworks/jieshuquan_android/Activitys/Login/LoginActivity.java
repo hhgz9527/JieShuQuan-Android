@@ -1,5 +1,6 @@
-package com.thoughtworks.jieshuquan_android.Activitys;
+package com.thoughtworks.jieshuquan_android.Activitys.Login;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -90,6 +91,11 @@ public class LoginActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
+
     public void showErrorToast(String errorMessage) {
         Context context = getApplicationContext();
         CharSequence text = errorMessage;
@@ -102,14 +108,16 @@ public class LoginActivity extends ActionBarActivity {
     public void showForgetPwdView(View v) {
 
         Log.d(TAG, "forgetPwd  button click");
-        Intent showForgetActivity = new Intent(this, ForgetPwdActivity.class);
+        Intent showForgetActivity = new Intent(LoginActivity.this, ForgetPwdActivity.class);
         startActivity(showForgetActivity);
+        overridePendingTransition(R.anim.pg_push_left_in,android.R.anim.fade_out);
     }
 
     public void showRegisterView(View v) {
 
         Log.v(TAG, "register button click");
-        Intent showRegisterActivity = new Intent(this, RegisterActivity.class);
+        Intent showRegisterActivity = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(showRegisterActivity);
+        overridePendingTransition(R.anim.pg_push_left_in,android.R.anim.fade_out);
     }
 }

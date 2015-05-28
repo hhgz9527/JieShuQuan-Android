@@ -3,17 +3,19 @@ package com.thoughtworks.jieshuquan_android.Activitys;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
 
 import com.avos.avoscloud.AVUser;
+import com.thoughtworks.jieshuquan_android.Activitys.Login.LoginActivity;
 import com.thoughtworks.jieshuquan_android.R;
 
 
 public class MainActivity extends ActionBarActivity {
-public static String TAG = "MainActivity";
+    public static String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public static String TAG = "MainActivity";
             // 允许用户使用应用
         } else {
             //need login
-            Intent showLoginIntent = new Intent(MainActivity.this,LoginActivity.class);
+            Intent showLoginIntent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(showLoginIntent);
         }
     }
@@ -49,5 +51,22 @@ public static String TAG = "MainActivity";
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private long exitTime = 0;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), "click again will exit App", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
