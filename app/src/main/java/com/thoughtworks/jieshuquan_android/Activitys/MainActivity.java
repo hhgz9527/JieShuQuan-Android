@@ -1,9 +1,9 @@
 package com.thoughtworks.jieshuquan_android.Activitys;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -12,8 +12,7 @@ import com.avos.avoscloud.AVUser;
 import com.thoughtworks.jieshuquan_android.Activitys.Login.LoginActivity;
 import com.thoughtworks.jieshuquan_android.R;
 
-
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     public static String TAG = "MainActivity";
 
     @Override
