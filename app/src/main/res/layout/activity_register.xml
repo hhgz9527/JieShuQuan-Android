@@ -5,62 +5,72 @@
     tools:context="com.thoughtworks.jieshuquan_android.Activitys.Login.RegisterActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/imageView"
         android:scaleType="fitXY"
         android:src="@drawable/login_background" />
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin">
+        android:paddingTop="@dimen/activity_vertical_margin">
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
             android:id="@+id/nameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:ems="10"
             android:hint="@string/common_name"
-            android:textColor="#ffffffff" />
+            android:inputType="textPersonName"
+            android:textColor="#ffffffff"
+            android:textColorHint="#ffffffff"
+            android:backgroundTint="#ffffffff" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
             android:id="@+id/pwdText"
-            android:layout_marginTop="20dp"
-            android:hint="@string/common_pwd"
-            android:textColor="#ffffffff" />
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/confirmpwdText"
             android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/common_pwd"
+            android:inputType="textPassword"
+            android:textColor="#ffffffff"
+            android:textColorHint="#ffffffff"
+            android:backgroundTint="#ffffffff" />
+
+        <EditText
+            android:id="@+id/confirmpwdText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
             android:hint="@string/common_confirm_pwd"
-            android:textColor="#ffffffff" />
+            android:inputType="textPassword"
+            android:textColor="#ffffffff"
+            android:textColorHint="#ffffffff"
+            android:backgroundTint="#ffffffff" />
 
         <Button
+            android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/common_register"
-            android:id="@+id/loginButton"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_shape"
             android:onClick="pressReisterButton"
-            />
+            android:text="@string/common_register"
+            android:textColor="#ffffff" />
         >
     </LinearLayout>
 </RelativeLayout>

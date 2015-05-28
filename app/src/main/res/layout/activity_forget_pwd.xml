@@ -32,15 +32,21 @@
             android:id="@+id/nameText"
             android:layout_marginTop="40dp"
             android:hint="@string/common_name"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textColorHint="#ffffffff"
+            android:singleLine="false"
+            android:backgroundTint="#ffffffff" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/action_sendMail"
             android:id="@+id/sendMailButton"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:onClick="pressResetPwdButton"
-            />
+            android:background="@drawable/button_shape"
+            android:textColor="#ffffff" />
         >
     </LinearLayout>
 
