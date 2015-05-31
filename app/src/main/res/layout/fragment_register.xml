@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/account_name"
+        style="@style/LoginEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/common_name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/account_pwd"
+        style="@style/LoginEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account_name"
+        android:hint="@string/common_pwd"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/account_pwd_confirm"
+        style="@style/LoginEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account_pwd"
+        android:hint="@string/common_confirm_pwd"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/register_btn"
+        style="@style/Widget.JFQ.NormalButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/account_pwd_confirm"
+        android:text="@string/common_register" />
+
+</RelativeLayout>

@@ -11,8 +11,12 @@
     <string name="action_login">Login</string>
     <string name="action_send_mail">Send Mail</string>
 
-    <string name="error_msg_account_name">Email is not validate</string>
-    <string name="error_msg_account_pwd">Password is not validate</string>
+    <string name="msg_exit_hint">Click again will exit application.</string>
+    <string name="msg_login_success">Login success.</string>
+    <string name="msg_reset_success">Reset password request was sending successful.</string>
+    <string name="msg_reset_failure">Reset password request was failure.</string>
+    <string name="msg_error_account_name">Email is not validate.</string>
+    <string name="msg_error_account_pwd">Password is not validate.</string>
 
     <string name="common_name">Email</string>
     <string name="common_pwd">Password</string>

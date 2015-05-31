@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="LoginEditText">
+        <item name="android:layout_marginTop">@dimen/login_edittext_margin</item>
+        <item name="android:backgroundTint">@color/color_white</item>
+        <item name="android:ems">10</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textColorHint">@color/color_white</item>
+    </style>
+
+</resources>

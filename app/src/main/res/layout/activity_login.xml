@@ -2,96 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:paddingBottom="@dimen/login_padding_bottom"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/login_padding_top"
     tools:context="com.thoughtworks.jieshuquan_android.activity.login.LoginActivity">
 
-
-    <ImageView
+    <FrameLayout
+        android:id="@+id/login_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imageView"
-        android:scaleType="fitXY"
-        android:src="@drawable/login_background" />
-
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:weightSum="1">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/nameText"
-            android:layout_marginTop="40dp"
-            android:hint="@string/common_name"
-            android:textColor="#ffffffff"
-            android:textColorHint="#ffffffff"
-            android:backgroundTint="#ffffffff" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/pwdText"
-            android:layout_marginTop="20dp"
-            android:hint="@string/common_pwd"
-            android:textColor="#ffffffff"
-            android:textColorHint="#ffffffff"
-            android:backgroundTint="#ffffffff" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/action_login"
-            android:id="@+id/loginButton"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/button_shape"
-            android:textColor="#ffffff" />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="40dp"
-            android:weightSum="1">
-
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/common_forget_pwd"
-                android:id="@+id/forgetPwdButton"
-                android:layout_gravity="bottom"
-                android:layout_weight="0.5"
-                android:onClick="showForgetPwdView"
-                android:background="@null"
-                android:textColor="#ffffff" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/common_register"
-                android:id="@+id/registerButton"
-                android:layout_gravity="bottom"
-                android:layout_weight="0.5"
-                android:onClick="showRegisterView"
-                android:background="@null"
-                android:textColor="#ffffff" />
-        </LinearLayout>
-        >
-    </LinearLayout>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

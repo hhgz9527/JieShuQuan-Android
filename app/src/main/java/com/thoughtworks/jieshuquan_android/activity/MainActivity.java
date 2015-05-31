@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if ((System.currentTimeMillis() - exitTime) > 2000) {
-            Toast.makeText(getApplicationContext(), "click again will exit App", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.msg_exit_hint, Toast.LENGTH_SHORT).show();
             exitTime = System.currentTimeMillis();
         } else {
             super.onBackPressed();
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.main_login_btn)
-    void Login() {
+    void login() {
 //        if (AVUser.getCurrentUser() != null) {
 //            //need login
 //        }
