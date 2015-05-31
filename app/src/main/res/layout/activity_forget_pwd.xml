@@ -39,7 +39,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/action_sendMail"
+            android:text="@string/action_send_mail"
             android:id="@+id/sendMailButton"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"

@@ -72,7 +72,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/common_forgetPwd"
+                android:text="@string/common_forget_pwd"
                 android:id="@+id/forgetPwdButton"
                 android:layout_gravity="bottom"
                 android:layout_weight="0.5"

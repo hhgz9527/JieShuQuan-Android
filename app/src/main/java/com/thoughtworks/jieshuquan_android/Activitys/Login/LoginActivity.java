@@ -1,6 +1,5 @@
 package com.thoughtworks.jieshuquan_android.Activitys.Login;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 EditText nameText = (EditText) findViewById(R.id.nameText);
                 String nameString = nameText.getText().toString();
                 if (nameString.length() == 0) {
-                    LoginActivity.this.showErrorToast(getString(R.string.error_inputName));
+                    LoginActivity.this.showErrorToast(getString(R.string.error_msg_account_name));
                     return;
                 }
 

@@ -49,7 +49,7 @@ public class ForgetPwdActivity extends AppCompatActivity {
         EditText nameText = (EditText) findViewById(R.id.nameText);
         String nameString = nameText.getText().toString();
         if (nameString.length() == 0){
-            this.showErrorToast(getString(R.string.error_inputName));
+            this.showErrorToast(getString(R.string.error_msg_account_name));
             return;
         }
         AuthService auther = AuthService.getInstance();
