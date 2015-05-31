@@ -13,7 +13,8 @@ import com.thoughtworks.jieshuquan_android.Activitys.Login.LoginActivity;
 import com.thoughtworks.jieshuquan_android.R;
 
 public class MainActivity extends AppCompatActivity {
-    public static String TAG = "MainActivity";
+
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
