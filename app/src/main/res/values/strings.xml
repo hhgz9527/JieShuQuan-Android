@@ -1,21 +1,23 @@
 <resources>
     <string name="app_name">借书圈</string>
 
-    <string name="title_activity_login">loginActivity</string>
+    <string name="title_activity_login">Login</string>
     <string name="title_activity_forget_pwd">forgetPwdActivity</string>
     <string name="title_activity_register">registerActivity</string>
+
+    <string name="btn_login">Login</string>
 
     <string name="action_settings">Settings</string>
     <string name="action_login">Login</string>
     <string name="action_send_mail">Send Mail</string>
 
-    <string name="error_msg_account_name">Please input a right Email Name</string>
-    <string name="error_msg_account_pwd">Please input a right Password</string>
+    <string name="error_msg_account_name">Email is not validate</string>
+    <string name="error_msg_account_pwd">Password is not validate</string>
 
     <string name="common_name">Email</string>
-    <string name="common_pwd">PassWord</string>
-    <string name="common_confirm_pwd">Confirm PassWord</string>
+    <string name="common_pwd">Password</string>
+    <string name="common_confirm_pwd">Confirm Password</string>
     <string name="common_register">Register</string>
-    <string name="common_forget_pwd">Forget Pwd</string>
+    <string name="common_forget_pwd">Forget Password</string>
 
 </resources>

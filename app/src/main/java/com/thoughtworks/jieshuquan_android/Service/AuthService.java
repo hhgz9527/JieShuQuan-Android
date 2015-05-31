@@ -1,6 +1,5 @@
-package com.thoughtworks.jieshuquan_android.Service;
+package com.thoughtworks.jieshuquan_android.service;
 
-import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.avos.avoscloud.RequestPasswordResetCallback;

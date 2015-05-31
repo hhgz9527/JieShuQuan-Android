@@ -5,6 +5,8 @@
     <string name="title_activity_forget_pwd">找回密码</string>
     <string name="title_activity_register">注册</string>
 
+    <string name="btn_login">登陆</string>
+
     <string name="action_settings">设置</string>
     <string name="action_login">登陆</string>
     <string name="action_send_mail">发送邮件</string>
@@ -12,10 +14,10 @@
     <string name="error_msg_account_name">Please input a right Email Name</string>
     <string name="error_msg_account_pwd">Please input a right Password</string>
 
-    <string name="common_name">Email</string>
-    <string name="common_pwd">PassWord</string>
-    <string name="common_confirm_pwd">Confirm PassWord</string>
-    <string name="common_register">Register</string>
-    <string name="common_forget_pwd">Forget Pwd</string>
+    <string name="common_name">邮    箱</string>
+    <string name="common_pwd">密    码</string>
+    <string name="common_confirm_pwd">密码确认</string>
+    <string name="common_register">注册</string>
+    <string name="common_forget_pwd">忘记密码</string>
 
 </resources>

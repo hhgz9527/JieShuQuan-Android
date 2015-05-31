@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.Activitys.Login;
+package com.thoughtworks.jieshuquan_android.activity.login;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,16 +16,20 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.Service.AuthService;
+import com.thoughtworks.jieshuquan_android.service.AuthService;
+
+import butterknife.ButterKnife;
 
 
 public class LoginActivity extends AppCompatActivity {
-    public static String TAG = "LoginActivity";
+
+    public static final String TAG = LoginActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.inject(this);
 
         Button loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -68,33 +72,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-    }
-
     public void showErrorToast(String errorMessage) {
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
@@ -104,7 +81,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void showForgetPwdView(View v) {
-
         Log.d(TAG, "forgetPwd  button click");
         Intent showForgetActivity = new Intent(LoginActivity.this, ForgetPwdActivity.class);
         startActivity(showForgetActivity);
@@ -112,7 +88,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void showRegisterView(View v) {
-
         Log.v(TAG, "register button click");
         Intent showRegisterActivity = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(showRegisterActivity);
