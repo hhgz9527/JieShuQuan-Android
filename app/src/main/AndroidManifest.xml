@@ -26,23 +26,7 @@
         <activity
             android:name=".activity.login.LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/Theme.JFQ.Login"></activity>
-        <activity
-            android:name=".activity.login.ForgetPwdActivity"
-            android:label="@string/title_activity_forget_pwd"
-            android:parentActivityName=".activity.login.LoginActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.login.LoginActivity" />
-        </activity>
-        <activity
-            android:name=".activity.login.RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:parentActivityName=".activity.login.LoginActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.login.LoginActivity" />
-        </activity>
+            android:theme="@style/Theme.JFQ.Login" />
     </application>
 
 </manifest>
