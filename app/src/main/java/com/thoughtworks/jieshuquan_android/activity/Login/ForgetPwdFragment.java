@@ -38,16 +38,18 @@ public class ForgetPwdFragment extends Fragment {
         if (TextUtils.isEmpty(nameString)) {
             accountName.setError(getString(R.string.msg_error_account_name));
             return;
+        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(accountName.getText().toString()).matches()) {
+            accountName.setError(getString(R.string.msg_error_account_name));
+            return;
         }
+
         AuthService auther = AuthService.getInstance();
         auther.resetPassword(nameString, new RequestPasswordResetCallback() {
             public void done(AVException e) {
                 if (e == null) {
-                    // 已发送一份重置密码的指令到用户的邮箱
                     showErrorToast(getString(R.string.msg_reset_success));
                     getActivity().finish();
                 } else {
-                    // 重置密码出错。
                     showErrorToast(getString(R.string.msg_reset_failure));
                 }
             }

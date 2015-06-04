@@ -15,6 +15,8 @@
     <string name="msg_login_success">Login success.</string>
     <string name="msg_reset_success">Reset password request was sending successful.</string>
     <string name="msg_reset_failure">Reset password request was failure.</string>
+    <string name="msg_register_success">Register success.</string>
+
     <string name="msg_error_account_name">Email is not validate.</string>
     <string name="msg_error_account_pwd">Password is not validate.</string>
 

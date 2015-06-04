@@ -54,6 +54,9 @@ public class LoginFragment extends Fragment {
         if (TextUtils.isEmpty(nameString)) {
             accountName.setError(getString(R.string.msg_error_account_name));
             return;
+        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(nameString).matches()) {
+            accountName.setError(getString(R.string.msg_error_account_name));
+            return;
         }
         String pwdString = accountPwd.getText().toString();
         if (TextUtils.isEmpty(pwdString)) {
@@ -65,11 +68,9 @@ public class LoginFragment extends Fragment {
         auther.login(nameString, pwdString, new LogInCallback() {
             public void done(AVUser user, AVException e) {
                 if (user != null) {
-                    // 登录成功
                     LoginFragment.this.showErrorToast(getString(R.string.msg_login_success));
                     getActivity().finish();
                 } else {
-                    // 登录失败
                     LoginFragment.this.showErrorToast(e.toString());
                 }
             }

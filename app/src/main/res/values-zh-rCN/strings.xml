@@ -15,6 +15,8 @@
     <string name="msg_login_success">登陆成功。</string>
     <string name="msg_reset_success">重置密码邮件已经成功发送。</string>
     <string name="msg_reset_failure">重置密码操作失败。</string>
+    <string name="msg_register_success">注册成功。</string>
+
     <string name="msg_error_account_name">邮箱验证失败。</string>
     <string name="msg_error_account_pwd">密码验证失败。</string>
 
