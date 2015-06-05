@@ -32,4 +32,13 @@
 
     <!-- Some special color -->
 
+    <color name="colorPrimary">#008972</color>
+    <color name="primary_text_color">#7c7c7c</color>
+
+    <color name="tab_bar_background">#F8F8F8</color>
+
+    <color name="divider">#B8B8B8</color>
+
+    <color name="content_background">#FFFFFF</color>
+
 </resources>

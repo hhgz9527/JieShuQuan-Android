@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:drawableTop="@drawable/sel_tab_search"
+        android:gravity="bottom|center_horizontal"
+        android:paddingTop="5dp"
+        android:text="Discover"
+        android:textColor="@color/sel_tab_text" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:drawableTop="@drawable/sel_tab_books"
+        android:gravity="bottom|center_horizontal"
+        android:paddingTop="5dp"
+        android:text="Borrow"
+        android:textColor="@color/sel_tab_text" />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:drawableTop="@drawable/sel_tab_people"
+        android:gravity="bottom|center_horizontal"
+        android:paddingTop="8dp"
+        android:text="People"
+        android:textColor="@color/sel_tab_text" />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:drawableTop="@drawable/sel_tab_more"
+        android:gravity="bottom|center_horizontal"
+        android:paddingTop="5dp"
+        android:text="More"
+        android:textColor="@color/sel_tab_text" />
+</merge>

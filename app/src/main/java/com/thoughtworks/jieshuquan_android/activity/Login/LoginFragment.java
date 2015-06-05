@@ -31,6 +31,11 @@ public class LoginFragment extends Fragment {
 
     private Callback mCallback;
 
+    public static LoginFragment newInstance() {
+        LoginFragment fragment = new LoginFragment();
+        fragment.setArguments(new Bundle());
+        return fragment;
+    }
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
