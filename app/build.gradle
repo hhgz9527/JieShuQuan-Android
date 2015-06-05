@@ -66,4 +66,7 @@ dependencies {
     //avoscloud-search 为 LeanCloud 应用内搜索包
     compile 'cn.leancloud.android:avoscloud-search:v3.3+@aar'
 
+    compile 'me.dm7.barcodescanner:zbar:1.5'
+
+
 }
