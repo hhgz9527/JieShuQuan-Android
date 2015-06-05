@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.activity.Main;
+package com.thoughtworks.jieshuquan_android.activity.main;
 
 import android.app.Activity;
 import android.net.Uri;

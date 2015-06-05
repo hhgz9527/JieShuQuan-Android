@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.activity.Main;
+package com.thoughtworks.jieshuquan_android.activity.main;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -163,9 +163,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         public boolean onMenuItemClick(MenuItem menuItem) {
             String msg = "";
             switch (menuItem.getItemId()) {
-                case R.id.action_scan:
+                case R.id.action_scan: {
                     msg += "Click edit";
-                    break;
+                    MainActivity.this.startScanner();
+                }
+                break;
             }
 
             if (!msg.equals("")) {
@@ -174,4 +176,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             return true;
         }
     };
+
+    private void startScanner() {
+        Intent startScanner = new Intent(this, ScannerActivity.class);
+        startActivity(startScanner);
+    }
 }

@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.JFQ" >
         <activity
-            android:name=".activity.Main.MainActivity"
+            android:name=".activity.main.MainActivity"
             android:label="@string/app_name" >
             // 声明为 spring board的入口点
             <intent-filter>
@@ -34,7 +34,7 @@
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.JFQ.Login" />
         <activity
-            android:name=".activity.Main.ScannerActivity"
+            android:name=".activity.main.ScannerActivity"
             android:label="@string/title_activity_scanner" >
         </activity>
     </application>
