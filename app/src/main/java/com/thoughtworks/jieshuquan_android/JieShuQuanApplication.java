@@ -15,4 +15,6 @@ public class JieShuQuanApplication extends Application {
 
         AVOSCloud.initialize(this, "gdakm21nfqik6swplef3anis5fu078gex0zb36uzoz0vippb", "5ptvr2vqoyzqxka9yjsahnq0mo28traj6w7d1v5t8pj5can6");
     }
+
+
 }

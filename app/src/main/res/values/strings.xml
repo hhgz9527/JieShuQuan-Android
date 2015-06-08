@@ -31,5 +31,6 @@
     <string name="title_activity_scanner">ScannerActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_add_book_to_library">AddBookToLibraryActivity</string>
 
 </resources>

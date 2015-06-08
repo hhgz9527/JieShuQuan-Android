@@ -1,5 +1,6 @@
 package com.thoughtworks.jieshuquan_android.activity.main;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVUser;
+import com.thoughtworks.jieshuquan_android.BuildConfig;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.view.TabBar;
 import com.thoughtworks.jieshuquan_android.activity.login.LoginActivity;
@@ -85,6 +87,18 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             Intent showLoginIntent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(showLoginIntent);
         }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode == 100 && data.getStringExtra("ISBN").length() > 0) {
+           // new AlertDialog.Builder(this).setTitle("ISBN").setMessage("the ISBN number is " + data.getStringExtra("ISBN")).setPositiveButton("sure", null).show();
+            this.showAddBookActivity(data.getStringExtra("ISBN"));
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -161,17 +175,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     private Toolbar.OnMenuItemClickListener onMenuItemClick = new Toolbar.OnMenuItemClickListener() {
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
-            String msg = "";
             switch (menuItem.getItemId()) {
                 case R.id.action_scan: {
-                    msg += "Click edit";
                     MainActivity.this.startScanner();
                 }
                 break;
-            }
-
-            if (!msg.equals("")) {
-                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
             return true;
         }
@@ -179,6 +187,13 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     private void startScanner() {
         Intent startScanner = new Intent(this, ScannerActivity.class);
-        startActivity(startScanner);
+        startActivityForResult(startScanner, 100);
     }
+
+    private void showAddBookActivity(String isbn) {
+        Intent showAddBookIntent = new Intent(MainActivity.this, AddBookToLibraryActivity.class);
+        showAddBookIntent.putExtra("ISBN",isbn);
+        startActivity(showAddBookIntent);
+    }
+
 }
