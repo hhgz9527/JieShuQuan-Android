@@ -1,18 +1,58 @@
 package com.thoughtworks.jieshuquan_android.activity.main;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.bumptech.glide.Glide;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.thoughtworks.jieshuquan_android.BuildConfig;
 import com.thoughtworks.jieshuquan_android.R;
+import com.thoughtworks.jieshuquan_android.model.Book;
+import com.thoughtworks.jieshuquan_android.service.BookService;
+
+import org.apache.http.Header;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnCheckedChanged;
+import butterknife.OnClick;
 
 public class AddBookToLibraryActivity extends ActionBarActivity {
+
+    @InjectView(R.id.bookImageView)
+    ImageView bookImageView;
+
+    @InjectView(R.id.nameTextView)
+    TextView nameTextView;
+
+    @InjectView(R.id.borrowSwith)
+    Switch borrowSwith;
+
+    private String mIsbn;
+    private Book mBook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book_to_library);
+        ButterKnife.inject(this);
+        Intent intent = getIntent();
+        if (intent != null) {
+            this.mIsbn = intent.getStringExtra("ISBN");
+            this.getBookInfoFromDouBan(this.mIsbn);
+        }
     }
 
     @Override
@@ -35,5 +75,52 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void getBookInfoFromDouBan(String ibns) {
+
+        String urlString = BuildConfig.DOUBAN_SERVER_URL + ibns;
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("apikey", BuildConfig.DOUBAN_SERVER_API_KEY);
+
+        client.get(urlString, params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                if (statusCode != 200) {
+                    // TODO: show network error
+                    return;
+                }
+
+                mBook = new Book();
+                mBook.setBookDoubanId(response.optLong("id"));
+                mBook.setBookName(response.optString("title"));
+                mBook.setBookAuthor(response.optJSONArray("author").toString());
+                mBook.setBookImageHref(response.optString("image"));
+
+                String largeImagePath = response.optJSONObject("images").optString("large");
+
+                AddBookToLibraryActivity.this.showBookImagewithPath(largeImagePath);
+                AddBookToLibraryActivity.this.showBookName(mBook.getBookName());
+            }
+        });
+    }
+
+    private void showBookImagewithPath(String imagePath) {
+        Glide.with(this).load(imagePath).into(bookImageView);
+
+    }
+
+    private void showBookName(String name) {
+        nameTextView.setText(name);
+    }
+
+
+    @OnClick(R.id.addBookButton)
+    void addBookToLibrary() {
+
+        Boolean canBorrow = borrowSwith.isChecked();
+        BookService.getInstance().addBookToLibrary(mBook,canBorrow);
+
     }
 }
