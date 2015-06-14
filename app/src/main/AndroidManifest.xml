@@ -42,6 +42,9 @@
         <activity
             android:name=".activity.main.SettingsActivity"
             android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".activity.main.MineBookActivity"
+            android:label="@string/title_activity_mine_books" />
     </application>
 
 </manifest>

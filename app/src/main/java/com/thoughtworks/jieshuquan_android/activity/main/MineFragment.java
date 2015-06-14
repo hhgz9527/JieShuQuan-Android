@@ -110,7 +110,8 @@ public class MineFragment extends Fragment {
 
     @OnClick(R.id.list_my_book)
     void showMyBook() {
-        Toast.makeText(getActivity(), "My Books", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), MineBookActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.list_my_rent)
