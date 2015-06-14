@@ -20,6 +20,12 @@
     <string name="msg_error_account_name">邮箱验证失败。</string>
     <string name="msg_error_account_pwd">密码验证失败。</string>
 
+    <!--Tab bar -->
+    <string name="tab_discover">发现</string>
+    <string name="tab_borrow">借书</string>
+    <string name="tab_people">同事</string>
+    <string name="tab_mine">我</string>
+
     <string name="common_name">邮    箱</string>
     <string name="common_pwd">密    码</string>
     <string name="common_confirm_pwd">密码确认</string>

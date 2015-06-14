@@ -20,6 +20,12 @@
     <string name="msg_error_account_name">Email is not validate.</string>
     <string name="msg_error_account_pwd">Password is not validate.</string>
 
+    <!--Tab bar -->
+    <string name="tab_discover">Discover</string>
+    <string name="tab_borrow">Borrow</string>
+    <string name="tab_people">People</string>
+    <string name="tab_mine">Mine</string>
+
     <string name="common_name">Email</string>
     <string name="common_pwd">Password</string>
     <string name="common_confirm_pwd">Confirm Password</string>
