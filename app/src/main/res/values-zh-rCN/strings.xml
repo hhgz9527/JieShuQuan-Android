@@ -32,4 +32,9 @@
     <string name="common_register">注册</string>
     <string name="common_forget_pwd">忘记密码</string>
 
+    <!--Mine Fragment-->
+    <string name="mine_list_my_books">我的书籍</string>
+    <string name="mine_list_my_rent">我的借阅</string>
+    <string name="mine_list_my_setting">设置</string>
+
 </resources>

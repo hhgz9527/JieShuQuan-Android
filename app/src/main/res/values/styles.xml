@@ -19,10 +19,10 @@
 
         <item name="colorPrimary">@color/theme_primary</item>
         <item name="colorPrimaryDark">@color/theme_primary_dark</item>
-        <item name="colorAccent">@color/theme_accent_2</item>
+        <item name="colorAccent">@color/theme_primary_dark</item>
         <item name="colorControlNormal">@color/color_dk_grey</item>
 
-        <item name="android:textColorLink">@color/theme_accent_2</item>
+        <item name="android:textColorLink">@color/theme_primary_dark</item>
 
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
@@ -131,6 +131,16 @@
         <item name="android:ems">10</item>
         <item name="android:textColor">@color/color_white</item>
         <item name="android:textColorHint">@color/color_white</item>
+    </style>
+
+    <!-- Mine Fragment -->
+    <style name="BadgeText">
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:minWidth">@dimen/head_badge_size</item>
     </style>
 
 </resources>

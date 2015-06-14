@@ -1,11 +1,57 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.thoughtworks.jieshuquan_android.activity.main.MineFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="more"
-         />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/head_margin"
+        android:layout_marginTop="@dimen/head_margin">
 
-</FrameLayout>
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/head"
+            android:layout_width="@dimen/head_size"
+            android:layout_height="@dimen/head_size"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_tab_books"
+            app:riv_border_color="@color/head_border"
+            app:riv_border_width="@dimen/head_border_width"
+            app:riv_corner_radius="@dimen/head_radius"
+            app:riv_mutate_background="true"
+            app:riv_oval="true" />
+
+        <TextView
+            android:id="@+id/head_borrow"
+            style="@style/BadgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/head_badge_size"
+            android:layout_alignLeft="@id/head"
+            android:layout_alignStart="@id/head"
+            android:background="@drawable/badge_borrow"
+            tools:text="@string/test_mine_borrow" />
+
+        <TextView
+            android:id="@+id/head_return"
+            style="@style/BadgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/head_badge_size"
+            android:layout_alignEnd="@id/head"
+            android:layout_alignRight="@id/head"
+            android:background="@drawable/badge_return"
+            tools:text="@string/test_mine_return" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+</LinearLayout>

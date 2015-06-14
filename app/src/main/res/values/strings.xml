@@ -39,4 +39,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_add_book_to_library">AddBookToLibraryActivity</string>
 
+    <!--Mine Fragment-->
+    <string name="mine_list_my_books">My books</string>
+    <string name="mine_list_my_rent">My rent</string>
+    <string name="mine_list_my_setting">Settings</string>
+
 </resources>
