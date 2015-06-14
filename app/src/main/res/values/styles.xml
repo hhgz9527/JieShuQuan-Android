@@ -28,7 +28,6 @@
         <item name="android:windowNoTitle">true</item>
 
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@android:color/white</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_up</item>
 
         <item name="android:popupMenuStyle">@style/Widget.JFQ.PopupMenu</item>
@@ -141,6 +140,13 @@
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
         <item name="android:minWidth">@dimen/head_badge_size</item>
+    </style>
+
+    <style name="MineListItem">
+        <item name="android:background">@drawable/list_item_bg_selector</item>
+        <item name="android:paddingLeft">@dimen/list_item_padding</item>
+        <item name="android:paddingRight">@dimen/list_item_padding</item>
+        <item name="android:minHeight">?android:listPreferredItemHeight</item>
     </style>
 
 </resources>

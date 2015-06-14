@@ -28,6 +28,7 @@
     <color name="color_white">#FFFFFFFF</color>
     <color name="color_black">#FF000000</color>
     <color name="color_dk_grey">#FF697684</color>
+    <color name="color_lt_grey">#FFEAEBEC</color>
     <color name="divide_color">#FFE7EAEC</color>
 
     <!-- Some special color -->
@@ -42,7 +43,7 @@
     <color name="content_background">#FFFFFF</color>
 
     <!-- Mine Fragment -->
-    <color name="head_border">#FFF0F1F2</color>
+    <color name="head_border">#FF888888</color>
     <color name="badge_return">#FF83D464</color>
     <color name="badge_borrow">#FFF86868</color>
 

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
     tools:context="com.thoughtworks.jieshuquan_android.activity.main.MineFragment">
 
     <RelativeLayout
@@ -47,11 +48,6 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    </LinearLayout>
+    <include layout="@layout/mine_list_view" />
 
 </LinearLayout>

@@ -22,13 +22,14 @@
         android:id="@+id/tab_bar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@color/color_white"
         android:layout_alignParentBottom="true"
         android:paddingBottom="3dp" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/divider_height"
         android:layout_above="@id/tab_bar"
         android:background="@color/divide_color"
         android:paddingBottom="3dp" />

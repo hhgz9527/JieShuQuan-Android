@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.thoughtworks.jieshuquan_android.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 public class MineFragment extends Fragment {
 
@@ -46,6 +48,17 @@ public class MineFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (OnFragmentInteractionListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -63,13 +76,26 @@ public class MineFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    // TODO: Rename method, update argument and hook method into UI event
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
+    }
+
     private void initHead() {
         int borrowCount = 1;
         int returnCount = 29;
 
         setBadgeView(borrowCount, mBadgeBorrow);
         setBadgeView(returnCount, mBadgeReturn);
-        mHeadView.setImageResource(R.drawable.ic_tab_more);
+        mHeadView.setImageResource(R.drawable.ic_tab_books);
     }
 
     private void setBadgeView(int borrowCount, TextView badgeView) {
@@ -81,29 +107,19 @@ public class MineFragment extends Fragment {
         }
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    @OnClick(R.id.list_my_book)
+    void showMyBook() {
+        Toast.makeText(getActivity(), "My Books", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    @OnClick(R.id.list_my_rent)
+    void showMyRent() {
+        Toast.makeText(getActivity(), "My Rent", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+    @OnClick(R.id.list_my_setting)
+    void showSetting() {
+        Toast.makeText(getActivity(), "Setting", Toast.LENGTH_SHORT).show();
     }
-
 
 }

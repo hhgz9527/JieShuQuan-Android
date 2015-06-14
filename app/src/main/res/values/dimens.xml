@@ -3,6 +3,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="list_item_padding">16dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+
     <dimen name="keyline_1">16dp</dimen>
     <dimen name="keyline_1_minus_8dp">8dp</dimen>
     <dimen name="keyline_2">72dp</dimen>
@@ -20,10 +23,10 @@
 
     <!-- Mine Fragment -->
     <dimen name="head_margin">24dp</dimen>
-
     <dimen name="head_size">120dp</dimen>
     <dimen name="head_radius">60dp</dimen>
     <dimen name="head_border_width">1dp</dimen>
     <dimen name="head_badge_size">30dp</dimen>
+    <dimen name="mine_list_setting_margin">20dp</dimen>
 
 </resources>
