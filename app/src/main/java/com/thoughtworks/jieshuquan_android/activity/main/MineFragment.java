@@ -1,6 +1,7 @@
 package com.thoughtworks.jieshuquan_android.activity.main;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -119,7 +120,8 @@ public class MineFragment extends Fragment {
 
     @OnClick(R.id.list_my_setting)
     void showSetting() {
-        Toast.makeText(getActivity(), "Setting", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), SettingsActivity.class);
+        startActivity(intent);
     }
 
 }

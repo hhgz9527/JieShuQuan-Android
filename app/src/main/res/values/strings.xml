@@ -4,6 +4,7 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_forget_pwd">forgetPwdActivity</string>
     <string name="title_activity_register">registerActivity</string>
+    <string name="title_activity_settings">Settings</string>
 
     <string name="btn_login">Login</string>
 
@@ -43,5 +44,9 @@
     <string name="mine_list_my_books">My books</string>
     <string name="mine_list_my_rent">My rent</string>
     <string name="mine_list_my_setting">Settings</string>
+
+    <!--Setting-->
+    <string name="pref_header_general">General</string>
+    <string name="pref_version_title">Version</string>
 
 </resources>
