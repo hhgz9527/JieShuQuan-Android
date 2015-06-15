@@ -11,11 +11,11 @@ import com.avos.avoscloud.AVObject;
 
 public class Book extends AVObject {
 
-    public long getBookDoubanId() {
-        return getLong("bookDoubanId");
+    public String getBookDoubanId() {
+        return getString("bookDoubanId");
     }
 
-    public void setBookDoubanId(long bookDoubanId) {
+    public void setBookDoubanId(String bookDoubanId) {
         put("bookDoubanId", bookDoubanId);
     }
 

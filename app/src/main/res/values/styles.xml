@@ -4,11 +4,12 @@
     <!-- Disable RTL support on older devices -->
     <!-- Prevents crash on certain devices to namespace conflict -->
     <style name="FrameworkRoot.Theme" parent="Theme.AppCompat.Light.NoActionBar" />
+
     <style name="FrameworkRoot.Widget" parent="Theme.AppCompat" />
 
     <!-- Immediate parent theme to specify base values for custom attributes -->
     <style name="Theme" parent="FrameworkRoot.Theme">
-        
+
     </style>
 
     <style name="Theme.JFQ.Base" parent="Theme">
@@ -34,7 +35,8 @@
         <item name="android:popupMenuStyle">@style/Widget.JFQ.PopupMenu</item>
         <item name="android:listPopupWindowStyle">@style/Widget.JFQ.PopupMenu</item>
         <item name="android:dropDownListViewStyle">@style/Widget.JFQ.ListView.DropDown</item>
-        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu
+        </item>
 
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="dialogTheme">@style/DialogTheme</item>
@@ -50,7 +52,8 @@
         <item name="android:popupMenuStyle">@style/Widget.JFQ.PopupMenu</item>
         <item name="android:listPopupWindowStyle">@style/Widget.JFQ.PopupMenu</item>
         <item name="android:dropDownListViewStyle">@style/Widget.JFQ.ListView.DropDown</item>
-        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu
+        </item>
     </style>
 
     <style name="ActionBarThemeOverlay" parent="">

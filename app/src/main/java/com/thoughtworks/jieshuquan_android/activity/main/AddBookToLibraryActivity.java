@@ -8,8 +8,11 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.SaveCallback;
 import com.bumptech.glide.Glide;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -93,7 +96,7 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
                 }
 
                 mBook = new Book();
-                mBook.setBookDoubanId(response.optLong("id"));
+                mBook.setBookDoubanId(response.optString("id"));
                 mBook.setBookName(response.optString("title"));
                 mBook.setBookAuthor(response.optJSONArray("author").toString());
                 mBook.setBookImageHref(response.optString("image"));
@@ -120,7 +123,21 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
     void addBookToLibrary() {
 
         Boolean canBorrow = borrowSwith.isChecked();
-        BookService.getInstance().addBookToLibrary(mBook,canBorrow);
+        BookService.getInstance().addBookToLibrary(mBook, canBorrow, new SaveCallback() {
+            @Override
+            public void done(AVException e) {
+                if (e == null) {
+                    // add success
+                    Toast.makeText(getApplicationContext(), "add book success", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else if (e.getCode() == -1) {
+                    Toast.makeText(getApplicationContext(), "already have this book", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(getApplicationContext(), "have problem, try it again", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 }
