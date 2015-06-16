@@ -35,15 +35,15 @@
     <Switch
         android:id="@+id/borrowSwith"
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:checked="false"
         android:text="Can Borrow"
         android:layout_below="@+id/nameTextView"
-        android:layout_alignLeft="@+id/bookImageView"
-        android:layout_alignStart="@+id/bookImageView"
-        android:layout_alignRight="@+id/bookImageView"
-        android:layout_alignEnd="@+id/bookImageView" />
+        android:layout_alignLeft="@+id/addBookButton"
+        android:layout_alignStart="@+id/addBookButton"
+        android:layout_alignRight="@+id/addBookButton"
+        android:layout_alignEnd="@+id/addBookButton" />
 
 
     <Button
@@ -56,6 +56,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
+        android:layout_marginBottom="30dp"
         android:text="add" />
 
 </RelativeLayout>

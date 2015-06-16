@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         public Fragment getItem(int position) {
             switch (position) {
                 case PAGE_SEARCH: {
-                    return DiscoverFragment.newInstance("test", "DiscoverFragment");
+                    return DiscoverFragment.newInstance();
 
                 }
                 case PAGE_BOOKS:
