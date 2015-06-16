@@ -34,16 +34,16 @@
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.JFQ.Login" />
         <activity
-            android:name=".activity.main.ScannerActivity"
+            android:name=".activity.main.add.ScannerActivity"
             android:label="@string/title_activity_scanner" />
         <activity
-            android:name=".activity.main.AddBookToLibraryActivity"
+            android:name=".activity.main.add.AddBookToLibraryActivity"
             android:label="@string/title_activity_add_book_to_library" />
         <activity
-            android:name=".activity.main.SettingsActivity"
+            android:name=".activity.main.mine.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".activity.main.MineBookActivity"
+            android:name=".activity.main.mine.MineBookActivity"
             android:label="@string/title_activity_mine_books" />
     </application>
 

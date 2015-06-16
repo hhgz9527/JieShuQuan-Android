@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.activity.main;
+package com.thoughtworks.jieshuquan_android.activity.main.add;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -10,12 +10,10 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSON;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.SaveCallback;
 import com.bumptech.glide.Glide;
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.thoughtworks.jieshuquan_android.BuildConfig;
@@ -24,12 +22,10 @@ import com.thoughtworks.jieshuquan_android.model.Book;
 import com.thoughtworks.jieshuquan_android.service.BookService;
 
 import org.apache.http.Header;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
 public class AddBookToLibraryActivity extends ActionBarActivity {

@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.activity.main;
+package com.thoughtworks.jieshuquan_android.activity.main.mine;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.thoughtworks.jieshuquan_android.R;
+import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionListener;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

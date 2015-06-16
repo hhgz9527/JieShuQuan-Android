@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.activity.main;
+package com.thoughtworks.jieshuquan_android.activity.main.mine;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

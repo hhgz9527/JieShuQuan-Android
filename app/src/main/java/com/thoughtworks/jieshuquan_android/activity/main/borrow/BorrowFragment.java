@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.activity.main;
+package com.thoughtworks.jieshuquan_android.activity.main.borrow;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thoughtworks.jieshuquan_android.R;
+import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionListener;
 
 public class BorrowFragment extends Fragment {
 

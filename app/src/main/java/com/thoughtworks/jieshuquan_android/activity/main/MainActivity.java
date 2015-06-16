@@ -16,6 +16,12 @@ import android.widget.Toast;
 
 import com.avos.avoscloud.AVUser;
 import com.thoughtworks.jieshuquan_android.R;
+import com.thoughtworks.jieshuquan_android.activity.main.add.AddBookToLibraryActivity;
+import com.thoughtworks.jieshuquan_android.activity.main.add.ScannerActivity;
+import com.thoughtworks.jieshuquan_android.activity.main.borrow.BorrowFragment;
+import com.thoughtworks.jieshuquan_android.activity.main.discover.DiscoverFragment;
+import com.thoughtworks.jieshuquan_android.activity.main.mates.PeopleFragment;
+import com.thoughtworks.jieshuquan_android.activity.main.mine.MineFragment;
 import com.thoughtworks.jieshuquan_android.view.TabBar;
 import com.thoughtworks.jieshuquan_android.activity.login.LoginActivity;
 import com.thoughtworks.jieshuquan_android.activity.login.LoginFragment;
