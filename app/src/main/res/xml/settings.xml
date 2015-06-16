@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_header_general">
+        <Preference
+            android:key="version"
+            android:title="@string/pref_version_title" />
+    </PreferenceCategory>
+</PreferenceScreen>

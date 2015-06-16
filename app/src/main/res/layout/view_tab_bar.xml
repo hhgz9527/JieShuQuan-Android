@@ -7,6 +7,7 @@
     android:orientation="horizontal"
     android:paddingBottom="3dp"
     tools:context="com.thoughtworks.jieshuquan_android.view.TabBar">
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -15,7 +16,7 @@
         android:drawableTop="@drawable/sel_tab_search"
         android:gravity="bottom|center_horizontal"
         android:paddingTop="5dp"
-        android:text="Discover"
+        android:text="@string/tab_discover"
         android:textColor="@color/sel_tab_text" />
 
     <TextView
@@ -26,7 +27,7 @@
         android:drawableTop="@drawable/sel_tab_books"
         android:gravity="bottom|center_horizontal"
         android:paddingTop="5dp"
-        android:text="Borrow"
+        android:text="@string/tab_borrow"
         android:textColor="@color/sel_tab_text" />
 
 
@@ -38,7 +39,7 @@
         android:drawableTop="@drawable/sel_tab_people"
         android:gravity="bottom|center_horizontal"
         android:paddingTop="8dp"
-        android:text="People"
+        android:text="@string/tab_people"
         android:textColor="@color/sel_tab_text" />
 
 
@@ -50,6 +51,6 @@
         android:drawableTop="@drawable/sel_tab_more"
         android:gravity="bottom|center_horizontal"
         android:paddingTop="5dp"
-        android:text="More"
+        android:text="@string/tab_mine"
         android:textColor="@color/sel_tab_text" />
 </merge>

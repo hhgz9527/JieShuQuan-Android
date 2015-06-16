@@ -35,10 +35,16 @@
             android:theme="@style/Theme.JFQ.Login" />
         <activity
             android:name=".activity.main.ScannerActivity"
-            android:label="@string/title_activity_scanner"></activity>
+            android:label="@string/title_activity_scanner" />
         <activity
             android:name=".activity.main.AddBookToLibraryActivity"
-            android:label="@string/title_activity_add_book_to_library"></activity>
+            android:label="@string/title_activity_add_book_to_library" />
+        <activity
+            android:name=".activity.main.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".activity.main.MineBookActivity"
+            android:label="@string/title_activity_mine_books" />
     </application>
 
 </manifest>

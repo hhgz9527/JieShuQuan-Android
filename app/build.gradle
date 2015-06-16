@@ -71,5 +71,5 @@ dependencies {
 
     compile 'me.dm7.barcodescanner:zbar:1.5'
 
-
+    compile 'com.makeramen:roundedimageview:2.1.0'
 }

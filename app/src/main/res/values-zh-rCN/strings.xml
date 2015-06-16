@@ -4,6 +4,8 @@
     <string name="title_activity_login">登陆</string>
     <string name="title_activity_forget_pwd">找回密码</string>
     <string name="title_activity_register">注册</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="title_activity_mine_books">我的书籍</string>
 
     <string name="btn_login">登陆</string>
 
@@ -20,10 +22,25 @@
     <string name="msg_error_account_name">邮箱验证失败。</string>
     <string name="msg_error_account_pwd">密码验证失败。</string>
 
+    <!--Tab bar -->
+    <string name="tab_discover">发现</string>
+    <string name="tab_borrow">借书</string>
+    <string name="tab_people">同事</string>
+    <string name="tab_mine">我</string>
+
     <string name="common_name">邮    箱</string>
     <string name="common_pwd">密    码</string>
     <string name="common_confirm_pwd">密码确认</string>
     <string name="common_register">注册</string>
     <string name="common_forget_pwd">忘记密码</string>
+
+    <!--Mine Fragment-->
+    <string name="mine_list_my_books">我的书籍</string>
+    <string name="mine_list_my_rent">我的借阅</string>
+    <string name="mine_list_my_setting">设置</string>
+
+    <!--Setting-->
+    <string name="pref_header_general">通用</string>
+    <string name="pref_version_title">版本</string>
 
 </resources>

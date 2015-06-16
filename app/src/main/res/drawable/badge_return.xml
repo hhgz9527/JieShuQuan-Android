@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:useLevel="false">
+
+    <solid android:color="@color/badge_return" />
+
+    <size
+        android:width="@dimen/head_badge_size"
+        android:height="@dimen/head_badge_size"/>
+
+</shape>

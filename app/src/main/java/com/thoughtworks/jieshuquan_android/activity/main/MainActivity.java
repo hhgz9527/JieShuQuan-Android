@@ -1,6 +1,5 @@
 package com.thoughtworks.jieshuquan_android.activity.main;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVUser;
-import com.thoughtworks.jieshuquan_android.BuildConfig;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.view.TabBar;
 import com.thoughtworks.jieshuquan_android.activity.login.LoginActivity;
@@ -28,7 +26,6 @@ import butterknife.InjectView;
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     public static final String TAG = MainActivity.class.getSimpleName();
-    public static final int NUM_ITEMS = 4;
     private long exitTime = 0;
 
     SectionsPagerAdapter mSectionsPagerAdapter;
@@ -142,7 +139,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         private static final int PAGE_SEARCH = 0;
         private static final int PAGE_BOOKS = 1;
         private static final int PAGE_PEOPLE = 2;
-        private static final int PAGE_MORE = 3;
+        private static final int PAGE_MINE = 3;
+        private static final int PAGE_COUNT = 4;
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -159,8 +157,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
                     return BorrowFragment.newInstance();
                 case PAGE_PEOPLE:
                     return PeopleFragment.newInstance("test", "PeopleFragment");
-                case PAGE_MORE:
-                    return MoreFragment.newInstance("test", "MoreFragment");
+                case PAGE_MINE:
+                    return MineFragment.newInstance("test", "MoreFragment");
                 default:
                     return LoginFragment.newInstance();
             }
@@ -168,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
         @Override
         public int getCount() {
-            return NUM_ITEMS;
+            return PAGE_COUNT;
         }
     }
 
