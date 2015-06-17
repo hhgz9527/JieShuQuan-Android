@@ -41,11 +41,9 @@
                 android:src="@drawable/pushtop10" />
 
         </LinearLayout>
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:background="@color/divider"
-            />
+
+        <include layout="@layout/divider" />
+
         <GridView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/gridview"
             android:layout_width="match_parent"
