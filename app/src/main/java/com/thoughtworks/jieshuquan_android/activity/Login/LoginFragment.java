@@ -2,6 +2,7 @@ package com.thoughtworks.jieshuquan_android.activity.login;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -23,9 +24,12 @@ import butterknife.OnClick;
 
 public class LoginFragment extends Fragment {
 
+    public static final int LOGIN_ACTIVITY_RESULT_TAG = 200;
     public static final String TAG = LoginFragment.class.getSimpleName();
+
     @InjectView(R.id.account_name)
     EditText accountName;
+
     @InjectView(R.id.account_pwd)
     EditText accountPwd;
 
@@ -74,6 +78,9 @@ public class LoginFragment extends Fragment {
             public void done(AVUser user, AVException e) {
                 if (user != null) {
                     LoginFragment.this.showErrorToast(getString(R.string.msg_login_success));
+                    Intent intent = new Intent();
+                    intent.putExtra("success", true);
+                    getActivity().setResult(LOGIN_ACTIVITY_RESULT_TAG, intent);
                     getActivity().finish();
                 } else {
                     LoginFragment.this.showErrorToast(e.toString());

@@ -1,9 +1,16 @@
 package com.thoughtworks.jieshuquan_android;
 
 import android.app.Application;
+import android.util.Log;
 
+import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.PushService;
+import com.avos.avoscloud.SaveCallback;
+import com.thoughtworks.jieshuquan_android.activity.main.MainActivity;
 import com.thoughtworks.jieshuquan_android.model.Book;
 import com.thoughtworks.jieshuquan_android.model.BookEntity;
 import com.thoughtworks.jieshuquan_android.model.Discover;
@@ -19,8 +26,23 @@ public class JieShuQuanApplication extends Application {
         AVObject.registerSubclass(Book.class);
         AVObject.registerSubclass(BookEntity.class);
         AVObject.registerSubclass(Discover.class);
-
+        // init AVOS
         AVOSCloud.initialize(this, "gdakm21nfqik6swplef3anis5fu078gex0zb36uzoz0vippb", "5ptvr2vqoyzqxka9yjsahnq0mo28traj6w7d1v5t8pj5can6");
+        AVAnalytics.enableCrashReport(this.getApplicationContext(), true);
+
+        // init AVOS push
+
+        AVInstallation.getCurrentInstallation().saveInBackground(new SaveCallback() {
+            public void done(AVException e) {
+                if (e == null) {
+                    // 保存成功
+                    String installationId = AVInstallation.getCurrentInstallation().getInstallationId();
+                    Log.v("Application","getCurrentInstallation  " +installationId);
+                } else {
+                    // 保存失败，输出错误信息
+                }
+            }
+        });
     }
 
 

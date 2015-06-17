@@ -14,7 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.PushService;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.activity.main.add.AddBookToLibraryActivity;
 import com.thoughtworks.jieshuquan_android.activity.main.add.ScannerActivity;
@@ -32,6 +34,8 @@ import butterknife.InjectView;
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     public static final String TAG = MainActivity.class.getSimpleName();
+    public static final int SCANER_ACTIVITY_RESULT_TAG = 100;
+    public static final int LOGIN_ACTIVITY_RESULT_TAG = 200;
     private long exitTime = 0;
 
     SectionsPagerAdapter mSectionsPagerAdapter;
@@ -87,21 +91,26 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
         if (AVUser.getCurrentUser() == null) {
             //need login
-            Intent showLoginIntent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(showLoginIntent);
+            ShowLoginActivity();
+        } else {
+            // rigster push service for main activity
+            this.registerPushService();
         }
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == 100 && data.getStringExtra("ISBN").length() > 0) {
-           // new AlertDialog.Builder(this).setTitle("ISBN").setMessage("the ISBN number is " + data.getStringExtra("ISBN")).setPositiveButton("sure", null).show();
+        if (resultCode == SCANER_ACTIVITY_RESULT_TAG && data.getStringExtra("ISBN").length() > 0) {
             this.showAddBookActivity(data.getStringExtra("ISBN"));
         }
 
-        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == LOGIN_ACTIVITY_RESULT_TAG && data.getBooleanExtra("success",false)){
+            this.registerPushService();
+        }
+
     }
 
     @Override
@@ -191,13 +200,30 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     private void startScanner() {
         Intent startScanner = new Intent(this, ScannerActivity.class);
-        startActivityForResult(startScanner, 100);
+        startActivityForResult(startScanner, SCANER_ACTIVITY_RESULT_TAG);
     }
 
     private void showAddBookActivity(String isbn) {
         Intent showAddBookIntent = new Intent(MainActivity.this, AddBookToLibraryActivity.class);
-        showAddBookIntent.putExtra("ISBN",isbn);
+        showAddBookIntent.putExtra("ISBN", isbn);
         startActivity(showAddBookIntent);
+    }
+
+    private void ShowLoginActivity() {
+        Intent showLoginIntent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivityForResult(showLoginIntent, LOGIN_ACTIVITY_RESULT_TAG);
+    }
+
+
+    private void registerPushService() {
+        PushService.setDefaultPushCallback(this, MainActivity.class);
+        PushService.subscribe(this, "public", MainActivity.class);
+        PushService.subscribe(this, "private", MainActivity.class);
+        PushService.subscribe(this, "protected", MainActivity.class);
+
+        // track user
+        Intent intent = getIntent();
+        AVAnalytics.trackAppOpened(intent);
     }
 
 }
