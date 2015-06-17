@@ -27,24 +27,24 @@
             app:riv_oval="true" />
 
         <TextView
-            android:id="@+id/head_borrow"
+            android:id="@+id/head_return"
             style="@style/BadgeText"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/head_badge_size"
             android:layout_alignLeft="@id/head"
             android:layout_alignStart="@id/head"
-            android:background="@drawable/badge_borrow"
-            tools:text="@string/test_mine_borrow" />
+            android:background="@drawable/badge_return"
+            tools:text="@string/test_mine_return" />
 
         <TextView
-            android:id="@+id/head_return"
+            android:id="@+id/head_borrow"
             style="@style/BadgeText"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/head_badge_size"
             android:layout_alignEnd="@id/head"
             android:layout_alignRight="@id/head"
-            android:background="@drawable/badge_return"
-            tools:text="@string/test_mine_return" />
+            android:background="@drawable/badge_borrow"
+            tools:text="@string/test_mine_borrow" />
 
     </RelativeLayout>
 
