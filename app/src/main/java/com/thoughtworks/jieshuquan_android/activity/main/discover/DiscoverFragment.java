@@ -1,11 +1,11 @@
 package com.thoughtworks.jieshuquan_android.activity.main.discover;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +28,9 @@ import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionListener;
 import com.thoughtworks.jieshuquan_android.model.Discover;
 
-import net.sourceforge.zbar.Image;
+import org.ocpsoft.prettytime.PrettyTime;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -187,7 +187,7 @@ public class DiscoverFragment extends Fragment {
                         }
                     }
                 });
-                timeTextView.setText(discover.getCreatedAt().toString());
+                timeTextView.setText(new PrettyTime(new Date()).format(discover.getCreatedAt()));
                 if (discover.getBook() != null && discover.getBook().length() > 0) {
                     String content = "我添加了一本新书《" + discover.getBook() + "》。";
                     contentTextView.setText(content);
