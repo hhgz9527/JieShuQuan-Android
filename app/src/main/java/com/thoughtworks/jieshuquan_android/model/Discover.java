@@ -35,4 +35,12 @@ public class Discover extends AVObject {
     public void setUser(AVUser user) {
         put(Constants.KUSER, user);
     }
+
+    public int getType(){
+        return getInt(Constants.KTYPE);
+    }
+
+    public void setType(int type){
+        put(Constants.KTYPE,type);
+    }
 }

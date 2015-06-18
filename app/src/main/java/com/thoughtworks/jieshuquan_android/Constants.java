@@ -34,4 +34,5 @@ public interface Constants {
     public final String KUSER = "user";
     public final String KTWITTER = "twitter";
     public final String KBOOK = "book";
+    public final String KTYPE = "type";
 }

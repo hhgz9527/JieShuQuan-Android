@@ -50,8 +50,8 @@
     <string name="add_to_library_success">add to library success</string>
     <string name="add_to_library_already_have">already have this book</string>
     <string name="common_http_error">catch problem, please try it again later</string>
-    <string name="discover_add_book_message_header"><![CDATA[I add a new book <]]></string>
-    <string name="discover_add_book_message_footer"><![CDATA[>]]></string>
+    <string name="discover_add_book_message_header">I add a new book《</string>
+    <string name="discover_add_book_message_footer">》</string>
     <string name="msg_error_password_should_same">the new password should same</string>
     <string name="common_error">error</string>
     <string name="msg_error_get_isbn">get ISBN number error</string>

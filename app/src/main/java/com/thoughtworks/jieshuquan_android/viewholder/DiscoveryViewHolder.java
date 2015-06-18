@@ -59,8 +59,8 @@ public class DiscoveryViewHolder {
             }
         });
         timeTextView.setText(new PrettyTime(new Date()).format(discover.getCreatedAt()));
-        if (discover.getBook() != null && discover.getBook().length() > 0) {
-            String content = R.string.discover_add_book_message_header + discover.getBook() + R.string.discover_add_book_message_footer;
+        if (discover.getType() == 0) {
+            String content =context.getString(R.string.discover_add_book_message_header) + discover.getBook() + context.getString(R.string.discover_add_book_message_footer);
             contentTextView.setText(content);
         } else {
             contentTextView.setText(discover.getTwitter());

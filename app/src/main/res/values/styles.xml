@@ -114,6 +114,24 @@
         <item name="android:windowCloseOnTouchOutside">false</item>
     </style>
 
+    <!--Project-->
+    <style name="BaseTextStyle">
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="BaseTextStyle.Large">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="BaseTextStyle.Medium">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BaseTextStyle.Small">
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <!--Login Activity-->
     <style name="FlatButton">
         <item name="android:background">@null</item>
