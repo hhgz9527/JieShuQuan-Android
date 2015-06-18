@@ -70,7 +70,7 @@ public class ScannerActivity extends ActionBarActivity implements ZBarScannerVie
             setResult(100, intent);
             finish();
         } else {
-            new AlertDialog.Builder(this).setTitle("error").setMessage("get ISBN number error" + rawResult.getContents()).setPositiveButton("sure", new DialogInterface.OnClickListener() {
+            new AlertDialog.Builder(this).setTitle(R.string.common_error).setMessage(R.string.msg_error_get_isbn + rawResult.getContents()).setPositiveButton("sure", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     finish();
                 }

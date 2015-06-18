@@ -17,6 +17,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.thoughtworks.jieshuquan_android.BuildConfig;
+import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.model.Book;
 import com.thoughtworks.jieshuquan_android.service.BookService;
@@ -92,12 +93,12 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
                 }
 
                 mBook = new Book();
-                mBook.setBookDoubanId(response.optString("id"));
-                mBook.setBookName(response.optString("title"));
-                mBook.setBookAuthor(response.optJSONArray("author").toString());
-                mBook.setBookImageHref(response.optString("image"));
+                mBook.setBookDoubanId(response.optString(Constants.K_DOUBANBOOK_ID));
+                mBook.setBookName(response.optString(Constants.K_DOUBANBOOK_TITLE));
+                mBook.setBookAuthor(response.optJSONArray(Constants.K_DOUBANBOOK_AUTHOR).toString());
+                mBook.setBookImageHref(response.optString(Constants.K_DOUBANBOOK_IMAGE));
 
-                String largeImagePath = response.optJSONObject("images").optString("large");
+                String largeImagePath = response.optJSONObject(Constants.K_DOUBANBOOK_IMAGES).optString(Constants.K_DOUBANBOOK_LARGE);
 
                 AddBookToLibraryActivity.this.showBookImagewithPath(largeImagePath);
                 AddBookToLibraryActivity.this.showBookName(mBook.getBookName());
@@ -124,13 +125,14 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
             public void done(AVException e) {
                 if (e == null) {
                     // add success
-                    Toast.makeText(getApplicationContext(), "add book success", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getApplicationContext(), R.string.add_to_library_success, Toast.LENGTH_SHORT).show();
                     finish();
                 } else if (e.getCode() == -1) {
-                    Toast.makeText(getApplicationContext(), "already have this book", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.add_to_library_already_have, Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "have problem, try it again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
                 }
             }
         });

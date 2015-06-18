@@ -35,10 +35,7 @@
     <string name="common_forget_pwd">Forget Password</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_scanner">ScannerActivity</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_add_book_to_library">AddBookToLibraryActivity</string>
 
     <!--Mine Fragment-->
@@ -49,5 +46,14 @@
     <!--Setting-->
     <string name="pref_header_general">General</string>
     <string name="pref_version_title">Version</string>
+
+    <string name="add_to_library_success">add to library success</string>
+    <string name="add_to_library_already_have">already have this book</string>
+    <string name="common_http_error">catch problem, please try it again later</string>
+    <string name="discover_add_book_message_header"><![CDATA[I add a new book <]]></string>
+    <string name="discover_add_book_message_footer"><![CDATA[>]]></string>
+    <string name="msg_error_password_should_same">the new password should same</string>
+    <string name="common_error">error</string>
+    <string name="msg_error_get_isbn">get ISBN number error</string>
 
 </resources>

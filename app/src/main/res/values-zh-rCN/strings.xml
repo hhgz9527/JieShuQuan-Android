@@ -43,4 +43,14 @@
     <string name="pref_header_general">通用</string>
     <string name="pref_version_title">版本</string>
 
+
+    <string name="add_to_library_success">成功添加到书库</string>
+    <string name="add_to_library_already_have">您已经添加了此书</string>
+    <string name="common_http_error">未知错误，请稍后再试</string>
+    <string name="discover_add_book_message_header">我添加了新书 《</string>
+    <string name="discover_add_book_message_footer">》</string>
+    <string name="msg_error_password_should_same">两次输入密码应该一直</string>
+    <string name="common_error">错误</string>
+    <string name="msg_error_get_isbn">获取ISBN码失败</string>
+
 </resources>

@@ -2,6 +2,7 @@ package com.thoughtworks.jieshuquan_android.model;
 
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
+import com.thoughtworks.jieshuquan_android.Constants;
 
 /**
  * Created by leihuang on 6/12/15.
@@ -11,32 +12,32 @@ import com.avos.avoscloud.AVObject;
 public class BookEntity extends AVObject {
 
     public boolean isBookAvailability() {
-        return getBoolean("bookAvailability");
+        return getBoolean(Constants.KBOOK_AVAILABILITY);
     }
 
     public void setBookAvailability(boolean bookAvailability) {
         int value = 1;
         if (!bookAvailability)
             value = 0;
-        put("bookAvailability", (value));
+        put(Constants.KBOOK_AVAILABILITY, (value));
 
     }
 
     public String getBookName() {
-        return getString("bookName");
+        return getString(Constants.KBOOK_NAME);
     }
 
     public void setBookName(String bookName) {
 
-        put("bookName", bookName);
+        put(Constants.KBOOK_NAME, bookName);
     }
 
     public String getBookImageHref() {
-        return getString("getBookImageHref");
+        return getString(Constants.KBOOK_IMAGE_HREF);
     }
 
     public void setBookImageHref(String bookImageHref) {
-        put("bookImageHref", bookImageHref);
+        put(Constants.KBOOK_IMAGE_HREF, bookImageHref);
     }
 
 }

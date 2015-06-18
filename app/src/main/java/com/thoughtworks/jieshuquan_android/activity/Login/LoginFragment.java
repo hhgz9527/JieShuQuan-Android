@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
+import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.service.AuthService;
 
@@ -24,7 +25,6 @@ import butterknife.OnClick;
 
 public class LoginFragment extends Fragment {
 
-    public static final int LOGIN_ACTIVITY_RESULT_TAG = 200;
     public static final String TAG = LoginFragment.class.getSimpleName();
 
     @InjectView(R.id.account_name)
@@ -79,8 +79,8 @@ public class LoginFragment extends Fragment {
                 if (user != null) {
                     LoginFragment.this.showErrorToast(getString(R.string.msg_login_success));
                     Intent intent = new Intent();
-                    intent.putExtra("success", true);
-                    getActivity().setResult(LOGIN_ACTIVITY_RESULT_TAG, intent);
+                    intent.putExtra(Constants.KSUCCESS, true);
+                    getActivity().setResult(Constants.LOGIN_ACTIVITY_RESULT_TAG, intent);
                     getActivity().finish();
                 } else {
                     LoginFragment.this.showErrorToast(e.toString());

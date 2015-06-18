@@ -3,6 +3,7 @@ package com.thoughtworks.jieshuquan_android.model;
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVUser;
+import com.thoughtworks.jieshuquan_android.Constants;
 
 /**
  * Created by leihuang on 6/16/15.
@@ -10,27 +11,28 @@ import com.avos.avoscloud.AVUser;
 @AVClassName("Find")
 
 public class Discover extends AVObject {
+
     public String getBook() {
-        return getString("book");
+        return getString(Constants.KBOOK);
     }
 
     public void setBook(String book) {
-        put("book", book);
+        put(Constants.KBOOK, book);
     }
 
     public String getTwitter() {
-        return getString("twitter");
+        return getString(Constants.KTWITTER);
     }
 
     public void setTwitter(String twitter) {
-        put("twitter", twitter);
+        put(Constants.KTWITTER, twitter);
     }
 
     public AVUser getUser() {
-        return getAVObject("user");
+        return getAVObject(Constants.KUSER);
     }
 
     public void setUser(AVUser user) {
-        put("user", user);
+        put(Constants.KUSER, user);
     }
 }

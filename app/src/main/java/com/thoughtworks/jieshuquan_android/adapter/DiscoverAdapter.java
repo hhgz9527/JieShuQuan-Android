@@ -51,7 +51,7 @@ public class DiscoverAdapter extends BaseAdapter {
             convertView.setTag(new DiscoveryViewHolder(convertView));
         }
         Discover discover = mList.get(position);
-        ((DiscoveryViewHolder) convertView.getTag()).populate(discover);
+        ((DiscoveryViewHolder) convertView.getTag()).populate(discover, mContext);
         return convertView;
     }
 

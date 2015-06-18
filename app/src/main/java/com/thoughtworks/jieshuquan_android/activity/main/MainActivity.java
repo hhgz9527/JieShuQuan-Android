@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.PushService;
+import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.activity.main.add.AddBookToLibraryActivity;
 import com.thoughtworks.jieshuquan_android.activity.main.add.ScannerActivity;
@@ -34,8 +35,6 @@ import butterknife.InjectView;
 public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     public static final String TAG = MainActivity.class.getSimpleName();
-    public static final int SCANER_ACTIVITY_RESULT_TAG = 100;
-    public static final int LOGIN_ACTIVITY_RESULT_TAG = 200;
     private long exitTime = 0;
 
     SectionsPagerAdapter mSectionsPagerAdapter;
@@ -103,11 +102,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == SCANER_ACTIVITY_RESULT_TAG && data.getStringExtra("ISBN").length() > 0) {
+        if (resultCode == Constants.SCANER_ACTIVITY_RESULT_TAG && data.getStringExtra("ISBN").length() > 0) {
             this.showAddBookActivity(data.getStringExtra("ISBN"));
         }
 
-        if (resultCode == LOGIN_ACTIVITY_RESULT_TAG && data.getBooleanExtra("success",false)){
+        if (resultCode == Constants.LOGIN_ACTIVITY_RESULT_TAG && data.getBooleanExtra(Constants.KSUCCESS,false)){
             this.registerPushService();
         }
 
@@ -200,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     private void startScanner() {
         Intent startScanner = new Intent(this, ScannerActivity.class);
-        startActivityForResult(startScanner, SCANER_ACTIVITY_RESULT_TAG);
+        startActivityForResult(startScanner, Constants.SCANER_ACTIVITY_RESULT_TAG);
     }
 
     private void showAddBookActivity(String isbn) {
@@ -211,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     private void ShowLoginActivity() {
         Intent showLoginIntent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivityForResult(showLoginIntent, LOGIN_ACTIVITY_RESULT_TAG);
+        startActivityForResult(showLoginIntent,Constants.LOGIN_ACTIVITY_RESULT_TAG);
     }
 
 

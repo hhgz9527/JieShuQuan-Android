@@ -55,7 +55,7 @@ public class RegisterFragment extends Fragment {
             return;
         }
         if (!accountPwd.getText().toString().equals(accountPwdConfirm.getText().toString())) {
-            this.showErrorToast("please confirm the password is same!");
+            this.showErrorToast(getString(R.string.msg_error_password_should_same));
             return;
         }
 
