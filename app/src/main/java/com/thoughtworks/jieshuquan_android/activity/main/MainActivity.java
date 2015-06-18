@@ -15,8 +15,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.PushService;
+import com.avos.avoscloud.SaveCallback;
 import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.activity.main.add.AddBookToLibraryActivity;
@@ -106,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             this.showAddBookActivity(data.getStringExtra("ISBN"));
         }
 
-        if (resultCode == Constants.LOGIN_ACTIVITY_RESULT_TAG && data.getBooleanExtra(Constants.KSUCCESS,false)){
+        if (resultCode == Constants.LOGIN_ACTIVITY_RESULT_TAG && data.getBooleanExtra(Constants.KSUCCESS, false)) {
             this.registerPushService();
         }
 
@@ -210,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
     private void ShowLoginActivity() {
         Intent showLoginIntent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivityForResult(showLoginIntent,Constants.LOGIN_ACTIVITY_RESULT_TAG);
+        startActivityForResult(showLoginIntent, Constants.LOGIN_ACTIVITY_RESULT_TAG);
     }
 
 

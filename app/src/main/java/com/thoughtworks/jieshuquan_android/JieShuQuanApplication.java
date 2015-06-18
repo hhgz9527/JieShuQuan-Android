@@ -31,20 +31,14 @@ public class JieShuQuanApplication extends Application {
 
         // open crash report
         AVAnalytics.enableCrashReport(this.getApplicationContext(), true);
+        AVOSCloud.setLastModifyEnabled(true);
+        AVOSCloud.setDebugLogEnabled(true);
 
         // init AVOS push
+        String installationId = AVInstallation.getCurrentInstallation().getInstallationId();
+        Log.v("Application", "getCurrentInstallation  " + installationId);
+        AVInstallation.getCurrentInstallation().saveInBackground();
 
-        AVInstallation.getCurrentInstallation().saveInBackground(new SaveCallback() {
-            public void done(AVException e) {
-                if (e == null) {
-                    // success
-                    String installationId = AVInstallation.getCurrentInstallation().getInstallationId();
-                    Log.v("Application","getCurrentInstallation  " +installationId);
-                } else {
-                    // failure
-                }
-            }
-        });
     }
 
 

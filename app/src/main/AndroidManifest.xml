@@ -13,8 +13,6 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    <service android:name="com.avos.avoscloud.PushService" />
-
     <application
         android:name=".JieShuQuanApplication"
         android:allowBackup="true"
@@ -52,6 +50,16 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.avos.avoscloud.PushService" />
+
+        <receiver android:name="CustomReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.avos.UPDATE_STATUS" />
             </intent-filter>
         </receiver>
     </application>
