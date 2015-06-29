@@ -59,10 +59,10 @@ public class DiscoveryViewHolder {
             }
         });
         timeTextView.setText(new PrettyTime(new Date()).format(discover.getCreatedAt()));
-        if (discover.getType() == 0) {
-            String content =context.getString(R.string.discover_add_book_message_header) + discover.getBook() + context.getString(R.string.discover_add_book_message_footer);
+        if (discover.getType() == Constants.DISCOVERTYPE_ADDBOOK) {
+            String content =context.getString(R.string.discover_add_book_message_header) + discover.getBookName() + context.getString(R.string.discover_add_book_message_footer);
             contentTextView.setText(content);
-        } else {
+        } else if(discover.getType() == Constants.DISCOVERTYPE_TWITTER) {
             contentTextView.setText(discover.getTwitter());
         }
     }

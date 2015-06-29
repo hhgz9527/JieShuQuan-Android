@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SaveCallback;
 import com.bumptech.glide.Glide;
 import com.loopj.android.http.AsyncHttpClient;
@@ -20,6 +21,7 @@ import com.thoughtworks.jieshuquan_android.BuildConfig;
 import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.model.Book;
+import com.thoughtworks.jieshuquan_android.model.Discover;
 import com.thoughtworks.jieshuquan_android.service.BookService;
 
 import org.apache.http.Header;
@@ -125,9 +127,7 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
             public void done(AVException e) {
                 if (e == null) {
                     // add success
-
-                    Toast.makeText(getApplicationContext(), R.string.add_to_library_success, Toast.LENGTH_SHORT).show();
-                    finish();
+                    AddBookToLibraryActivity.this.sendMessageToDiscoverView(mBook.getBookName());
                 } else if (e.getCode() == -1) {
                     Toast.makeText(getApplicationContext(), R.string.add_to_library_already_have, Toast.LENGTH_SHORT).show();
                     finish();
@@ -137,5 +137,21 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
             }
         });
 
+    }
+
+    private void sendMessageToDiscoverView(String bookName) {
+        Discover discover = new Discover();
+        discover.setUser(AVUser.getCurrentUser());
+        discover.setBookName(bookName);
+        discover.setType(Constants.DISCOVERTYPE_ADDBOOK);
+        discover.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(AVException e) {
+                if (e == null) {
+                    Toast.makeText(getApplicationContext(), R.string.add_to_library_success, Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
     }
 }

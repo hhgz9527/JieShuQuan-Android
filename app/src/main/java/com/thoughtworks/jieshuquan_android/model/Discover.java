@@ -8,16 +8,16 @@ import com.thoughtworks.jieshuquan_android.Constants;
 /**
  * Created by leihuang on 6/16/15.
  */
-@AVClassName("Find")
+@AVClassName("Discover")
 
 public class Discover extends AVObject {
 
-    public String getBook() {
-        return getString(Constants.KBOOK);
+    public String getBookName() {
+        return getString(Constants.KBOOKNAME);
     }
 
-    public void setBook(String book) {
-        put(Constants.KBOOK, book);
+    public void setBookName(String book) {
+        put(Constants.KBOOKNAME, book);
     }
 
     public String getTwitter() {
@@ -36,11 +36,19 @@ public class Discover extends AVObject {
         put(Constants.KUSER, user);
     }
 
-    public int getType(){
+    public int getType() {
         return getInt(Constants.KTYPE);
     }
 
-    public void setType(int type){
-        put(Constants.KTYPE,type);
+    public void setType(int type) {
+        put(Constants.KTYPE, type);
+    }
+
+    public Book getBook() {
+        return getAVObject(Constants.KBOOK);
+    }
+
+    public void setBook(Book book) {
+        put(Constants.KBOOK, book);
     }
 }

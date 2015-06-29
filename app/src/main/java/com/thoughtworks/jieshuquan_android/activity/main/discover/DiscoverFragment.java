@@ -63,7 +63,7 @@ public class DiscoverFragment extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), mAdapter.getItem(position).toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),position, Toast.LENGTH_SHORT).show();
             }
         });
         return view;
@@ -94,7 +94,7 @@ public class DiscoverFragment extends Fragment {
     }
 
     public void getAllDiscoverMessage() {
-        final AVQuery<AVObject> query = new AVQuery<>("Find");
+        final AVQuery<AVObject> query = new AVQuery<>("Discover");
         query.addDescendingOrder("createdAt");
         query.findInBackground(new FindCallback<AVObject>() {
             @Override

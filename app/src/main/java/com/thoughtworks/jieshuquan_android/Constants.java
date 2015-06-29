@@ -35,4 +35,8 @@ public interface Constants {
     public final String KTWITTER = "twitter";
     public final String KBOOK = "book";
     public final String KTYPE = "type";
+    public final String KBOOKNAME = "bookName";
+
+    public final int DISCOVERTYPE_ADDBOOK = 0;
+    public final int DISCOVERTYPE_TWITTER = 1;
 }
