@@ -12,16 +12,27 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.FindCallback;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionListener;
-import com.thoughtworks.jieshuquan_android.adapter.BorrowBooksAdapter;
+import com.thoughtworks.jieshuquan_android.adapter.BooksAdapter;
+import com.thoughtworks.jieshuquan_android.model.Book;
+import com.thoughtworks.jieshuquan_android.service.BookService;
 
+import java.util.List;
 import java.util.Random;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 public class BorrowFragment extends Fragment {
 
+    @InjectView(R.id.gridview)
+    GridView mGridView;
 
     private OnFragmentInteractionListener mListener;
+    private BooksAdapter mBorrowBooksAdapter;
 
     public static BorrowFragment newInstance() {
         BorrowFragment fragment = new BorrowFragment();
@@ -40,22 +51,19 @@ public class BorrowFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_borrow, container, false);
+        ButterKnife.inject(this, view);
 
-        View inflate = inflater.inflate(R.layout.fragment_borrow, container, false);
-
-        GridView gridview = (GridView) inflate.findViewById(R.id.gridview);
-        final BorrowBooksAdapter borrowBooksAdapter = new BorrowBooksAdapter(this.getActivity());
-        gridview.setAdapter(borrowBooksAdapter);
-
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mBorrowBooksAdapter = new BooksAdapter(this.getActivity());
+        mGridView.setAdapter(mBorrowBooksAdapter);
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 Toast.makeText(parent.getContext(), "" + position,
                         Toast.LENGTH_SHORT).show();
             }
         });
-        gridview.setOnScrollListener(new AbsListView.OnScrollListener() {
+        mGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
 
@@ -63,16 +71,22 @@ public class BorrowFragment extends Fragment {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if(firstVisibleItem+visibleItemCount>=totalItemCount){
-                    Integer[] books = {R.drawable.s1495029,R.drawable.s1106934,R.drawable.s1086045};
-                    Random random = new Random();
-                    int nextInt = random.nextInt(3);
-                    borrowBooksAdapter.mThumbIds.add(books[nextInt]);
-                    borrowBooksAdapter.notifyDataSetChanged();
+                if (firstVisibleItem + visibleItemCount >= totalItemCount) {
+//                    Integer[] books = {R.drawable.s1495029,R.drawable.s1106934,R.drawable.s1086045};
+//                    Random random = new Random();
+//                    int nextInt = random.nextInt(3);
+//                    mBorrowBooksAdapter.mThumbIds.add(books[nextInt]);
+//                    mBorrowBooksAdapter.notifyDataSetChanged();
                 }
             }
         });
-        return inflate;
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initData();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -99,5 +113,16 @@ public class BorrowFragment extends Fragment {
         mListener = null;
     }
 
+    private void initData() {
+        BookService.getInstance().fetchAllBooks(0, new FindCallback<Book>() {
+            @Override
+            public void done(List<Book> list, AVException e) {
+                if (e == null && list.size() > 0) {
+                    mBorrowBooksAdapter.setBookList(list);
+                    mBorrowBooksAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+    }
 }
 
