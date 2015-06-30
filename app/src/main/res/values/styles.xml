@@ -128,6 +128,10 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="BaseTextStyle.Medium.Red">
+        <item name="android:textColor">@color/color_red</item>
+    </style>
+
     <style name="BaseTextStyle.Small">
         <item name="android:textSize">12sp</item>
     </style>
@@ -170,4 +174,9 @@
         <item name="android:minHeight">?android:listPreferredItemHeight</item>
     </style>
 
+    <!--Book Item-->
+    <style name="BookItemImage">
+        <item name="android:padding">@dimen/book_image_padding</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
 </resources>

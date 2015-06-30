@@ -17,7 +17,6 @@ import java.util.List;
 public class DiscoverAdapter extends BaseAdapter {
 
     private Context mContext;
-    private DiscoverFragment discoverFragment;
     private List<Discover> mList;
 
     public DiscoverAdapter(Context context) {
