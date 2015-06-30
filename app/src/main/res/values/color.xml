@@ -29,6 +29,7 @@
     <color name="color_black">#FF000000</color>
     <color name="color_dk_grey">#FF697684</color>
     <color name="color_lt_grey">#FFEAEBEC</color>
+    <color name="color_red">#ffff4444</color>
     <color name="divide_color">#FFE7EAEC</color>
 
     <!-- Some special color -->

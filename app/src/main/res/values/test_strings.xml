@@ -2,4 +2,5 @@
 <resources>
     <string name="test_mine_borrow">1</string>
     <string name="test_mine_return">29</string>
+    <string name="test_book_name">人月神话</string>
 </resources>
