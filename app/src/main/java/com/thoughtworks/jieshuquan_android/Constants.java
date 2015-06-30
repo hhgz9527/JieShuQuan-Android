@@ -9,6 +9,8 @@ public interface Constants {
     public final String K_DOUBANBOOK_IMAGE = "image";
     public final String K_DOUBANBOOK_IMAGES = "images";
     public final String K_DOUBANBOOK_LARGE = "large";
+    public final int DEFAULT_COMMENTS_COUNTS = 20;
+
 
     // All key for AVOS
     public final String KAVATAR = "avatar";

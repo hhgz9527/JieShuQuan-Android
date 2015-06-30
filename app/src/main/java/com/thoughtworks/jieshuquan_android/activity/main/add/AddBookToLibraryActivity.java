@@ -23,6 +23,7 @@ import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.model.Book;
 import com.thoughtworks.jieshuquan_android.model.Discover;
 import com.thoughtworks.jieshuquan_android.service.BookService;
+import com.thoughtworks.jieshuquan_android.service.DoubanService;
 
 import org.apache.http.Header;
 import org.json.JSONObject;
@@ -80,13 +81,9 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
     }
 
     private void getBookInfoFromDouBan(String ibns) {
+        DoubanService doubanService = DoubanService.getInstance();
 
-        String urlString = BuildConfig.DOUBAN_SERVER_URL + ibns;
-        AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-        params.put("apikey", BuildConfig.DOUBAN_SERVER_API_KEY);
-
-        client.get(urlString, params, new JsonHttpResponseHandler() {
+        doubanService.getBookInfoFromDouBan(ibns, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 if (statusCode != 200) {

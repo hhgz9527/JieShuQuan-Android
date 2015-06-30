@@ -11,7 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField "String", "DOUBAN_SERVER_URL", "\"https://api.douban.com/v2/book/isbn/\""
+        buildConfigField "String", "DOUBAN_SERVER_URL", "\"https://api.douban.com/v2/book/\""
         buildConfigField "String", "DOUBAN_SERVER_API_KEY", "\"0071e999e5b2c9100155bccdb1185b30\""
     }
     buildTypes {
