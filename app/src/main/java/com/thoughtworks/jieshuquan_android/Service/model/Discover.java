@@ -1,9 +1,10 @@
-package com.thoughtworks.jieshuquan_android.model;
+package com.thoughtworks.jieshuquan_android.service.model;
 
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVUser;
 import com.thoughtworks.jieshuquan_android.Constants;
+import com.thoughtworks.jieshuquan_android.service.model.Book;
 
 /**
  * Created by leihuang on 6/16/15.

@@ -8,8 +8,8 @@ import com.avos.avoscloud.FindCallback;
 import com.avos.avoscloud.GetCallback;
 import com.avos.avoscloud.SaveCallback;
 import com.thoughtworks.jieshuquan_android.Constants;
-import com.thoughtworks.jieshuquan_android.model.Book;
-import com.thoughtworks.jieshuquan_android.model.BookEntity;
+import com.thoughtworks.jieshuquan_android.service.model.Book;
+import com.thoughtworks.jieshuquan_android.service.model.BookEntity;
 
 import java.util.List;
 

@@ -18,6 +18,9 @@
     <string name="msg_reset_success">Reset password request was sending successful.</string>
     <string name="msg_reset_failure">Reset password request was failure.</string>
     <string name="msg_register_success">Register success.</string>
+    <string name="msg_error_get_isbn">get ISBN number error</string>
+    <string name="msg_default_empty">It\'s empty now, let us got to add some book.</string>
+    <string name="msg_error_password_should_same">the new password should same</string>
 
     <string name="msg_error_account_name">Email is not validate.</string>
     <string name="msg_error_account_pwd">Password is not validate.</string>
@@ -52,8 +55,7 @@
     <string name="common_http_error">catch problem, please try it again later</string>
     <string name="discover_add_book_message_header">I add a new book《</string>
     <string name="discover_add_book_message_footer">》</string>
-    <string name="msg_error_password_should_same">the new password should same</string>
     <string name="common_error">error</string>
-    <string name="msg_error_get_isbn">get ISBN number error</string>
+
 
 </resources>

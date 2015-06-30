@@ -37,4 +37,7 @@
     <dimen name="book_image_padding">8dp</dimen>
     <dimen name="book_name_margin">8dp</dimen>
 
+    <!--Book Grid View-->
+    <dimen name="book_grid_space">10dp</dimen>
+
 </resources>

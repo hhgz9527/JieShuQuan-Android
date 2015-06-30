@@ -1,31 +1,24 @@
 package com.thoughtworks.jieshuquan_android.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.model.Book;
+import com.thoughtworks.jieshuquan_android.model.BookItem;
+import com.thoughtworks.jieshuquan_android.service.model.Book;
 import com.thoughtworks.jieshuquan_android.viewholder.BookItemHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static com.thoughtworks.jieshuquan_android.utils.CommonUtils.dipToPx;
 
 public class BooksAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<Book> mBookList;
+    private List<BookItem> mBookList;
 
     public BooksAdapter(Context c) {
         mContext = c;
@@ -52,12 +45,12 @@ public class BooksAdapter extends BaseAdapter {
             holder = new BookItemHolder(mContext, convertView);
             convertView.setTag(holder);
         }
-        Book book = mBookList.get(position);
+        BookItem book = mBookList.get(position);
         ((BookItemHolder)convertView.getTag()).populate(book);
         return convertView;
     }
 
-    public void setBookList(List<Book> bookList) {
+    public void setBookList(List<BookItem> bookList) {
         this.mBookList = bookList;
     }
 

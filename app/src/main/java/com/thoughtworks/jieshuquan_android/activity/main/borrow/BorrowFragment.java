@@ -4,32 +4,45 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.FindCallback;
+import com.google.common.base.Function;
+import com.google.common.collect.ImmutableList;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionListener;
 import com.thoughtworks.jieshuquan_android.adapter.BooksAdapter;
-import com.thoughtworks.jieshuquan_android.model.Book;
+import com.thoughtworks.jieshuquan_android.converter.BookItemConverter;
+import com.thoughtworks.jieshuquan_android.model.BookItem;
+import com.thoughtworks.jieshuquan_android.service.model.Book;
 import com.thoughtworks.jieshuquan_android.service.BookService;
 
 import java.util.List;
-import java.util.Random;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import static com.google.common.collect.FluentIterable.from;
+
 public class BorrowFragment extends Fragment {
 
-    @InjectView(R.id.gridview)
+    @InjectView(R.id.books_grid_view)
     GridView mGridView;
+    @InjectView(R.id.loading_view)
+    ViewGroup mLoadingView;
+    @InjectView(R.id.info_view)
+    ViewGroup mInfoView;
+    @InjectView(R.id.info_text)
+    TextView mInfoText;
 
     private OnFragmentInteractionListener mListener;
     private BooksAdapter mBorrowBooksAdapter;
@@ -53,7 +66,11 @@ public class BorrowFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_borrow, container, false);
         ButterKnife.inject(this, view);
+        initViews();
+        return view;
+    }
 
+    private void initViews() {
         mBorrowBooksAdapter = new BooksAdapter(this.getActivity());
         mGridView.setAdapter(mBorrowBooksAdapter);
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -80,7 +97,28 @@ public class BorrowFragment extends Fragment {
                 }
             }
         });
-        return view;
+        showLoadingView();
+    }
+
+    private void showLoadingView() {
+        mLoadingView.setVisibility(View.VISIBLE);
+        mGridView.setVisibility(View.GONE);
+        mInfoView.setVisibility(View.GONE);
+    }
+
+    private void showContentView() {
+        mGridView.setVisibility(View.VISIBLE);
+        mLoadingView.setVisibility(View.GONE);
+        mInfoView.setVisibility(View.GONE);
+    }
+
+    private void showInfoView(String textInfo) {
+        if (!TextUtils.isEmpty(textInfo)) {
+            mInfoText.setText(textInfo);
+        }
+        mInfoView.setVisibility(View.VISIBLE);
+        mLoadingView.setVisibility(View.GONE);
+        mGridView.setVisibility(View.GONE);
     }
 
     @Override
@@ -118,8 +156,20 @@ public class BorrowFragment extends Fragment {
             @Override
             public void done(List<Book> list, AVException e) {
                 if (e == null && list.size() > 0) {
-                    mBorrowBooksAdapter.setBookList(list);
+                    showContentView();
+                    final BookItemConverter converter = new BookItemConverter();
+                    ImmutableList<BookItem> bookItemList = from(list).transform(new Function<Book, BookItem>() {
+                        @Override
+                        public BookItem apply(Book input) {
+                            return converter.convert(input);
+                        }
+                    }).toList();
+                    mBorrowBooksAdapter.setBookList(bookItemList);
                     mBorrowBooksAdapter.notifyDataSetChanged();
+                } else if (list.size() == 0) {
+                    showInfoView(getString(R.string.msg_default_empty));
+                } else if (e != null){
+                    showInfoView(e.getMessage());
                 }
             }
         });

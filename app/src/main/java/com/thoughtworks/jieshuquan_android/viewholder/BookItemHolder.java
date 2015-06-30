@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.model.Book;
+import com.thoughtworks.jieshuquan_android.model.BookItem;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -25,7 +25,7 @@ public class BookItemHolder {
         ButterKnife.inject(this, view);
     }
 
-    public void populate(Book book) {
+    public void populate(BookItem book) {
         Glide.with(mContext).load(book.getBookImageHref())
                 .placeholder(R.drawable.s1086045).crossFade().into(mImage);
         mNameText.setText(book.getBookName());

@@ -1,59 +1,13 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.thoughtworks.jieshuquan_android.activity.main.borrow.BorrowFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <include layout="@layout/top_books_layout" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:gravity="right"
-            android:orientation="horizontal">
+    <include layout="@layout/divider" />
 
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="92dp"
-                android:layout_marginRight="8dp"
-                android:src="@drawable/s1086045"/>
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="92dp"
-                android:layout_marginRight="8dp"
-                android:src="@drawable/s1106934"/>
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="92dp"
-                android:layout_marginRight="8dp"
-                android:src="@drawable/s1495029"/>
-
-            <ImageView
-                android:layout_width="12dp"
-                android:layout_height="44dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="24dp"
-                android:src="@drawable/pushtop10" />
-
-        </LinearLayout>
-
-        <include layout="@layout/divider" />
-
-        <GridView
-            android:id="@+id/gridview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:columnWidth="90dp"
-            android:gravity="center"
-            android:horizontalSpacing="10dp"
-            android:numColumns="auto_fit"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="10dp" />
-    </LinearLayout>
-</FrameLayout>
+    <include layout="@layout/book_grid_layout" />
+</LinearLayout>

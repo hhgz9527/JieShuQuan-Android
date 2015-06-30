@@ -14,14 +14,11 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SaveCallback;
 import com.bumptech.glide.Glide;
-import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-import com.thoughtworks.jieshuquan_android.BuildConfig;
 import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.model.Book;
-import com.thoughtworks.jieshuquan_android.model.Discover;
+import com.thoughtworks.jieshuquan_android.service.model.Book;
+import com.thoughtworks.jieshuquan_android.service.model.Discover;
 import com.thoughtworks.jieshuquan_android.service.BookService;
 import com.thoughtworks.jieshuquan_android.service.DoubanService;
 

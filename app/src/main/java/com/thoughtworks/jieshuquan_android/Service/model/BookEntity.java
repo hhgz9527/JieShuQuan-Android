@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.model;
+package com.thoughtworks.jieshuquan_android.service.model;
 
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;

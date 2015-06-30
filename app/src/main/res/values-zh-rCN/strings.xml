@@ -18,6 +18,9 @@
     <string name="msg_reset_success">重置密码邮件已经成功发送。</string>
     <string name="msg_reset_failure">重置密码操作失败。</string>
     <string name="msg_register_success">注册成功。</string>
+    <string name="msg_default_empty">一本书都没有哦，赶紧添加吧</string>
+    <string name="msg_error_password_should_same">两次输入密码应该一直</string>
+    <string name="msg_error_get_isbn">获取ISBN码失败</string>
 
     <string name="msg_error_account_name">邮箱验证失败。</string>
     <string name="msg_error_account_pwd">密码验证失败。</string>
@@ -49,9 +52,7 @@
     <string name="common_http_error">未知错误，请稍后再试</string>
     <string name="discover_add_book_message_header">我添加了新书《</string>
     <string name="discover_add_book_message_footer">》</string>
-    <string name="msg_error_password_should_same">两次输入密码应该一直</string>
     <string name="common_error">错误</string>
-    <string name="msg_error_get_isbn">获取ISBN码失败</string>
     <string name="title_activity_scanner">扫描</string>
     <string name="title_activity_add_book_to_library">添加到我的书库</string>
 

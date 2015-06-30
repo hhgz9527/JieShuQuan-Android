@@ -4,16 +4,12 @@ import android.app.Application;
 import android.util.Log;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.PushService;
-import com.avos.avoscloud.SaveCallback;
-import com.thoughtworks.jieshuquan_android.activity.main.MainActivity;
-import com.thoughtworks.jieshuquan_android.model.Book;
-import com.thoughtworks.jieshuquan_android.model.BookEntity;
-import com.thoughtworks.jieshuquan_android.model.Discover;
+import com.thoughtworks.jieshuquan_android.service.model.Book;
+import com.thoughtworks.jieshuquan_android.service.model.BookEntity;
+import com.thoughtworks.jieshuquan_android.service.model.Discover;
 
 /**
  * Created by leihuang on 5/27/15.

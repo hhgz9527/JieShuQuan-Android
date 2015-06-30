@@ -13,7 +13,7 @@ import com.avos.avoscloud.FindCallback;
 import com.bumptech.glide.Glide;
 import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.model.Discover;
+import com.thoughtworks.jieshuquan_android.service.model.Discover;
 
 import org.ocpsoft.prettytime.PrettyTime;
 

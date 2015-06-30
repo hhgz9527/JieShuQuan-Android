@@ -7,8 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.activity.main.discover.DiscoverFragment;
-import com.thoughtworks.jieshuquan_android.model.Discover;
+import com.thoughtworks.jieshuquan_android.service.model.Discover;
 import com.thoughtworks.jieshuquan_android.viewholder.DiscoveryViewHolder;
 
 import java.util.ArrayList;
