@@ -27,6 +27,9 @@ public class BookService {
         return instance;
     }
 
+    /*
+    添加二维码扫描书籍到Book类中
+    * */
     public void addBookToLibrary(final Book abook, final Boolean availability, final SaveCallback addBookCallback) {
 
         final AVQuery<AVObject> query = new AVQuery<AVObject>("Book");
@@ -45,7 +48,7 @@ public class BookService {
                                     query.getFirstInBackground(new GetCallback<AVObject>() {
                                         @Override
                                         public void done(AVObject avObject, AVException e) {
-                                            BookService.this.createBookEntityWithBook((Book) avObject, availability,addBookCallback);
+                                            BookService.this.createBookEntityWithBook((Book) avObject, availability, addBookCallback);
                                         }
                                     });
                                     return;
@@ -78,6 +81,9 @@ public class BookService {
         });
     }
 
+    /*
+    添加Book类到user的BookEntity类中
+    * */
     public void createBookEntityWithBook(final Book abook, final Boolean availability, final SaveCallback createBookEntitySaveCallback) {
 
         final AVQuery<AVObject> query = new AVQuery<AVObject>("BookEntity");
@@ -106,6 +112,30 @@ public class BookService {
                 }
             }
         });
+    }
+
+
+    /*
+    获取所有人的图书，“借书”主页
+    * */
+    public void fetchAllBooks(int startIndex, FindCallback callback) {
+        final AVQuery<AVObject> query = new AVQuery<AVObject>("Book");
+        query.orderByDescending("createdAt");
+        query.setLimit(10);
+        query.setSkip(startIndex);
+        query.findInBackground(callback);
+    }
+
+
+    /*
+    获取 “我的书籍” 图书
+    * */
+    public void fetchBookEntitiesForCurrentUser(FindCallback callback) {
+        final AVQuery<AVObject> query = new AVQuery<AVObject>("BookEntity");
+        query.whereEqualTo(Constants.KBOOKENTITY_USER, AVUser.getCurrentUser());
+        query.orderByDescending("createdAt");
+        query.findInBackground(callback);
+
     }
 }
 

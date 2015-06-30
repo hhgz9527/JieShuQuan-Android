@@ -43,6 +43,10 @@ public class AuthService {
         AVUser.requestPasswordResetInBackground(email,callback);
     }
 
+    public void logout() {
+        AVUser.logOut();
+    }
+
     public String getName(String email) {
 
         return email.substring(0, email.lastIndexOf("@"));
