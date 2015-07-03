@@ -19,7 +19,7 @@
             android:layout_height="@dimen/head_size"
             android:layout_centerHorizontal="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_tab_books"
+            android:src="@drawable/avatar_placeholder"
             app:riv_border_color="@color/head_border"
             app:riv_border_width="@dimen/head_border_width"
             app:riv_corner_radius="@dimen/head_radius"
