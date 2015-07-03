@@ -48,7 +48,7 @@ public class ForgetPwdFragment extends Fragment {
             public void done(AVException e) {
                 if (e == null) {
                     showErrorToast(getString(R.string.msg_reset_success));
-                    getActivity().finish();
+                    getFragmentManager().popBackStack();
                 } else {
                     showErrorToast(getString(R.string.msg_reset_failure));
                 }

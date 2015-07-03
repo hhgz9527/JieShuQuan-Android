@@ -9,17 +9,13 @@ import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.PushService;
-import com.avos.avoscloud.SaveCallback;
 import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.activity.main.add.AddBookToLibraryActivity;
@@ -93,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
         if (AVUser.getCurrentUser() == null) {
             //need login
-            ShowLoginActivity();
+            showLoginActivity();
         } else {
             // rigster push service for main activity
             this.registerPushService();
@@ -114,25 +110,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         }
 
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 
     @Override
     public void onBackPressed() {
@@ -195,6 +172,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
                     MainActivity.this.startScanner();
                 }
                 break;
+                case R.id.action_twitter: {
+                    MainActivity.this.showSendTwitterActivity();
+                }
+                break;
             }
             return true;
         }
@@ -211,7 +192,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         startActivity(showAddBookIntent);
     }
 
-    private void ShowLoginActivity() {
+    private void showSendTwitterActivity() {
+        Intent showSendTwitterIntent = new Intent(MainActivity.this, SendTwitterActivity.class);
+        startActivity(showSendTwitterIntent);
+    }
+
+    private void showLoginActivity() {
         Intent showLoginIntent = new Intent(MainActivity.this, LoginActivity.class);
         startActivityForResult(showLoginIntent, Constants.LOGIN_ACTIVITY_RESULT_TAG);
     }

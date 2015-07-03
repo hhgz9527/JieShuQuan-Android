@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -23,8 +25,8 @@ import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionLi
 import com.thoughtworks.jieshuquan_android.adapter.BooksAdapter;
 import com.thoughtworks.jieshuquan_android.converter.BookItemConverter;
 import com.thoughtworks.jieshuquan_android.model.BookItem;
-import com.thoughtworks.jieshuquan_android.service.model.Book;
 import com.thoughtworks.jieshuquan_android.service.BookService;
+import com.thoughtworks.jieshuquan_android.service.model.Book;
 
 import java.util.List;
 
@@ -58,6 +60,7 @@ public class BorrowFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
     }
 
@@ -119,6 +122,13 @@ public class BorrowFragment extends Fragment {
         mInfoView.setVisibility(View.VISIBLE);
         mLoadingView.setVisibility(View.GONE);
         mGridView.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+       inflater.inflate(R.menu.menu_scan, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+
     }
 
     @Override

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.thoughtworks.jieshuquan_android">
+    package="com.thoughtworks.jieshuquan_android" >
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,10 +18,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.JFQ">
+        android:theme="@style/Theme.JFQ" >
         <activity
             android:name=".activity.main.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             // 声明为 spring board的入口点
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,15 +46,16 @@
             android:name=".activity.main.mine.MineBookActivity"
             android:label="@string/title_activity_mine_books" />
 
-        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
+
         <service android:name="com.avos.avoscloud.PushService" />
 
-        <receiver android:name="CustomReceiver">
+        <receiver android:name=".CustomReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -62,6 +63,15 @@
                 <action android:name="com.avos.UPDATE_STATUS" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".activity.main.SendTwitterActivity"
+            android:label="@string/title_activity_send_twitter"
+            android:parentActivityName=".activity.main.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.thoughtworks.jieshuquan_android.activity.main.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

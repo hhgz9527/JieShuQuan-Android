@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SignUpCallback;
 import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.service.AuthService;
@@ -64,7 +65,9 @@ public class RegisterFragment extends Fragment {
             public void done(AVException e) {
                 if (e == null) {
                     RegisterFragment.this.showErrorToast(getString(R.string.msg_register_success));
-                    getActivity().finish();
+                    AVUser.getCurrentUser().logOut();
+                    getFragmentManager().popBackStack();
+
                 } else {
                     RegisterFragment.this.showErrorToast(e.toString());
                 }

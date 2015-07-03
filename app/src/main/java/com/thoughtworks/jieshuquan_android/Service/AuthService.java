@@ -28,7 +28,6 @@ public class AuthService {
         user.setUsername(this.getName(email));
         user.setEmail(email);
         user.setPassword(password);
-
         user.signUpInBackground(callback);
     }
 

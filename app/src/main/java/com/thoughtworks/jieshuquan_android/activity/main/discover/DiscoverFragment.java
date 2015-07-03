@@ -5,6 +5,8 @@ import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -46,6 +48,7 @@ public class DiscoverFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
     }
 
@@ -63,17 +66,18 @@ public class DiscoverFragment extends Fragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(getActivity(),position, Toast.LENGTH_SHORT).show();
+                //TODO: show the item detail
             }
         });
         return view;
 
     }
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_twitter, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+
     }
 
     @Override
@@ -106,6 +110,12 @@ public class DiscoverFragment extends Fragment {
                 }
             }
         });
+    }
+
+    public void onButtonPressed(Uri uri) {
+        if (mListener != null) {
+            mListener.onFragmentInteraction(uri);
+        }
     }
 
 

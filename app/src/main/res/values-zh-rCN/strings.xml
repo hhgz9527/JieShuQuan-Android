@@ -55,5 +55,7 @@
     <string name="common_error">错误</string>
     <string name="title_activity_scanner">扫描</string>
     <string name="title_activity_add_book_to_library">添加到我的书库</string>
+    <string name="send_message">发消息</string>
+    <string name="show_not_length_than">show not legnth than 140 words</string>
 
 </resources>

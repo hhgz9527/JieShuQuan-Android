@@ -56,6 +56,11 @@
     <string name="discover_add_book_message_header">I add a new book《</string>
     <string name="discover_add_book_message_footer">》</string>
     <string name="common_error">error</string>
+    <string name="title_activity_send_twitter">SendTwitter</string>
+
+    <string name="send_message">Send Message</string>
+    <string name="show_not_length_than">show not legnth more or less than 140 words</string>
+    <string name="send_success">send success</string>
 
 
 </resources>
