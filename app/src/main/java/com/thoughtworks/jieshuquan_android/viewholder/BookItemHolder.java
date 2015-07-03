@@ -27,7 +27,7 @@ public class BookItemHolder {
 
     public void populate(BookItem book) {
         Glide.with(mContext).load(book.getBookImageHref())
-                .placeholder(R.drawable.s1086045).crossFade().into(mImage);
+                .placeholder(R.drawable.book_placeholder).crossFade().into(mImage);
         mNameText.setText(book.getBookName());
     }
 }

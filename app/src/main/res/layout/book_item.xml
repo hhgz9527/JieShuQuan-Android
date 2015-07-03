@@ -11,7 +11,7 @@
         android:layout_width="@dimen/book_image_width"
         android:layout_height="@dimen/book_image_height"
         android:contentDescription="@string/app_name"
-        tools:src="@drawable/s1086045" />
+        tools:src="@drawable/book_placeholder" />
 
     <TextView
         android:id="@+id/book_name"
