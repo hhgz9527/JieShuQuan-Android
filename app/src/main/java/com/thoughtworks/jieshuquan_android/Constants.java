@@ -19,6 +19,8 @@ public interface Constants {
     public final String KBOOK_NAME = "bookName";
     public final String KBOOK_AUTHOR = "bookAuthor";
     public final String KBOOK_IMAGE_HREF = "bookImageHref";
+    public final String KBOOK_BORROW_COUNT = "borrowCount";
+
 
     public final String BOOK_ENTITY = "BookEntity";
     public final String KBOOK_DOUBANID = "bookDoubanId";
@@ -41,4 +43,20 @@ public interface Constants {
 
     public final int DISCOVERTYPE_ADDBOOK = 0;
     public final int DISCOVERTYPE_TWITTER = 1;
+
+    //BorrowRecord
+    // pending, agreed, rejected, returned
+    public final String KBORROWRECORD_STATUS_PENDING = "pending";
+    public final String KBORROWRECORD_STATUS_AGREED = "agreed";
+    public final String KBORROWRECORD_STATUS_REJECTED = "rejected";
+    public final String KBORROWRECORD_STATUS_RETURNED = "returned";
+
+
+    public final String KBORROWRECORD_FROM_USER_NAME = "fromUserName";
+    public final String KBORROWRECORD_STATUS = "status";
+    public final String KBORROWRECORD_TO_USER_NAME = "toUserName";
+    public final String KBORROWRECORD_BOOK_IMAGE_HREF = "bookImageHref";
+    public final String KBORROWRECORD_TO_USER = "toUser";
+    public final String KBORROWRECORD_BOOK_ENTITY = "bookEntity";
+    public final String KBORROWRECORD_FROM_USER = "fromUser";
 }

@@ -47,4 +47,14 @@ public class Book extends AVObject {
         put(Constants.KBOOK_IMAGE_HREF, bookImageHref);
     }
 
+    public int getBorrowCount() {
+        return getInt(Constants.KBOOK_BORROW_COUNT);
+    }
+
+    public void setBorrowCount(int borrowCount) {
+        put(Constants.KBOOK_BORROW_COUNT,borrowCount);
+    }
+
+
+
 }

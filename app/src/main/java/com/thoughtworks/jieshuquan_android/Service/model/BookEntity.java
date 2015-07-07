@@ -2,6 +2,7 @@ package com.thoughtworks.jieshuquan_android.service.model;
 
 import com.avos.avoscloud.AVClassName;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVUser;
 import com.thoughtworks.jieshuquan_android.Constants;
 
 /**
@@ -40,4 +41,19 @@ public class BookEntity extends AVObject {
         put(Constants.KBOOK_IMAGE_HREF, bookImageHref);
     }
 
+    public Book getBook() {
+        return getAVObject(Constants.KBOOK);
+    }
+
+    public void setBook(Book book) {
+        put(Constants.KBOOK, book);
+    }
+
+    public AVUser getUser() {
+        return getAVObject(Constants.KUSER);
+    }
+
+    public void setUser(AVUser user) {
+        put(Constants.KUSER, user);
+    }
 }

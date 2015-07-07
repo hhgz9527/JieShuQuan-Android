@@ -9,6 +9,7 @@ import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
 import com.thoughtworks.jieshuquan_android.service.model.Book;
 import com.thoughtworks.jieshuquan_android.service.model.BookEntity;
+import com.thoughtworks.jieshuquan_android.service.model.BorrowRecord;
 import com.thoughtworks.jieshuquan_android.service.model.Discover;
 
 /**
@@ -22,6 +23,7 @@ public class JieShuQuanApplication extends Application {
         AVObject.registerSubclass(Book.class);
         AVObject.registerSubclass(BookEntity.class);
         AVObject.registerSubclass(Discover.class);
+        AVObject.registerSubclass(BorrowRecord.class);
         // init AVOS
         AVOSCloud.initialize(this, "gdakm21nfqik6swplef3anis5fu078gex0zb36uzoz0vippb", "5ptvr2vqoyzqxka9yjsahnq0mo28traj6w7d1v5t8pj5can6");
 
