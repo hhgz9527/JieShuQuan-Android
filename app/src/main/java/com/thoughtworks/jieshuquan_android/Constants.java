@@ -41,4 +41,6 @@ public interface Constants {
 
     public final int DISCOVERTYPE_ADDBOOK = 0;
     public final int DISCOVERTYPE_TWITTER = 1;
+
+    public static final String EXTRA_BOOK_ID = "book_id";
 }
