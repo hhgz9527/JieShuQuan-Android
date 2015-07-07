@@ -1,3 +1,5 @@
+package com.thoughtworks.jieshuquan_android;
+
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;

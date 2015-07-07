@@ -61,6 +61,9 @@
     <string name="send_message">Send Message</string>
     <string name="show_not_length_than">show not legnth more or less than 140 words</string>
     <string name="send_success">send success</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 
 
 </resources>

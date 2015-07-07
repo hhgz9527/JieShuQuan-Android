@@ -1,5 +1,6 @@
 package com.thoughtworks.jieshuquan_android.activity.main.mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +23,7 @@ import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
+import com.thoughtworks.jieshuquan_android.activity.DetailActivity;
 import com.thoughtworks.jieshuquan_android.adapter.BooksAdapter;
 import com.thoughtworks.jieshuquan_android.converter.BookItemConverter;
 import com.thoughtworks.jieshuquan_android.model.BookItem;
@@ -117,8 +119,10 @@ public class MineBookActivity extends AppCompatActivity {
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(parent.getContext(), "" + position,
-                        Toast.LENGTH_SHORT).show();
+                BookItem book = (BookItem) parent.getItemAtPosition(position);
+                Intent intent = new Intent(MineBookActivity.this, DetailActivity.class);
+                intent.putExtra(Constants.EXTRA_BOOK_ID, book.getBookId());
+                startActivity(intent);
             }
         });
         mGridView.setOnScrollListener(new AbsListView.OnScrollListener() {

@@ -59,4 +59,7 @@ public interface Constants {
     public final String KBORROWRECORD_TO_USER = "toUser";
     public final String KBORROWRECORD_BOOK_ENTITY = "bookEntity";
     public final String KBORROWRECORD_FROM_USER = "fromUser";
+    
+    
+    public static final String EXTRA_BOOK_ID = "book_id";
 }

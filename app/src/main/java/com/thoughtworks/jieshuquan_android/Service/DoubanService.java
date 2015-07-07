@@ -6,9 +6,6 @@ import com.loopj.android.http.RequestParams;
 import com.thoughtworks.jieshuquan_android.BuildConfig;
 import com.thoughtworks.jieshuquan_android.Constants;
 
-/**
- * Created by leihuang on 6/30/15.
- */
 public class DoubanService {
 
     private static DoubanService instance;

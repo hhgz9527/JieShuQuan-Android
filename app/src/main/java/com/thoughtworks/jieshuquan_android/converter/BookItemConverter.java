@@ -8,6 +8,7 @@ public class BookItemConverter {
 
     public BookItem convert(Book book) {
         BookItem item = new BookItem();
+        item.setBookId(book.getBookDoubanId());
         item.setBookName(book.getBookName());
         item.setBookImageHref(book.getBookImageHref());
         return item;
