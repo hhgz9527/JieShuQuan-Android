@@ -12,7 +12,9 @@ import com.thoughtworks.jieshuquan_android.service.model.Book;
 import com.thoughtworks.jieshuquan_android.service.model.BookEntity;
 import com.thoughtworks.jieshuquan_android.service.model.BorrowRecord;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by leihuang on 6/10/15.
@@ -162,6 +164,37 @@ public class BookService {
     }
 
     /*
+    遍历数组bookentities，获取每一本书的owner，返回数组，用在点击“申请借阅”后的页面
+    * */
+    public void fetchOwners(List<BookEntity> bookEntities, FindCallback callback) {
+        final List<AVUser> users = new ArrayList<>();
+        final CountDownLatch countdown = new CountDownLatch(bookEntities.size());
+        for (BookEntity bookEntity : bookEntities) {
+            AVUser user = bookEntity.getUser();
+            user.fetchIfNeededInBackground(new GetCallback<AVObject>() {
+                @Override
+                public void done(AVObject avObject, AVException e) {
+                    if (e == null) {
+                        users.add((AVUser) avObject);
+                    }
+                    countdown.countDown();
+                }
+            });
+        }
+
+        try {
+            countdown.await();
+            callback.done(users, null);
+
+        } catch (InterruptedException e) {
+
+            AVException exception = new AVException(-1, "unKnow Error");
+            callback.done(null, exception);
+        }
+    }
+
+
+    /*
     改变自己拥有图书可借状态
     * */
     public void updateBookAvailability(final Book book, final SaveCallback callback) {
@@ -273,17 +306,17 @@ public class BookService {
     给借书次数加1
     * */
 
-    public void increaseBorrowCount(BorrowRecord borrowRecord){
+    public void increaseBorrowCount(BorrowRecord borrowRecord) {
         BookEntity bookEntity = borrowRecord.getBookEntity();
         bookEntity.fetchIfNeededInBackground(new GetCallback<AVObject>() {
             @Override
             public void done(AVObject avObject, AVException e) {
-                if (e == null){
-                    final Book book = ((BookEntity)avObject).getBook();
+                if (e == null) {
+                    final Book book = ((BookEntity) avObject).getBook();
                     book.fetchIfNeededInBackground(new GetCallback<AVObject>() {
                         @Override
                         public void done(AVObject avObject, AVException e) {
-                            book.setBorrowCount(book.getBorrowCount() +1);
+                            book.setBorrowCount(book.getBorrowCount() + 1);
                             book.saveInBackground();
                         }
                     });
@@ -292,22 +325,14 @@ public class BookService {
         });
     }
 
-/*
-
-//搜索书籍
-+ (void)searchBookWithName:(NSString *)bookName callback:(void (^)(Book *book))callback{
-    AVQuery *query = [AVQuery queryWithClassName:@"Book"];
-    [query whereKey:@"bookName" equalTo:bookName];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (objects.count != 0) {
-            Book *book = objects[0];
-            callback(book);
-        } else {
-            callback(nil);
-        }
-    }];
-}
+    /*
+    搜索书籍
     * */
+    public void searchBook(String bookName, FindCallback callback) {
+        final AVQuery<AVObject> query = new AVQuery<AVObject>("Book");
+        query.whereEqualTo(Constants.KBOOKNAME, bookName);
+        query.findInBackground(callback);
 
+    }
 }
 
