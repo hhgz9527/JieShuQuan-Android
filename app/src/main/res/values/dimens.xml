@@ -39,5 +39,11 @@
 
     <!--Book Grid View-->
     <dimen name="book_grid_space">10dp</dimen>
+    <dimen name="book_detail_space">6dp</dimen>
+    <dimen name="book_detail_margin_left">24dp</dimen>
+    <dimen name="book_detail_padding_vertical">14dp</dimen>
+    <dimen name="book_detail_padding_horizontal">10dp</dimen>
+    <dimen name="book_detail_tab_height">24dp</dimen>
+    <dimen name="book_detail_tab_space">4dp</dimen>
 
 </resources>

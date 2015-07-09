@@ -6,8 +6,11 @@
     <string name="title_activity_register">注册</string>
     <string name="title_activity_settings">设置</string>
     <string name="title_activity_mine_books">我的书籍</string>
+    <string name="title_activity_detail">书籍详情</string>
 
     <string name="btn_login">登陆</string>
+    <string name="btn_change_state">更改状态</string>
+    <string name="btn_delete">删除</string>
 
     <string name="action_settings">设置</string>
     <string name="action_login">登陆</string>
@@ -57,5 +60,14 @@
     <string name="title_activity_add_book_to_library">添加到我的书库</string>
     <string name="send_message">发消息</string>
     <string name="show_not_length_than">内容不容超过140个字</string>
+
+    <string name="book_detail_author_fmt">作者： %s</string>
+    <string name="book_detail_press_fmt">出版社： %s</string>
+    <string name="book_detail_state_fmt">状态： %s</string>
+    <string name="book_comments">评论列表</string>
+    <string name="book_comments_all">查看所有评论</string>
+
+    <string name="state_available">可借</string>
+    <string name="state_disable">暂不可借</string>
 
 </resources>

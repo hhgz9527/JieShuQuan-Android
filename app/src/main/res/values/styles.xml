@@ -120,6 +120,10 @@
         <item name="android:singleLine">true</item>
     </style>
 
+    <style name="BaseTextStyle.Huge">
+        <item name="android:textSize">22sp</item>
+    </style>
+
     <style name="BaseTextStyle.Large">
         <item name="android:textSize">17sp</item>
     </style>
