@@ -37,6 +37,8 @@ android {
     }
 }
 
+
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
@@ -71,4 +73,11 @@ dependencies {
 
     //avoscloud-search 为 LeanCloud 应用内搜索包
     compile 'cn.leancloud.android:avoscloud-search:v3.3+@aar'
+
+
+    // pull to refresh
+    repositories {
+        mavenCentral()
+    }
+    compile 'com.github.chrisbanes.actionbarpulltorefresh:library:+'
 }

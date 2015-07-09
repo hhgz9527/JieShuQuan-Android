@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,15 +25,21 @@ import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionLi
 import com.thoughtworks.jieshuquan_android.adapter.DiscoverAdapter;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
+import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
+import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 
 public class DiscoverFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private DiscoverAdapter mAdapter;
+    private PullToRefreshLayout mPullToRefreshLayout;
+
     public List mDiscoverList;
 
     @InjectView(R.id.discoverlist)
@@ -69,6 +76,24 @@ public class DiscoverFragment extends Fragment {
                 //TODO: show the item detail
             }
         });
+
+        mPullToRefreshLayout = (PullToRefreshLayout) view.findViewById(R.id.ptr_layout);
+
+        // Now setup the PullToRefreshLayout
+        ActionBarPullToRefresh.from(getActivity())
+                // Mark All Children as pullable
+                .allChildrenArePullable()
+                        // Set a OnRefreshListener
+                .listener(new OnRefreshListener() {
+                    @Override
+                    public void onRefreshStarted(View view) {
+                        getAllDiscoverMessage();
+                        Log.d(DiscoverFragment.class.getName(), "onRefreshStarted");
+                    }
+                })
+                        // Finally commit the setup to our PullToRefreshLayout
+                .setup(mPullToRefreshLayout);
+
         return view;
 
     }
@@ -107,6 +132,8 @@ public class DiscoverFragment extends Fragment {
                     mDiscoverList = list;
                     mAdapter.setList(mDiscoverList);
                     mAdapter.notifyDataSetChanged();
+                    // complete the refresh.
+                    mPullToRefreshLayout.setRefreshComplete();
                 }
             }
         });
