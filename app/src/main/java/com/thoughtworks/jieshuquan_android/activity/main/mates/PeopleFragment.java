@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionListener;
+import com.thoughtworks.jieshuquan_android.activity.main.MainActivityListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +29,7 @@ public class PeopleFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private MainActivityListener mListener;
 
     /**
      * Use this factory method to create a new instance of
@@ -80,10 +80,10 @@ public class PeopleFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (MainActivityListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement MainActivityListener");
         }
     }
 

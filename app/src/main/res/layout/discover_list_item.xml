@@ -33,7 +33,6 @@
             android:layout_toLeftOf="@+id/discoverItemTime"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="testtestststestsetestsetsetestseteststststestsetestsetsetsetestsetstetse"
             android:textAppearance="@android:style/TextAppearance.Medium" />
 
         <TextView
@@ -43,8 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="@dimen/discover_item_margin"
-            android:text="aaaaaaaaaaaa" />
+            android:layout_marginLeft="@dimen/discover_item_margin"/>
 
         <TextView
             android:id="@+id/discoverItemContent"
@@ -58,8 +56,7 @@
             android:layout_below="@id/discoverItemTime"
             android:layout_marginTop="10dp"
             android:singleLine="false"
-            android:maxLines="4"
-            android:text="testtesttesttesttesttesttesttesttesttesttesttesttesttest" />
+            android:maxLines="4"/>
     </RelativeLayout>
 
 </LinearLayout>

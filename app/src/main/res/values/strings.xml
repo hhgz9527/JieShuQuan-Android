@@ -63,7 +63,7 @@
     <string name="send_success">send success</string>
     <string name="title_activity_detail">DetailActivity</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_popular">Popular</string>
 
 
 </resources>

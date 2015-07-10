@@ -3,9 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.thoughtworks.jieshuquan_android.activity.main.borrow.BorrowFragment">
+    tools:context="com.thoughtworks.jieshuquan_android.activity.main.borrow.BorrowFragment"
+    android:id="@+id/borrowLayout">
 
-    <include layout="@layout/top_books_layout" />
+    <include layout="@layout/top_books_layout"
+        android:id="@+id/topContainer"/>
 
     <include layout="@layout/divider" />
 

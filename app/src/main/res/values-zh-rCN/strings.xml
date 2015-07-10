@@ -58,4 +58,6 @@
     <string name="send_message">发消息</string>
     <string name="show_not_length_than">内容不容超过140个字</string>
 
+    <string name="title_activity_popular">排行榜</string>
+
 </resources>

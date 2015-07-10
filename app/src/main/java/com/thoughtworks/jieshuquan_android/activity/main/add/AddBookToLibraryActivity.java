@@ -71,7 +71,7 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
                 mBook.setBookName(response.optString(Constants.K_DOUBANBOOK_TITLE));
                 mBook.setBookAuthor(response.optJSONArray(Constants.K_DOUBANBOOK_AUTHOR).toString());
                 mBook.setBookImageHref(response.optString(Constants.K_DOUBANBOOK_IMAGE));
-
+                mBook.setBookDescription(response.optString(Constants.K_DOUBANBOOK_DESCRIPTION));
                 String largeImagePath = response.optJSONObject(Constants.K_DOUBANBOOK_IMAGES).optString(Constants.K_DOUBANBOOK_LARGE);
 
                 AddBookToLibraryActivity.this.showBookImagewithPath(largeImagePath);

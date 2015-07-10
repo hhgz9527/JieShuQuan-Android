@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="2dp"
+    android:paddingLeft="@dimen/list_item_padding"
+    android:paddingRight="@dimen/list_item_padding"
+    android:paddingTop="2dp">
+
+    <ImageView
+        android:id="@+id/bookImage"
+        android:layout_width="76dp"
+        android:layout_height="101dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="@dimen/abc_action_bar_content_inset_material"
+        android:layout_marginBottom="@dimen/abc_action_bar_content_inset_material"/>
+
+    <RelativeLayout
+        android:id="@+id/headerLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/list_item_padding"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/bookName"
+            style="@style/BaseTextStyle.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/abc_action_bar_content_inset_material"
+            android:singleLine="true"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:text="这是一本书籍"/>
+
+        <TextView
+            android:id="@+id/bookAuthor"
+            style="@style/BaseTextStyle.Small"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookName"
+            android:layout_marginTop="5dp"
+            android:text="作者：拉丝拉丝斯基"/>
+
+        <TextView
+            android:id="@+id/bookDetail"
+            style="@style/BaseTextStyle.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bookAuthor"
+            android:layout_marginTop="5dp"
+            android:singleLine="false"
+            android:maxLines="4"
+            android:text="作者：拉丝拉丝斯基阿道夫骄傲的看来发；骄傲的扩散了；就发带上了；开发打啥看法解答手放开啦是的见分开了；按揭发都开始放假啊；附件打上课了；就发生的；刻录机发都快死了；就发到史莱克；附件爱迪生；李开复据鞍读书老款；附件爱迪生；看来发据鞍读书了；副科级啊圣诞快乐；发爱的色放卡点睡觉发生的；刻录机发到；扩散了放假啊； 发生的开房间啊；的看法据鞍读书；李开复据鞍读书； 发；看来发就爱看了发送；发AD是否快乐； AD是否快乐； 爱的色放； 爱的色放；看爱的色放； 大师傅爱的色放； 啊收单方； 挨罚
+      "/>
+    </RelativeLayout>
+
+</LinearLayout>

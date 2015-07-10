@@ -33,7 +33,7 @@ public class LoginFragment extends Fragment {
     @InjectView(R.id.account_pwd)
     EditText accountPwd;
 
-    private Callback mCallback;
+    private LoginActivityListener mCallback;
 
     public static LoginFragment newInstance() {
         LoginFragment fragment = new LoginFragment();
@@ -43,10 +43,10 @@ public class LoginFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        if (!(activity instanceof Callback)) {
+        if (!(activity instanceof LoginActivityListener)) {
             throw new IllegalStateException("Activity must implement fragment's callbacks.");
         }
-        mCallback = (Callback) activity;
+        mCallback = (LoginActivityListener) activity;
     }
 
     @Nullable

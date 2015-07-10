@@ -8,7 +8,7 @@ import com.thoughtworks.jieshuquan_android.R;
 import butterknife.ButterKnife;
 
 
-public class LoginActivity extends AppCompatActivity implements Callback {
+public class LoginActivity extends AppCompatActivity implements LoginActivityListener {
 
     public static final String TAG = LoginActivity.class.getSimpleName();
 

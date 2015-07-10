@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionListener;
+import com.thoughtworks.jieshuquan_android.activity.main.MainActivityListener;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -34,7 +34,7 @@ public class MineFragment extends Fragment {
     private String mUserName;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private MainActivityListener mListener;
 
     public static MineFragment newInstance(String param1, String param2) {
         MineFragment fragment = new MineFragment();
@@ -53,10 +53,10 @@ public class MineFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (MainActivityListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement MainActivityListener");
         }
     }
 

@@ -76,6 +76,14 @@
             android:name=".activity.DetailActivity"
             android:label="@string/title_activity_detail" >
         </activity>
+        <activity
+            android:name=".activity.main.borrow.PopularActivity"
+            android:label="@string/title_activity_popular"
+            android:parentActivityName=".activity.main.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.thoughtworks.jieshuquan_android.activity.main.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

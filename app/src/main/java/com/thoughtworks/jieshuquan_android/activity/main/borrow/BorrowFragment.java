@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,7 +22,7 @@ import com.avos.avoscloud.FindCallback;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionListener;
+import com.thoughtworks.jieshuquan_android.activity.main.MainActivityListener;
 import com.thoughtworks.jieshuquan_android.adapter.BooksAdapter;
 import com.thoughtworks.jieshuquan_android.converter.BookItemConverter;
 import com.thoughtworks.jieshuquan_android.model.BookItem;
@@ -32,6 +33,7 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 import static com.google.common.collect.FluentIterable.from;
 
@@ -46,7 +48,10 @@ public class BorrowFragment extends Fragment {
     @InjectView(R.id.info_text)
     TextView mInfoText;
 
-    private OnFragmentInteractionListener mListener;
+    @InjectView(R.id.topContainer)
+    View topContainer;
+
+    private MainActivityListener mListener;
     private BooksAdapter mBorrowBooksAdapter;
 
     public static BorrowFragment newInstance() {
@@ -126,7 +131,7 @@ public class BorrowFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-       inflater.inflate(R.menu.menu_scan, menu);
+        inflater.inflate(R.menu.menu_scan, menu);
         super.onCreateOptionsMenu(menu, inflater);
 
     }
@@ -148,10 +153,10 @@ public class BorrowFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (MainActivityListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement MainActivityListener");
         }
     }
 
@@ -178,11 +183,18 @@ public class BorrowFragment extends Fragment {
                     mBorrowBooksAdapter.notifyDataSetChanged();
                 } else if (list.size() == 0) {
                     showInfoView(getString(R.string.msg_default_empty));
-                } else if (e != null){
+                } else if (e != null) {
                     showInfoView(e.getMessage());
                 }
             }
         });
     }
+
+    @OnClick(R.id.topContainer)
+    public void onTopContainerClicked(View view) {
+        Log.d(this.getClass().getName(), "onTopContainer");
+        mListener.showPopularBook();
+    }
+
 }
 

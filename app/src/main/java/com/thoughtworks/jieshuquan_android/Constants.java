@@ -9,6 +9,7 @@ public interface Constants {
     public final String K_DOUBANBOOK_IMAGE = "image";
     public final String K_DOUBANBOOK_IMAGES = "images";
     public final String K_DOUBANBOOK_LARGE = "large";
+    public final String K_DOUBANBOOK_DESCRIPTION = "summary";
     public final int DEFAULT_COMMENTS_COUNTS = 20;
 
 
@@ -20,6 +21,8 @@ public interface Constants {
     public final String KBOOK_AUTHOR = "bookAuthor";
     public final String KBOOK_IMAGE_HREF = "bookImageHref";
     public final String KBOOK_BORROW_COUNT = "borrowCount";
+    public final String KBOOK_DESCRIPTION = "bookDescription";
+
 
 
     public final String BOOK_ENTITY = "BookEntity";
@@ -31,6 +34,7 @@ public interface Constants {
     // Activity result tag
     public final int LOGIN_ACTIVITY_RESULT_TAG = 200;
     public final int SCANER_ACTIVITY_RESULT_TAG = 100;
+    public final int POPULAR_ACTIVITY_RESULT_TAG = 300;
 
     public final String KSUCCESS = "success";
 

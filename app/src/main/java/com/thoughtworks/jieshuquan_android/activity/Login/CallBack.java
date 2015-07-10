@@ -1,6 +1,6 @@
 package com.thoughtworks.jieshuquan_android.activity.login;
 
- interface Callback {
+ interface LoginActivityListener {
 
     void showLoginFragment();
 

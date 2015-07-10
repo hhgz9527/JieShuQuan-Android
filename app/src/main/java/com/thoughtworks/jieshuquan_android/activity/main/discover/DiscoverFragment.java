@@ -11,21 +11,17 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.thoughtworks.jieshuquan_android.R;
-import com.thoughtworks.jieshuquan_android.activity.main.OnFragmentInteractionListener;
+import com.thoughtworks.jieshuquan_android.activity.main.MainActivityListener;
 import com.thoughtworks.jieshuquan_android.adapter.DiscoverAdapter;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -36,7 +32,7 @@ import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 public class DiscoverFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
+    private MainActivityListener mListener;
     private DiscoverAdapter mAdapter;
     private PullToRefreshLayout mPullToRefreshLayout;
 
@@ -109,10 +105,10 @@ public class DiscoverFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (MainActivityListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement MainActivityListener");
         }
     }
 

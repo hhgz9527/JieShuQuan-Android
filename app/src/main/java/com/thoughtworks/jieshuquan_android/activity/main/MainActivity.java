@@ -9,6 +9,7 @@ import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import com.thoughtworks.jieshuquan_android.R;
 import com.thoughtworks.jieshuquan_android.activity.main.add.AddBookToLibraryActivity;
 import com.thoughtworks.jieshuquan_android.activity.main.add.ScannerActivity;
 import com.thoughtworks.jieshuquan_android.activity.main.borrow.BorrowFragment;
+import com.thoughtworks.jieshuquan_android.activity.main.borrow.PopularActivity;
 import com.thoughtworks.jieshuquan_android.activity.main.discover.DiscoverFragment;
 import com.thoughtworks.jieshuquan_android.activity.main.mates.PeopleFragment;
 import com.thoughtworks.jieshuquan_android.activity.main.mine.MineFragment;
@@ -31,7 +33,7 @@ import com.thoughtworks.jieshuquan_android.activity.login.LoginFragment;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements MainActivityListener {
 
     public static final String TAG = MainActivity.class.getSimpleName();
     private long exitTime = 0;
@@ -127,6 +129,13 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    @Override
+    public void showPopularBook() {
+        Intent showPopularBook = new Intent(MainActivity.this, PopularActivity.class);
+        startActivityForResult(showPopularBook, Constants.POPULAR_ACTIVITY_RESULT_TAG);
+    }
+
 
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 

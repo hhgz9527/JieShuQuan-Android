@@ -5,6 +5,9 @@ import android.net.Uri;
 /**
  * Created by leihuang on 6/5/15.
  */
-public interface OnFragmentInteractionListener {
+public interface MainActivityListener {
+
     public void onFragmentInteraction(Uri uri);
+
+    public void showPopularBook();
 }

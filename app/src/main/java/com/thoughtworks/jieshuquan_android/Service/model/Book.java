@@ -55,6 +55,13 @@ public class Book extends AVObject {
         put(Constants.KBOOK_BORROW_COUNT,borrowCount);
     }
 
+    public String getBookDescription(){
+        return getString(Constants.KBOOK_DESCRIPTION);
+    }
+    public void setBookDescription(String bookDescription) {
+        put(Constants.KBOOK_DESCRIPTION,bookDescription);
+    }
+
 
 
 }
