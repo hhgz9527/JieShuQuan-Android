@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="test_mine_borrow">1</string>
-    <string name="test_mine_return">29</string>
-    <string name="test_book_name">人月神话</string>
+    <string translatable="false" name="test_mine_borrow">1</string>
+    <string translatable="false" name="test_mine_return">29</string>
+    <string translatable="false" name="test_book_name">人月神话</string>
+    <string translatable="false" name="test_book_state">状态： 可借</string>
+    <string translatable="false" name="test_book_press">出版社： 中信出版社</string>
+    <string translatable="false" name="test_book_author">作者： Auther</string>
 </resources>

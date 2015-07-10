@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/book_detail_padding_vertical"
+    android:paddingLeft="@dimen/book_detail_padding_horizontal"
+    android:paddingRight="@dimen/book_detail_padding_horizontal"
+    android:paddingTop="@dimen/book_detail_padding_vertical">
+
+    <ImageView
+        android:id="@+id/book_image"
+        android:layout_width="@dimen/book_image_width"
+        android:layout_height="@dimen/book_image_height"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/book_placeholder" />
+
+    <TextView
+        android:id="@+id/book_name"
+        style="@style/BaseTextStyle.Huge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/book_image"
+        android:layout_marginBottom="@dimen/book_detail_space"
+        android:layout_marginLeft="@dimen/book_detail_margin_left"
+        android:layout_marginStart="@dimen/book_detail_margin_left"
+        android:layout_toEndOf="@id/book_image"
+        android:layout_toRightOf="@id/book_image"
+        tools:text="@string/test_book_name" />
+
+    <TextView
+        android:id="@+id/book_state"
+        style="@style/BaseTextStyle.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/book_name"
+        android:layout_alignStart="@id/book_name"
+        android:layout_below="@id/book_name"
+        android:layout_marginBottom="@dimen/book_detail_space"
+        tools:text="@string/test_book_state" />
+
+    <TextView
+        android:id="@+id/book_auther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/book_print"
+        android:layout_alignLeft="@id/book_name"
+        android:layout_alignStart="@id/book_name"
+        android:layout_marginBottom="@dimen/book_detail_space"
+        tools:text="@string/test_book_author" />
+
+    <TextView
+        android:id="@+id/book_print"
+        style="@style/BaseTextStyle.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/book_image"
+        android:layout_alignLeft="@id/book_name"
+        android:layout_alignStart="@id/book_name"
+        android:layout_marginBottom="@dimen/book_detail_space"
+        tools:text="@string/test_book_press" />
+
+</RelativeLayout>
