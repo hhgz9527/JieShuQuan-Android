@@ -8,16 +8,16 @@ public class BookItemConverter {
 
     public BookItem convert(Book book) {
         BookItem item = new BookItem();
-        item.setBookId(book.getBookDoubanId());
-        item.setBookName(book.getBookName());
-        item.setBookImageHref(book.getBookImageHref());
+        item.setId(book.getBookDoubanId());
+        item.setName(book.getBookName());
+        item.setImageHref(book.getBookImageHref());
         return item;
     }
 
     public BookItem convert(BookEntity entity) {
         BookItem item = new BookItem();
-        item.setBookName(entity.getBookName());
-        item.setBookImageHref(entity.getBookImageHref());
+        item.setName(entity.getBookName());
+        item.setImageHref(entity.getBookImageHref());
         return item;
     }
 }

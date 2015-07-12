@@ -12,7 +12,6 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
@@ -121,7 +120,7 @@ public class MineBookActivity extends AppCompatActivity {
                                     int position, long id) {
                 BookItem book = (BookItem) parent.getItemAtPosition(position);
                 Intent intent = new Intent(MineBookActivity.this, DetailActivity.class);
-                intent.putExtra(Constants.EXTRA_BOOK_ID, book.getBookId());
+                intent.putExtra(Constants.EXTRA_BOOK_ID, book.getId());
                 startActivity(intent);
             }
         });

@@ -44,14 +44,14 @@
         android:id="@+id/book_auther"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/book_print"
+        android:layout_above="@+id/book_press"
         android:layout_alignLeft="@id/book_name"
         android:layout_alignStart="@id/book_name"
         android:layout_marginBottom="@dimen/book_detail_space"
         tools:text="@string/test_book_author" />
 
     <TextView
-        android:id="@+id/book_print"
+        android:id="@+id/book_press"
         style="@style/BaseTextStyle.Medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

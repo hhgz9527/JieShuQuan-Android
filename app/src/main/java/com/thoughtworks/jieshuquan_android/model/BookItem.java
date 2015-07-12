@@ -2,31 +2,31 @@ package com.thoughtworks.jieshuquan_android.model;
 
 public class BookItem {
 
-    private String bookId;
-    private String bookName;
-    private String bookImageHref;
+    private String id;
+    private String name;
+    private String imageHref;
 
-    public String getBookId() {
-        return bookId;
+    public String getId() {
+        return id;
     }
 
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getBookImageHref() {
-        return bookImageHref;
+    public String getImageHref() {
+        return imageHref;
     }
 
-    public void setBookImageHref(String bookImageHref) {
-        this.bookImageHref = bookImageHref;
+    public void setImageHref(String imageHref) {
+        this.imageHref = imageHref;
     }
 
-    public String getBookName() {
-        return bookName;
+    public String getName() {
+        return name;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

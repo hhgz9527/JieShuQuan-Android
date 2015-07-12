@@ -4,13 +4,18 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.thoughtworks.jieshuquan_android.Constants;
 import com.thoughtworks.jieshuquan_android.R;
+import com.thoughtworks.jieshuquan_android.adapter.BookCommentsAdapter;
+import com.thoughtworks.jieshuquan_android.model.BookDetail;
+import com.thoughtworks.jieshuquan_android.viewholder.BookDetailViewHolder;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -26,8 +31,14 @@ public class DetailActivity extends AppCompatActivity {
     ProgressBar mCommentsProgressBar;
     @InjectView(R.id.book_comments_all_container)
     ViewGroup mCommentsContainer;
+    @InjectView(R.id.book_comments_list)
+    ListView mCommentsListView;
+
+    View mDetailHeaderView;
 
     private String mBookId;
+    private BookDetailViewHolder mBookDetailViewHolder;
+    private BookCommentsAdapter mBookCommentsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +52,29 @@ public class DetailActivity extends AppCompatActivity {
 
     private void initViews() {
         initToolbar();
+        mBookCommentsAdapter = new BookCommentsAdapter();
+        mCommentsListView.setAdapter(mBookCommentsAdapter);
+        mDetailHeaderView = LayoutInflater.from(this).inflate(R.layout.book_detail_header, mCommentsListView, false);
+        mCommentsListView.addHeaderView(mDetailHeaderView);
+        mBookDetailViewHolder = new BookDetailViewHolder(this, mDetailHeaderView, new BookDetailViewHolder.CallBack() {
+            @Override
+            public void onChangeState(String bookId) {
+
+            }
+
+            @Override
+            public void onDelete(String bookId) {
+
+            }
+        });
+        BookDetail book = new BookDetail();
+        book.setId(mBookId);
+        book.setImageHref("http:\\/\\/img3.douban.com\\/mpic\\/s6523000.jpg");
+        book.setAuther("ABC");
+        book.setName("算法导论");
+        book.setPress("机械工业出版社");
+        book.setAvailable(true);
+        mBookDetailViewHolder.populate(book);
     }
 
     private void initToolbar() {
@@ -56,16 +90,6 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-
-    }
-
-    @OnClick(R.id.tab_change_state)
-    void changeState() {
-
-    }
-
-    @OnClick(R.id.tab_delte)
-    void delete() {
 
     }
 
