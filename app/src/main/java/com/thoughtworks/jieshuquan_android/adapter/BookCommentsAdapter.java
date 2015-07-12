@@ -1,28 +1,58 @@
 package com.thoughtworks.jieshuquan_android.adapter;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.thoughtworks.jieshuquan_android.R;
+import com.thoughtworks.jieshuquan_android.model.CommentItem;
+import com.thoughtworks.jieshuquan_android.viewholder.CommentViewHolder;
+
+import java.util.List;
+
+import static com.google.common.collect.Lists.newArrayList;
+
 public class BookCommentsAdapter extends BaseAdapter {
+
+    private Context mContext;
+    private List<CommentItem> mCommentList;
+
+    public BookCommentsAdapter(Context context) {
+        this.mContext = context;
+        mCommentList = newArrayList();
+    }
 
     @Override
     public int getCount() {
-        return 0;
+        return mCommentList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return mCommentList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        CommentViewHolder holder = null;
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.comments_list_item, parent, false);
+            holder = new CommentViewHolder(mContext, convertView);
+            convertView.setTag(holder);
+        }
+        holder = (CommentViewHolder) convertView.getTag();
+        holder.populate((CommentItem) getItem(position));
+        return convertView;
+    }
+
+    public void setCommentList(List<CommentItem> commentList) {
+        this.mCommentList = commentList;
     }
 }

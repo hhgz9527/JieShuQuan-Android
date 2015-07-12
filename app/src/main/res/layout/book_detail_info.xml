@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/book_name"
-        style="@style/BaseTextStyle.Huge"
+        style="@style/BaseTextStyle.Huge.Black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/book_image"
@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/book_state"
-        style="@style/BaseTextStyle.Medium"
+        style="@style/BaseTextStyle.Medium.DkGrey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/book_name"
@@ -42,6 +42,7 @@
 
     <TextView
         android:id="@+id/book_auther"
+        style="@style/BaseTextStyle.Medium.DkGrey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/book_press"
@@ -52,7 +53,7 @@
 
     <TextView
         android:id="@+id/book_press"
-        style="@style/BaseTextStyle.Medium"
+        style="@style/BaseTextStyle.Medium.DkGrey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/book_image"

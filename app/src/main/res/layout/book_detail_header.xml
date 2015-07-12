@@ -26,7 +26,8 @@
                 android:drawableLeft="@drawable/ic_state"
                 android:drawablePadding="@dimen/book_detail_tab_space"
                 android:drawableStart="@drawable/ic_state"
-                android:text="@string/btn_change_state" />
+                android:text="@string/btn_change_state"
+                android:textColor="@color/color_dk_grey" />
         </FrameLayout>
 
         <View
@@ -52,7 +53,8 @@
                 android:drawableLeft="@drawable/ic_delete"
                 android:drawablePadding="@dimen/book_detail_tab_space"
                 android:drawableStart="@drawable/ic_delete"
-                android:text="@string/btn_delete" />
+                android:text="@string/btn_delete"
+                android:textColor="@color/color_dk_grey" />
         </FrameLayout>
     </RelativeLayout>
 

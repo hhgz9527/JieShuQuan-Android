@@ -124,6 +124,10 @@
         <item name="android:textSize">22sp</item>
     </style>
 
+    <style name="BaseTextStyle.Huge.Black">
+        <item name="android:textColor">@color/color_black</item>
+    </style>
+
     <style name="BaseTextStyle.Large">
         <item name="android:textSize">17sp</item>
     </style>
@@ -136,8 +140,16 @@
         <item name="android:textColor">@color/color_red</item>
     </style>
 
+    <style name="BaseTextStyle.Medium.DkGrey">
+        <item name="android:textColor">@color/color_dk_grey</item>
+    </style>
+
     <style name="BaseTextStyle.Small">
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="BaseTextStyle.Small.DkGrey">
+        <item name="android:textColor">@color/color_dk_grey</item>
     </style>
 
     <!--Login Activity-->
@@ -183,4 +195,17 @@
         <item name="android:padding">@dimen/book_image_padding</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
+
+    <style name="CommentUserName" parent="BaseTextStyle.Medium">
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/color_blue</item>
+    </style>
+
+    <style name="CommentUserContent" parent="BaseTextStyle.Small">
+        <item name="android:maxLines">4</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:textColor">@color/color_dk_grey</item>
+    </style>
+
 </resources>

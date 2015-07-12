@@ -6,4 +6,7 @@
     <string translatable="false" name="test_book_state">状态： 可借</string>
     <string translatable="false" name="test_book_press">出版社： 中信出版社</string>
     <string translatable="false" name="test_book_author">作者： Auther</string>
+    <string translatable="false" name="test_comment_user_name">\@UserName</string>
+    <string translatable="false" name="test_comment_time">2015-5-27 12:30</string>
+    <string translatable="false" name="test_comment_content">testtesttesttesttesttesttesttesttesttesttesttesttesttest</string>
 </resources>

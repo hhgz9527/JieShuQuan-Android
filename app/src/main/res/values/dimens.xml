@@ -45,5 +45,10 @@
     <dimen name="book_detail_padding_horizontal">10dp</dimen>
     <dimen name="book_detail_tab_height">24dp</dimen>
     <dimen name="book_detail_tab_space">4dp</dimen>
+    <dimen name="comment_padding_vertical">6dp</dimen>
+    <dimen name="comment_padding_horizontal">10dp</dimen>
+    <dimen name="comment_user_icon_size">32dp</dimen>
+    <dimen name="comment_item_space">8dp</dimen>
+    <dimen name="comment_content_margin_top">4dp</dimen>
 
 </resources>
