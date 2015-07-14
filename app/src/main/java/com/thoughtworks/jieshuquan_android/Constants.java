@@ -10,6 +10,7 @@ public interface Constants {
     public final String K_DOUBANBOOK_IMAGES = "images";
     public final String K_DOUBANBOOK_LARGE = "large";
     public final String K_DOUBANBOOK_DESCRIPTION = "summary";
+    public final String K_DOUBANBOOK_PUBLISHER = "publisher";
     public final int DEFAULT_COMMENTS_COUNTS = 20;
 
 
@@ -22,6 +23,7 @@ public interface Constants {
     public final String KBOOK_IMAGE_HREF = "bookImageHref";
     public final String KBOOK_BORROW_COUNT = "borrowCount";
     public final String KBOOK_DESCRIPTION = "bookDescription";
+    public final String KBOOK_PRESS = "bookPress";
 
 
 

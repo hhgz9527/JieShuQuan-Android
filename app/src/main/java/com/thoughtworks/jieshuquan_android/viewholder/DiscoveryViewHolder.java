@@ -54,7 +54,7 @@ public class DiscoveryViewHolder {
                     nameTextView.setText(user.getUsername());
                     AVFile file = user.getAVFile(Constants.KAVATAR);
                     String imageUrlString = file.getUrl();
-                    Glide.with(context).load(imageUrlString).into(iconImageView);
+                    Glide.with(context).load(imageUrlString).placeholder(R.drawable.avatar_placeholder).crossFade().into(iconImageView);
                 }
             }
         });

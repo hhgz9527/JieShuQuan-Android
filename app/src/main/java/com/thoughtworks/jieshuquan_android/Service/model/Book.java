@@ -52,16 +52,24 @@ public class Book extends AVObject {
     }
 
     public void setBorrowCount(int borrowCount) {
-        put(Constants.KBOOK_BORROW_COUNT,borrowCount);
+        put(Constants.KBOOK_BORROW_COUNT, borrowCount);
     }
 
-    public String getBookDescription(){
+    public String getBookDescription() {
         return getString(Constants.KBOOK_DESCRIPTION);
     }
+
     public void setBookDescription(String bookDescription) {
-        put(Constants.KBOOK_DESCRIPTION,bookDescription);
+        put(Constants.KBOOK_DESCRIPTION, bookDescription);
     }
 
+    public String getBookPress() {
+        return getString(Constants.KBOOK_PRESS);
+    }
+
+    public void setBookPress(String bookPress) {
+        put(Constants.KBOOK_PRESS, bookPress);
+    }
 
 
 }
