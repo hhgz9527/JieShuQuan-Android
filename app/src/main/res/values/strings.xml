@@ -24,6 +24,7 @@
     <string name="msg_error_get_isbn">get ISBN number error</string>
     <string name="msg_default_empty">It\'s empty now, let us got to add some book.</string>
     <string name="msg_error_password_should_same">the new password should same</string>
+    <string name="msg_error_need_thoughtworks_mail">please input a thoughtworks mail</string>
 
     <string name="msg_error_account_name">Email is not validate.</string>
     <string name="msg_error_account_pwd">Password is not validate.</string>
@@ -34,7 +35,7 @@
     <string name="tab_people">People</string>
     <string name="tab_mine">Mine</string>
 
-    <string name="common_name">Email</string>
+    <string name="common_name">ThoughtWorks Email</string>
     <string name="common_pwd">Password</string>
     <string name="common_confirm_pwd">Confirm Password</string>
     <string name="common_register">Register</string>

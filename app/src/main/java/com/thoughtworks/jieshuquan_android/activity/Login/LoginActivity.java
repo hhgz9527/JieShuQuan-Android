@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityLis
     @Override
     public void onBackPressed() {
         if (getFragmentManager().getBackStackEntryCount() <= 1) {
-            super.onBackPressed();
+            //super.onBackPressed();
         } else {
             getFragmentManager().popBackStackImmediate();
         }
@@ -44,8 +44,8 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityLis
     public void showRegisterFragment() {
         getFragmentManager().beginTransaction()
                 .setCustomAnimations(
-                        android.R.animator.fade_in, android.R.animator.fade_out,
-                        android.R.animator.fade_in, android.R.animator.fade_out)
+                        R.animator.slide_in_from_right,R.animator.slide_out_to_left,
+                        R.animator.slide_in_from_left, R.animator.slide_out_to_right)
                 .replace(R.id.login_container, new RegisterFragment())
                 .addToBackStack(null)
                 .commit();

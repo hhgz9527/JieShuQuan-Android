@@ -15,6 +15,7 @@ public interface Constants {
 
 
     // All key for AVOS
+    public final String KUSER_OFFICE = "office";
     public final String KAVATAR = "avatar";
     public final String KOBJECT_ID = "objectId";
 

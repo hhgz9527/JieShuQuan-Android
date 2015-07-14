@@ -29,12 +29,38 @@
         android:hint="@string/common_confirm_pwd"
         android:inputType="textPassword" />
 
+    <LinearLayout
+        android:id="@+id/linear_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/account_pwd_confirm"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/LoginEditText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/office_spinner"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="office:" />
+
+        <Spinner
+            android:id="@+id/office_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/discover_item_margin" />
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/register_btn"
         style="@style/Widget.JFQ.NormalButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/account_pwd_confirm"
+        android:layout_below="@id/linear_spinner"
         android:text="@string/common_register" />
 
 </RelativeLayout>
