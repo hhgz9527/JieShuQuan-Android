@@ -52,7 +52,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private void initViews() {
         initToolbar();
-        mBookCommentsAdapter = new BookCommentsAdapter();
+        mBookCommentsAdapter = new BookCommentsAdapter(this);
         mCommentsListView.setAdapter(mBookCommentsAdapter);
         mDetailHeaderView = LayoutInflater.from(this).inflate(R.layout.book_detail_header, mCommentsListView, false);
         mCommentsListView.addHeaderView(mDetailHeaderView);
