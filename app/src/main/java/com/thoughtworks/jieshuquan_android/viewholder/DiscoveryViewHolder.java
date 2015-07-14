@@ -1,6 +1,7 @@
 package com.thoughtworks.jieshuquan_android.viewholder;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -54,7 +55,11 @@ public class DiscoveryViewHolder {
                     nameTextView.setText(user.getUsername());
                     AVFile file = user.getAVFile(Constants.KAVATAR);
                     String imageUrlString = file.getUrl();
-                    Glide.with(context).load(imageUrlString).placeholder(R.drawable.avatar_placeholder).crossFade().into(iconImageView);
+                    if (imageUrlString.length() > 0) {
+                        Glide.with(context).load(imageUrlString).placeholder(R.drawable.avatar_placeholder).crossFade().into(iconImageView);
+                    } else {
+                        iconImageView.setImageResource(R.drawable.avatar_placeholder);
+                    }
                 }
             }
         });

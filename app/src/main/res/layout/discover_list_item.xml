@@ -15,7 +15,7 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:scaleType="fitCenter"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/avatar_placeholder" />
 
     <RelativeLayout
         android:id="@+id/headerLinear"
