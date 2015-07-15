@@ -26,8 +26,8 @@ import com.thoughtworks.jieshuquan_android.activity.main.discover.DiscoverFragme
 import com.thoughtworks.jieshuquan_android.activity.main.mates.PeopleFragment;
 import com.thoughtworks.jieshuquan_android.activity.main.mine.MineFragment;
 import com.thoughtworks.jieshuquan_android.view.TabBar;
-import com.thoughtworks.jieshuquan_android.activity.logins.LoginActivity;
-import com.thoughtworks.jieshuquan_android.activity.logins.LoginFragment;
+import com.thoughtworks.jieshuquan_android.activity.login.LoginActivity;
+import com.thoughtworks.jieshuquan_android.activity.login.LoginFragment;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

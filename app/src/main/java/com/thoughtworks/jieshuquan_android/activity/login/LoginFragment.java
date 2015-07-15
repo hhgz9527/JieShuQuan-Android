@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.activity.logins;
+package com.thoughtworks.jieshuquan_android.activity.login;
 
 import android.app.Activity;
 import android.app.Fragment;
