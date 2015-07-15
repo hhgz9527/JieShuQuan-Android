@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.login.LoginActivity"
+            android:name=".activity.logins.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.JFQ.Login" />
         <activity

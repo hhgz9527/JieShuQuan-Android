@@ -1,7 +1,6 @@
-package com.thoughtworks.jieshuquan_android.activity.login;
+package com.thoughtworks.jieshuquan_android.activity.logins;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan_android.activity.login;
+package com.thoughtworks.jieshuquan_android.activity.logins;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
