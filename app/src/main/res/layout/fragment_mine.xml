@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:descendantFocusability="blocksDescendants"
-    tools:context="com.thoughtworks.jieshuquan.fragments.MineFragment">
+    tools:context="com.thoughtworks.jieshuquan.fragment.MineFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

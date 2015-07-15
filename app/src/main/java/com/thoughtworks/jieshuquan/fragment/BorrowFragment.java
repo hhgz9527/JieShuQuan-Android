@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.fragments;
+package com.thoughtworks.jieshuquan.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -22,7 +22,7 @@ import com.avos.avoscloud.FindCallback;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.interfaces.MainActivityListener;
+import com.thoughtworks.jieshuquan.listener.MainActivityListener;
 import com.thoughtworks.jieshuquan.adapter.BooksAdapter;
 import com.thoughtworks.jieshuquan.converter.BookItemConverter;
 import com.thoughtworks.jieshuquan.model.BookItem;

@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
 import com.avos.avoscloud.AVOSCloud;
-import com.thoughtworks.jieshuquan.activities.MainActivity;
+import com.thoughtworks.jieshuquan.activity.MainActivity;
 
 import org.json.JSONObject;
 

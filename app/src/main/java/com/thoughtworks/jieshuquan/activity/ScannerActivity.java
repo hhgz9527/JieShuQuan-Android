@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.activities;
+package com.thoughtworks.jieshuquan.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

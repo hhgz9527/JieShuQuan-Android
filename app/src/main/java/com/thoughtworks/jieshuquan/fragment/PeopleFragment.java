@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.fragments;
+package com.thoughtworks.jieshuquan.fragment;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.interfaces.MainActivityListener;
+import com.thoughtworks.jieshuquan.listener.MainActivityListener;
 
 /**
  * A simple {@link Fragment} subclass.

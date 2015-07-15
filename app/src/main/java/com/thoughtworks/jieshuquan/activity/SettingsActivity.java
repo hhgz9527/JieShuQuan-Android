@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.activities;
+package com.thoughtworks.jieshuquan.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.fragments.SettingsFragment;
+import com.thoughtworks.jieshuquan.fragment.SettingsFragment;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

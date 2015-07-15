@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.fragments;
+package com.thoughtworks.jieshuquan.fragment;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;

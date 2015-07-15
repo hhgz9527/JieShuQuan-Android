@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.fragments;
+package com.thoughtworks.jieshuquan.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.interfaces.MainActivityListener;
-import com.thoughtworks.jieshuquan.activities.MineBookActivity;
-import com.thoughtworks.jieshuquan.activities.SettingsActivity;
+import com.thoughtworks.jieshuquan.listener.MainActivityListener;
+import com.thoughtworks.jieshuquan.activity.MineBookActivity;
+import com.thoughtworks.jieshuquan.activity.SettingsActivity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

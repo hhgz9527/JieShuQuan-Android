@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.activities;
+package com.thoughtworks.jieshuquan.activity;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -18,11 +18,11 @@ import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.PushService;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.interfaces.MainActivityListener;
-import com.thoughtworks.jieshuquan.fragments.BorrowFragment;
-import com.thoughtworks.jieshuquan.fragments.DiscoverFragment;
-import com.thoughtworks.jieshuquan.fragments.PeopleFragment;
-import com.thoughtworks.jieshuquan.fragments.MineFragment;
+import com.thoughtworks.jieshuquan.listener.MainActivityListener;
+import com.thoughtworks.jieshuquan.fragment.BorrowFragment;
+import com.thoughtworks.jieshuquan.fragment.DiscoverFragment;
+import com.thoughtworks.jieshuquan.fragment.PeopleFragment;
+import com.thoughtworks.jieshuquan.fragment.MineFragment;
 import com.thoughtworks.jieshuquan.view.TabBar;
 import com.thoughtworks.jieshuquan.login.LoginActivity;
 import com.thoughtworks.jieshuquan.login.LoginFragment;

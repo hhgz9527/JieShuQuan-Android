@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.JFQ">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name">
             // 声明为 spring board的入口点
             <intent-filter>
@@ -34,16 +34,16 @@
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.JFQ.Login" />
         <activity
-            android:name=".activities.ScannerActivity"
+            android:name=".activity.ScannerActivity"
             android:label="@string/title_activity_scanner" />
         <activity
-            android:name=".activities.AddBookToLibraryActivity"
+            android:name=".activity.AddBookToLibraryActivity"
             android:label="@string/title_activity_add_book_to_library" />
         <activity
-            android:name=".activities.SettingsActivity"
+            android:name=".activity.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".activities.MineBookActivity"
+            android:name=".activity.MineBookActivity"
             android:label="@string/title_activity_mine_books" />
 
         <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
@@ -65,24 +65,24 @@
         </receiver>
 
         <activity
-            android:name=".activities.SendTwitterActivity"
+            android:name=".activity.SendTwitterActivity"
             android:label="@string/title_activity_send_twitter"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.DetailActivity"
+            android:name=".activity.DetailActivity"
             android:label="@string/title_activity_detail" >
         </activity>
         <activity
-            android:name=".activities.PopularActivity"
+            android:name=".activity.PopularActivity"
             android:label="@string/title_activity_popular"
-            android:parentActivityName=".activities.MainActivity" >
+            android:parentActivityName=".activity.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
     </application>
 

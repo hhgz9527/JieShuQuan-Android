@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.activities;
+package com.thoughtworks.jieshuquan.activity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;

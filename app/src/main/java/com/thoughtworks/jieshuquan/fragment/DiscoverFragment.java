@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.fragments;
+package com.thoughtworks.jieshuquan.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -18,7 +18,7 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.interfaces.MainActivityListener;
+import com.thoughtworks.jieshuquan.listener.MainActivityListener;
 import com.thoughtworks.jieshuquan.adapter.DiscoverAdapter;
 
 import java.util.List;
