@@ -3,7 +3,6 @@ package com.thoughtworks.jieshuquan.activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -18,19 +17,19 @@ import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.PushService;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.listener.MainActivityListener;
 import com.thoughtworks.jieshuquan.fragment.BorrowFragment;
 import com.thoughtworks.jieshuquan.fragment.DiscoverFragment;
-import com.thoughtworks.jieshuquan.fragment.PeopleFragment;
+import com.thoughtworks.jieshuquan.fragment.FragmentCallbacks;
 import com.thoughtworks.jieshuquan.fragment.MineFragment;
-import com.thoughtworks.jieshuquan.view.TabBar;
+import com.thoughtworks.jieshuquan.fragment.PeopleFragment;
 import com.thoughtworks.jieshuquan.login.LoginActivity;
 import com.thoughtworks.jieshuquan.login.LoginFragment;
+import com.thoughtworks.jieshuquan.view.TabBar;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class MainActivity extends AppCompatActivity implements MainActivityListener {
+public class MainActivity extends AppCompatActivity implements FragmentCallbacks {
 
     public static final String TAG = MainActivity.class.getSimpleName();
     private long exitTime = 0;
@@ -120,11 +119,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityListe
             finish();
             System.exit(0);
         }
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 
     @Override

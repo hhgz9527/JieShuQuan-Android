@@ -2,7 +2,6 @@ package com.thoughtworks.jieshuquan.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,7 +21,6 @@ import com.avos.avoscloud.FindCallback;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.listener.MainActivityListener;
 import com.thoughtworks.jieshuquan.adapter.BooksAdapter;
 import com.thoughtworks.jieshuquan.converter.BookItemConverter;
 import com.thoughtworks.jieshuquan.model.BookItem;
@@ -51,7 +49,7 @@ public class BorrowFragment extends Fragment {
     @InjectView(R.id.topContainer)
     View topContainer;
 
-    private MainActivityListener mListener;
+    private FragmentCallbacks mListener;
     private BooksAdapter mBorrowBooksAdapter;
 
     public static BorrowFragment newInstance() {
@@ -142,18 +140,11 @@ public class BorrowFragment extends Fragment {
         initData();
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (MainActivityListener) activity;
+            mListener = (FragmentCallbacks) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement MainActivityListener");

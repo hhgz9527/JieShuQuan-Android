@@ -2,7 +2,6 @@ package com.thoughtworks.jieshuquan.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.listener.MainActivityListener;
 import com.thoughtworks.jieshuquan.activity.MineBookActivity;
 import com.thoughtworks.jieshuquan.activity.SettingsActivity;
 
@@ -36,7 +34,7 @@ public class MineFragment extends Fragment {
     private String mUserName;
     private String mParam2;
 
-    private MainActivityListener mListener;
+    private FragmentCallbacks mListener;
 
     public static MineFragment newInstance(String param1, String param2) {
         MineFragment fragment = new MineFragment();
@@ -55,7 +53,7 @@ public class MineFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (MainActivityListener) activity;
+            mListener = (FragmentCallbacks) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement MainActivityListener");
@@ -84,13 +82,6 @@ public class MineFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     private void initHead() {

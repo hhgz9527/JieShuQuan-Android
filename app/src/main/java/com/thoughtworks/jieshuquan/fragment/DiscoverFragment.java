@@ -2,7 +2,6 @@ package com.thoughtworks.jieshuquan.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.listener.MainActivityListener;
 import com.thoughtworks.jieshuquan.adapter.DiscoverAdapter;
 
 import java.util.List;
@@ -32,7 +30,7 @@ import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 public class DiscoverFragment extends Fragment {
 
-    private MainActivityListener mListener;
+    private FragmentCallbacks mListener;
     private DiscoverAdapter mAdapter;
     private PullToRefreshLayout mPullToRefreshLayout;
 
@@ -105,7 +103,7 @@ public class DiscoverFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (MainActivityListener) activity;
+            mListener = (FragmentCallbacks) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement MainActivityListener");
@@ -133,12 +131,6 @@ public class DiscoverFragment extends Fragment {
                 }
             }
         });
-    }
-
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
 

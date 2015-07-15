@@ -1,7 +1,6 @@
 package com.thoughtworks.jieshuquan.fragment;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.listener.MainActivityListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +27,7 @@ public class PeopleFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private MainActivityListener mListener;
+    private FragmentCallbacks mListener;
 
     /**
      * Use this factory method to create a new instance of
@@ -69,18 +67,11 @@ public class PeopleFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_people, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (MainActivityListener) activity;
+            mListener = (FragmentCallbacks) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement MainActivityListener");
