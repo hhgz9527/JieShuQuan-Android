@@ -6,7 +6,7 @@
 
     <include layout="@layout/toolbar" />
 
-    <com.thoughtworks.jieshuquan_android.view.TabBar
+    <com.thoughtworks.jieshuquan.view.TabBar
         android:id="@+id/tab_bar"
         android:layout_width="match_parent"
         android:layout_height="60dp"

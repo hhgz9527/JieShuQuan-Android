@@ -6,7 +6,7 @@
     android:background="@color/tab_bar_background"
     android:orientation="horizontal"
     android:paddingBottom="3dp"
-    tools:context="com.thoughtworks.jieshuquan_android.view.TabBar">
+    tools:context="com.thoughtworks.jieshuquan.view.TabBar">
 
     <TextView
         android:layout_width="0dp"
