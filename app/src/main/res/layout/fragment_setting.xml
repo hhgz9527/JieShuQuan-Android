@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/SectionContainer">
+
+            <TextView
+                android:id="@+id/feedback"
+                style="@style/ListItemTitle"
+                android:text="@string/submit_feedback" />
+
+            <TextView
+                android:id="@+id/modify_nickname"
+                style="@style/ListItemTitle"
+                android:text="@string/modify_nickname" />
+
+            <TextView
+                android:id="@+id/modify_password"
+                style="@style/ListItemTitle"
+                android:text="@string/modify_password" />
+        </LinearLayout>
+
+        <Button
+            style="@style/Button"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:background="@color/color_dk_grey"
+            android:textColor="@color/color_red"
+            android:text="@string/exit" />
+    </LinearLayout>
+</ScrollView>

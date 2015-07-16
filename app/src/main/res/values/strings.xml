@@ -76,5 +76,9 @@
 
     <string name="state_available">Available</string>
     <string name="state_disable">Disable</string>
+    <string name="submit_feedback">提交反馈</string>
+    <string name="modify_nickname">修改昵称</string>
+    <string name="modify_password">修改密码</string>
+    <string name="exit">退出</string>
 
 </resources>

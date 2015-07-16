@@ -2,19 +2,20 @@ package com.thoughtworks.jieshuquan.fragment;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.thoughtworks.jieshuquan.BuildConfig;
 import com.thoughtworks.jieshuquan.R;
 
-public class SettingsFragment extends PreferenceFragment {
+public class SettingsFragment extends BaseFragment {
 
-    private static final String PREF_VERSION = "version";
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.settings);
-
-        findPreference(PREF_VERSION).setSummary(BuildConfig.VERSION_NAME);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_setting, container, false);
+        return rootView;
     }
 }
