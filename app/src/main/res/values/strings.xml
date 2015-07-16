@@ -79,6 +79,6 @@
     <string name="submit_feedback">提交反馈</string>
     <string name="modify_nickname">修改昵称</string>
     <string name="modify_password">修改密码</string>
-    <string name="exit">退出</string>
+    <string name="logout">退出</string>
 
 </resources>
