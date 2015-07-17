@@ -6,7 +6,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="@dimen/top_books_view_height"
         android:scaleType="fitXY"
         android:src="@drawable/book_top" />
 </LinearLayout>

@@ -19,8 +19,12 @@
         android:id="@+id/book_name"
         style="@style/BaseTextStyle.Medium.DkGrey"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/book_item_label_height"
+        android:layout_marginLeft="@dimen/book_item_margin"
+        android:layout_marginRight="@dimen/book_item_margin"
         android:gravity="center_horizontal"
-        tools:text="@string/test_book_name" />
+        android:maxLines="2"
+        android:singleLine="false"
+        tools:text="Android权威编程与新方法实践" />
 
 </LinearLayout>
