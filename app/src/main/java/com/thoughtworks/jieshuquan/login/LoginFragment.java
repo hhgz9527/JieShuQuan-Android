@@ -17,6 +17,7 @@ import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
+import com.thoughtworks.jieshuquan.activity.MainActivity;
 import com.thoughtworks.jieshuquan.service.AuthService;
 
 import butterknife.ButterKnife;
@@ -40,6 +41,7 @@ public class LoginFragment extends Fragment {
         fragment.setArguments(new Bundle());
         return fragment;
     }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -60,28 +62,23 @@ public class LoginFragment extends Fragment {
     @OnClick(R.id.login_btn)
     void login() {
         String nameString = accountName.getText().toString();
-        if (TextUtils.isEmpty(nameString)) {
-            accountName.setError(getString(R.string.msg_error_account_name));
-            return;
-        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(nameString).matches()) {
+        if (TextUtils.isEmpty(nameString) || !android.util.Patterns.EMAIL_ADDRESS.matcher(nameString).matches()) {
             accountName.setError(getString(R.string.msg_error_account_name));
             return;
         }
+
         String pwdString = accountPwd.getText().toString();
         if (TextUtils.isEmpty(pwdString)) {
             accountPwd.setError(getString(R.string.msg_error_account_pwd));
             return;
         }
 
-        AuthService auther = AuthService.getInstance();
-        auther.login(nameString, pwdString, new LogInCallback() {
+        AuthService.getInstance().login(nameString, pwdString, new LogInCallback() {
             public void done(AVUser user, AVException e) {
                 if (user != null) {
                     LoginFragment.this.showErrorToast(getString(R.string.msg_login_success));
-                    Intent intent = new Intent();
-                    intent.putExtra(Constants.KSUCCESS, true);
-                    getActivity().setResult(Constants.LOGIN_ACTIVITY_RESULT_TAG, intent);
-                    getActivity().finish();
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    getActivity().startActivity(intent);
                 } else {
                     LoginFragment.this.showErrorToast(e.toString());
                 }
@@ -91,12 +88,16 @@ public class LoginFragment extends Fragment {
 
     @OnClick(R.id.forget_btn)
     void showForgetPwdFragment() {
-        mCallback.showForgetPwdFragment();
+        if(mCallback != null) {
+            mCallback.showForgetPwdFragment();
+        }
     }
 
     @OnClick(R.id.register_btn)
     void showRegisterFragment() {
-        mCallback.showRegisterFragment();
+        if(mCallback != null) {
+            mCallback.showRegisterFragment();
+        }
     }
 
     private void showErrorToast(String errorMessage) {

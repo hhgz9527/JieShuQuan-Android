@@ -1,5 +1,6 @@
 package com.thoughtworks.jieshuquan.login;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -22,29 +23,18 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityLis
     }
 
     @Override
-    public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() <= 1) {
-            //super.onBackPressed();
-        } else {
-            getFragmentManager().popBackStackImmediate();
-        }
-    }
-
-    @Override
     public void showLoginFragment() {
-        getFragmentManager().popBackStack(LoginFragment.TAG, 0);
-        if (getFragmentManager().getBackStackEntryCount() == 0) {
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.login_container, new LoginFragment())
-                    .addToBackStack(LoginFragment.TAG).commit();
-        }
+        getFragmentManager().beginTransaction()
+                .replace(R.id.login_container, new LoginFragment())
+                .commit();
+
     }
 
     @Override
     public void showRegisterFragment() {
         getFragmentManager().beginTransaction()
                 .setCustomAnimations(
-                        R.animator.slide_in_from_right,R.animator.slide_out_to_left,
+                        R.animator.slide_in_from_right, R.animator.slide_out_to_left,
                         R.animator.slide_in_from_left, R.animator.slide_out_to_right)
                 .replace(R.id.login_container, new RegisterFragment())
                 .addToBackStack(null)
@@ -55,10 +45,20 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityLis
     public void showForgetPwdFragment() {
         getFragmentManager().beginTransaction()
                 .setCustomAnimations(
-                        R.animator.slide_in_from_right,R.animator.slide_out_to_left,
+                        R.animator.slide_in_from_right, R.animator.slide_out_to_left,
                         R.animator.slide_in_from_left, R.animator.slide_out_to_right)
                 .replace(R.id.login_container, new ForgetPwdFragment())
                 .addToBackStack(null)
                 .commit();
     }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            super.onBackPressed();
+        } else {
+            getFragmentManager().popBackStack();
+        }
+    }
+
 }
