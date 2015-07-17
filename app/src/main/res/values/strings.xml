@@ -43,7 +43,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_scanner">ScannerActivity</string>
-    <string name="title_activity_add_book_to_library">AddBookToLibraryActivity</string>
+    <string name="title_activity_add_book_to_library">Add Book</string>
 
     <!--Mine Fragment-->
     <string name="mine_list_my_books">My books</string>
@@ -79,6 +79,6 @@
     <string name="submit_feedback">提交反馈</string>
     <string name="modify_nickname">修改昵称</string>
     <string name="modify_password">修改密码</string>
-    <string name="exit">退出</string>
+    <string name="logout">注销登录</string>
 
 </resources>

@@ -27,10 +27,11 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/logout"
             style="@style/Button"
             android:layout_marginTop="@dimen/normal_margin"
-            android:background="@color/color_dk_grey"
-            android:textColor="@color/color_red"
-            android:text="@string/exit" />
+            android:background="@drawable/logout_bg_selector"
+            android:text="@string/logout"
+            android:textColor="@color/color_red" />
     </LinearLayout>
 </ScrollView>

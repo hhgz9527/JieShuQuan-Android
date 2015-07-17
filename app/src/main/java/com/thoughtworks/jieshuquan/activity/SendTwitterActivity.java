@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -34,6 +35,13 @@ public class SendTwitterActivity extends AppCompatActivity {
         ButterKnife.inject(this);
         setSupportActionBar(mToolbar);
         mToolbar.setTitle(R.string.send_message);
+        mToolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendTwitterActivity.this.finish();
+            }
+        });
         mToolbar.setOnMenuItemClickListener(onMenuItemClick);
     }
 

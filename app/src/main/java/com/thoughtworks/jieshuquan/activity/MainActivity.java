@@ -127,7 +127,6 @@ public class MainActivity extends AppCompatActivity implements FragmentCallbacks
         startActivityForResult(showPopularBook, Constants.POPULAR_ACTIVITY_RESULT_TAG);
     }
 
-
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
         private static final int PAGE_SEARCH = 0;
