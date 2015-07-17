@@ -7,20 +7,21 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.service.model.Book;
+import com.thoughtworks.jieshuquan.service.model.BookEntity;
 import com.thoughtworks.jieshuquan.viewholder.BookEntityItemHolder;
-import com.thoughtworks.jieshuquan.viewholder.BookItemHolder;
 
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-public class BooksAdapter extends BaseAdapter {
-
+/**
+ * Created by leihuang on 7/17/15.
+ */
+public class BookEntitysAdapter extends BaseAdapter {
     private Context mContext;
-    private List<Book> mBookList;
+    private List<BookEntity> mBookList;
 
-    public BooksAdapter(Context c) {
+    public BookEntitysAdapter(Context c) {
         mContext = c;
         mBookList = newArrayList();
     }
@@ -39,18 +40,18 @@ public class BooksAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        BookItemHolder holder = null;
+        BookEntityItemHolder holder = null;
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.book_item, parent, false);
-            holder = new BookItemHolder(mContext, convertView);
+            holder = new BookEntityItemHolder(mContext, convertView);
             convertView.setTag(holder);
         }
-        Book book = mBookList.get(position);
-        ((BookItemHolder)convertView.getTag()).populate(book);
+        BookEntity bookEntity = mBookList.get(position);
+        ((BookEntityItemHolder)convertView.getTag()).populate(bookEntity);
         return convertView;
     }
 
-    public void setBookList(List<Book>  bookList) {
+    public void setBookList(List<BookEntity>  bookList) {
         this.mBookList = bookList;
     }
 

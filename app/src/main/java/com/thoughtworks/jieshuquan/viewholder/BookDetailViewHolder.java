@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.model.BookDetail;
+import com.thoughtworks.jieshuquan.service.model.Book;
 
 import java.util.Locale;
 
@@ -51,15 +51,15 @@ public class BookDetailViewHolder {
         ButterKnife.inject(this, view);
     }
 
-    public void populate(BookDetail book) {
-        Glide.with(mContext).load(book.getImageHref())
+    public void populate(Book book) {
+        Glide.with(mContext).load(book.getBookImageHref())
                 .placeholder(R.drawable.book_placeholder).crossFade().into(mBookImage);
-        mBookName.setText(book.getName());
+        mBookName.setText(book.getBookName());
         final String autherFmt = mContext.getString(R.string.book_detail_author_fmt);
-        mBookAuther.setText(String.format(Locale.US, autherFmt, book.getAuther()));
+        mBookAuther.setText(String.format(Locale.US, autherFmt, book.getBookAuthor()));
         final String pressFmt = mContext.getString(R.string.book_detail_press_fmt);
-        mBookPress.setText(String.format(Locale.US, pressFmt, book.getPress()));
-        populateState(book.getId(), book.isAvailable());
+        mBookPress.setText(String.format(Locale.US, pressFmt, book.getBookPress()));
+        populateState("111111111", true);
     }
 
     private void populateState(final String bookId, final boolean available) {
