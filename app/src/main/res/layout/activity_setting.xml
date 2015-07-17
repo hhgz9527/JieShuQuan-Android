@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <FrameLayout
-        android:id="@+id/main_fragment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?android:actionBarSize"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
+        <include layout="@layout/toolbar" />
 
-</RelativeLayout>
+        <LinearLayout style="@style/SectionContainer">
+
+            <TextView
+                android:id="@+id/modify_nickname"
+                style="@style/ListItemTitle"
+                android:text="@string/modify_nickname" />
+
+            <TextView
+                android:id="@+id/modify_password"
+                style="@style/ListItemTitle"
+                android:text="@string/modify_password" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/SectionContainer"
+            android:layout_marginTop="@dimen/mine_list_setting_margin">
+
+            <TextView
+                android:id="@+id/feedback"
+                style="@style/ListItemTitle"
+                android:text="@string/submit_feedback" />
+
+            <TextView
+                android:id="@+id/special_thanks"
+                style="@style/ListItemTitle"
+                android:text="@string/specail_thanks" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/logout"
+            style="@style/Button"
+            android:layout_marginTop="@dimen/mine_list_setting_margin"
+            android:background="@drawable/logout_bg_selector"
+            android:text="@string/logout"
+            android:textColor="@color/color_red" />
+    </LinearLayout>
+
+
+</ScrollView>

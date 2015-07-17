@@ -17,6 +17,8 @@ import com.thoughtworks.jieshuquan.service.model.Discover;
  */
 public class JieShuQuanApplication extends Application {
 
+    private static JieShuQuanApplication instance;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -37,7 +39,10 @@ public class JieShuQuanApplication extends Application {
         Log.v("Application", "getCurrentInstallation  " + installationId);
         AVInstallation.getCurrentInstallation().saveInBackground();
 
+        instance = this;
     }
 
-
+    public static JieShuQuanApplication getInstance() {
+        return instance;
+    }
 }

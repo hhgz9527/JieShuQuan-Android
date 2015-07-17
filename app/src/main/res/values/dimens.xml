@@ -31,11 +31,10 @@
     <dimen name="discover_item_margin">4dp</dimen>
 
     <!--Book Item-->
-    <dimen name="book_item_width">110dp</dimen>
-    <dimen name="book_image_width">110dp</dimen>
-    <dimen name="book_image_height">160dp</dimen>
+    <dimen name="book_image_width">105dp</dimen>
+    <dimen name="book_image_height">150dp</dimen>
     <dimen name="book_image_padding">8dp</dimen>
-    <dimen name="book_name_margin">8dp</dimen>
+    <dimen name="book_item_margin">5dp</dimen>
 
     <!--Book Grid View-->
     <dimen name="book_grid_space">10dp</dimen>
@@ -60,6 +59,10 @@
     <dimen name="button_text_size">18sp</dimen>
 
     <dimen name="text_padding_defalut">10dip</dimen>
-    <dimen name="list_item_text_size">18sp</dimen>
+
+    <dimen name="list_item_text_size">16sp</dimen>
+
+    <dimen name="book_item_label_height">34dp</dimen>
+    <dimen name="top_books_view_height">150dp</dimen>
 
 </resources>

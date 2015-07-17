@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.PushService;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
@@ -85,13 +84,8 @@ public class MainActivity extends AppCompatActivity implements FragmentCallbacks
             }
         });
 
-        if (AVUser.getCurrentUser() == null) {
-            //need login
-            showLoginActivity();
-        } else {
-            // rigster push service for main activity
-            this.registerPushService();
-        }
+        // rigster push service for main activity
+        this.registerPushService();
     }
 
 

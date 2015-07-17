@@ -80,5 +80,9 @@
     <string name="modify_nickname">修改昵称</string>
     <string name="modify_password">修改密码</string>
     <string name="logout">注销登录</string>
+    <string name="choose_avatar">选择头像</string>
+    <string name="choose_avatar_from_gallery">从相册里选择</string>
+    <string name="choose_avatar_from_camera">使用相机拍照</string>
+    <string name="specail_thanks">特别感谢</string>
 
 </resources>

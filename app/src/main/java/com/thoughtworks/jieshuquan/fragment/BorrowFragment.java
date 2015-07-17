@@ -3,8 +3,8 @@ package com.thoughtworks.jieshuquan.fragment;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
@@ -29,26 +27,21 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnClick;
+import in.srain.cube.views.GridViewWithHeaderAndFooter;
 
 import static com.google.common.collect.FluentIterable.from;
 
-public class BorrowFragment extends Fragment {
-
-    @InjectView(R.id.books_grid_view)
-    GridView mGridView;
-    @InjectView(R.id.loading_view)
-    ViewGroup mLoadingView;
-    @InjectView(R.id.info_view)
-    ViewGroup mInfoView;
-    @InjectView(R.id.info_text)
-    TextView mInfoText;
-
-    @InjectView(R.id.topContainer)
-    View topContainer;
+public class BorrowFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private FragmentCallbacks mListener;
+
     private BooksAdapter mBorrowBooksAdapter;
+
+    @InjectView(R.id.books_grid_view)
+    GridViewWithHeaderAndFooter booksGridView;
+
+    @InjectView(R.id.activity_main_swipe_refresh_layout)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     public static BorrowFragment newInstance() {
         BorrowFragment fragment = new BorrowFragment();
@@ -70,21 +63,24 @@ public class BorrowFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_borrow, container, false);
         ButterKnife.inject(this, view);
+
         initViews();
         return view;
     }
 
     private void initViews() {
         mBorrowBooksAdapter = new BooksAdapter(this.getActivity());
-        mGridView.setAdapter(mBorrowBooksAdapter);
-        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        booksGridView.addHeaderView(getTopBooksView());
+        booksGridView.setAdapter(mBorrowBooksAdapter);
+        booksGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 Toast.makeText(parent.getContext(), "" + position,
                         Toast.LENGTH_SHORT).show();
             }
         });
-        mGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
+        booksGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
 
@@ -101,28 +97,42 @@ public class BorrowFragment extends Fragment {
                 }
             }
         });
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(R.color.orange, R.color.green, R.color.blue);
         showLoadingView();
     }
 
+    private View getTopBooksView() {
+        View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.top_books_layout, null);
+        headerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.showPopularBook();
+            }
+        });
+        return headerView;
+    }
+
     private void showLoadingView() {
-        mLoadingView.setVisibility(View.VISIBLE);
-        mGridView.setVisibility(View.GONE);
-        mInfoView.setVisibility(View.GONE);
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(true);
+            }
+        });
     }
 
     private void showContentView() {
-        mGridView.setVisibility(View.VISIBLE);
-        mLoadingView.setVisibility(View.GONE);
-        mInfoView.setVisibility(View.GONE);
+
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     private void showInfoView(String textInfo) {
-        if (!TextUtils.isEmpty(textInfo)) {
-            mInfoText.setText(textInfo);
-        }
-        mInfoView.setVisibility(View.VISIBLE);
-        mLoadingView.setVisibility(View.GONE);
-        mGridView.setVisibility(View.GONE);
+//        if (!TextUtils.isEmpty(textInfo)) {
+//            mInfoText.setText(textInfo);
+//        }
+        swipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -163,7 +173,7 @@ public class BorrowFragment extends Fragment {
                     showContentView();
                     mBorrowBooksAdapter.setBookList(list);
                     mBorrowBooksAdapter.notifyDataSetChanged();
-                } else if (list.size() == 0) {
+                } else if (list != null && list.size() == 0) {
                     showInfoView(getString(R.string.msg_default_empty));
                 } else if (e != null) {
                     showInfoView(e.getMessage());
@@ -172,11 +182,10 @@ public class BorrowFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.topContainer)
-    public void onTopContainerClicked(View view) {
-        Log.d(this.getClass().getName(), "onTopContainer");
-        mListener.showPopularBook();
-    }
+    @Override
+    public void onRefresh() {
 
+        initData();
+    }
 }
 

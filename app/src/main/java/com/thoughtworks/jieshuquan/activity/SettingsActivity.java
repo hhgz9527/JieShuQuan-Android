@@ -1,15 +1,18 @@
 package com.thoughtworks.jieshuquan.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.fragment.SettingsFragment;
+import com.thoughtworks.jieshuquan.login.LoginActivity;
+import com.thoughtworks.jieshuquan.service.AuthService;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 
 public class SettingsActivity extends AppCompatActivity {
@@ -22,11 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         ButterKnife.inject(this);
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction().add(R.id.main_fragment, new SettingsFragment()).commit();
-        }
 
-        overridePendingTransition(0, 0);
         initToolbar();
     }
 
@@ -40,5 +39,15 @@ public class SettingsActivity extends AppCompatActivity {
                 SettingsActivity.this.finish();
             }
         });
+    }
+
+    @OnClick(R.id.logout)
+    public void onLogoutClick() {
+        AuthService.getInstance().logout();
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 }
