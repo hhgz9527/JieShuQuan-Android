@@ -1,60 +1,5 @@
 <resources>
 
-    <!-- Root styles that vary by API level -->
-    <!-- Disable RTL support on older devices -->
-    <!-- Prevents crash on certain devices to namespace conflict -->
-    <style name="FrameworkRoot.Theme" parent="Theme.AppCompat.Light.NoActionBar" />
-
-    <style name="FrameworkRoot.Widget" parent="Theme.AppCompat" />
-
-    <!-- Immediate parent theme to specify base values for custom attributes -->
-    <style name="Theme" parent="FrameworkRoot.Theme">
-
-    </style>
-
-    <style name="Theme.JFQ.Base" parent="Theme">
-        <item name="actionBarIconColor">#fff</item>
-        <item name="actionBarInsetStart">@dimen/keyline_2</item>
-        <item name="homeAsUpIndicator">@drawable/ic_up</item>
-        <item name="popupItemBackground">?android:selectableItemBackground</item>
-
-        <item name="colorPrimary">@color/theme_primary</item>
-        <item name="colorPrimaryDark">@color/theme_primary_dark</item>
-        <item name="colorAccent">@color/theme_primary_dark</item>
-        <item name="colorControlNormal">@color/color_dk_grey</item>
-
-        <item name="android:textColorLink">@color/theme_primary_dark</item>
-
-        <item name="windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
-
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:homeAsUpIndicator">@drawable/ic_up</item>
-
-        <item name="android:popupMenuStyle">@style/Widget.JFQ.PopupMenu</item>
-        <item name="android:listPopupWindowStyle">@style/Widget.JFQ.PopupMenu</item>
-        <item name="android:dropDownListViewStyle">@style/Widget.JFQ.ListView.DropDown</item>
-        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu
-        </item>
-
-        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
-        <item name="dialogTheme">@style/DialogTheme</item>
-
-        <item name="searchViewStyle">@style/Widget.JFQ.SearchView</item>
-    </style>
-
-    <style name="Theme.JFQ" parent="Theme.JFQ.Base" />
-
-    <style name="Theme.JFQ.WithNavDrawer" parent="Theme.JFQ" />
-
-    <style name="Theme.JFQ.Widget" parent="FrameworkRoot.Widget">
-        <item name="android:popupMenuStyle">@style/Widget.JFQ.PopupMenu</item>
-        <item name="android:listPopupWindowStyle">@style/Widget.JFQ.PopupMenu</item>
-        <item name="android:dropDownListViewStyle">@style/Widget.JFQ.ListView.DropDown</item>
-        <item name="android:textAppearanceLargePopupMenu">@style/TextAppearance.LargePopupMenu
-        </item>
-    </style>
-
     <style name="ActionBarThemeOverlay" parent="">
         <item name="android:textColorPrimary">#fff</item>
         <item name="colorControlNormal">?actionBarIconColor</item>
@@ -192,8 +137,7 @@
 
     <!--Book Item-->
     <style name="BookItemImage">
-        <item name="android:padding">@dimen/book_image_padding</item>
-        <item name="android:scaleType">centerCrop</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
 
     <style name="CommentUserName" parent="BaseTextStyle.Medium">
