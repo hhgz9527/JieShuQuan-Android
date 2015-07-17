@@ -10,15 +10,16 @@
         style="@style/BookItemImage"
         android:layout_width="@dimen/book_image_width"
         android:layout_height="@dimen/book_image_height"
+        android:layout_margin="@dimen/book_item_margin"
+        android:background="@drawable/shadow_background"
         android:contentDescription="@string/app_name"
         tools:src="@drawable/book_placeholder" />
 
     <TextView
         android:id="@+id/book_name"
-        style="@style/BaseTextStyle.Medium.Red"
-        android:layout_width="@dimen/book_item_width"
+        style="@style/BaseTextStyle.Medium.DkGrey"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/book_name_margin"
         android:gravity="center_horizontal"
         tools:text="@string/test_book_name" />
 

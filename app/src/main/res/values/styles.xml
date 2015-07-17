@@ -137,8 +137,7 @@
 
     <!--Book Item-->
     <style name="BookItemImage">
-        <item name="android:padding">@dimen/book_image_padding</item>
-        <item name="android:scaleType">centerCrop</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
 
     <style name="CommentUserName" parent="BaseTextStyle.Medium">
