@@ -1,6 +1,5 @@
 package com.thoughtworks.jieshuquan.login;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
