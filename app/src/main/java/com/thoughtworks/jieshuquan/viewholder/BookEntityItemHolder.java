@@ -13,10 +13,7 @@ import com.thoughtworks.jieshuquan.service.model.BookEntity;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-/**
- * Created by leihuang on 7/17/15.
- */
-public class BookItemHolder {
+public class BookEntityItemHolder {
 
     @InjectView(R.id.book_image)
     ImageView mImage;
@@ -24,14 +21,15 @@ public class BookItemHolder {
     TextView mNameText;
     private Context mContext;
 
-    public BookItemHolder(Context context, View view) {
+    public BookEntityItemHolder(Context context, View view) {
         mContext = context;
         ButterKnife.inject(this, view);
     }
 
-    public void populate(Book book) {
-        Glide.with(mContext).load(book.getBookImageHref())
+
+    public void populate(BookEntity bookEntity) {
+        Glide.with(mContext).load(bookEntity.getBookImageHref())
                 .placeholder(R.drawable.book_placeholder).crossFade().into(mImage);
-        mNameText.setText(book.getBookName());
+        mNameText.setText(bookEntity.getBookName());
     }
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.model.CommentItem;
+import com.thoughtworks.jieshuquan.service.model.BookComment;
 import com.thoughtworks.jieshuquan.viewholder.CommentViewHolder;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import static com.google.common.collect.Lists.newArrayList;
 public class BookCommentsAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<CommentItem> mCommentList;
+    private List<BookComment> mCommentList;
 
     public BookCommentsAdapter(Context context) {
         this.mContext = context;
@@ -48,11 +48,11 @@ public class BookCommentsAdapter extends BaseAdapter {
             convertView.setTag(holder);
         }
         holder = (CommentViewHolder) convertView.getTag();
-        holder.populate((CommentItem) getItem(position));
+        holder.populate((BookComment) getItem(position));
         return convertView;
     }
 
-    public void setCommentList(List<CommentItem> commentList) {
+    public void setCommentList(List<BookComment> commentList) {
         this.mCommentList = commentList;
     }
 }
