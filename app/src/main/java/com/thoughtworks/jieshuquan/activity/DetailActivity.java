@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.adapter.BookCommentsAdapter;
-import com.thoughtworks.jieshuquan.model.BookDetail;
+import com.thoughtworks.jieshuquan.service.model.Book;
 import com.thoughtworks.jieshuquan.viewholder.BookDetailViewHolder;
 
 import butterknife.ButterKnife;
@@ -67,13 +67,11 @@ public class DetailActivity extends AppCompatActivity {
 
             }
         });
-        BookDetail book = new BookDetail();
-        book.setId(mBookId);
-        book.setImageHref("http:\\/\\/img3.douban.com\\/mpic\\/s6523000.jpg");
-        book.setAuther("ABC");
-        book.setName("算法导论");
-        book.setPress("机械工业出版社");
-        book.setAvailable(true);
+        Book book = new Book();
+        book.setBookImageHref("http:\\/\\/img3.douban.com\\/mpic\\/s6523000.jpg");
+        book.setBookAuthor("ABC");
+        book.setBookName("算法导论");
+        book.setBookPress("机械工业出版社");
         mBookDetailViewHolder.populate(book);
     }
 

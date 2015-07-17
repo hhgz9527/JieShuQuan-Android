@@ -15,6 +15,7 @@
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/head"
+            android:clickable="true"
             android:layout_width="@dimen/head_size"
             android:layout_height="@dimen/head_size"
             android:layout_centerHorizontal="true"

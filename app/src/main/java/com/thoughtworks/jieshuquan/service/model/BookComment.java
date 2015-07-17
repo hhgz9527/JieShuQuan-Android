@@ -1,7 +1,9 @@
-package com.thoughtworks.jieshuquan.model;
+package com.thoughtworks.jieshuquan.service.model;
 
-public class CommentItem {
-
+/**
+ * Created by leihuang on 7/17/15.
+ */
+public class BookComment {
     private String bookId;
     private String userName;
     private String userIconUrl;

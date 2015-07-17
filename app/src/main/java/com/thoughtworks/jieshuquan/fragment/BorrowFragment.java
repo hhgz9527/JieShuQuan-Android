@@ -22,8 +22,6 @@ import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.adapter.BooksAdapter;
-import com.thoughtworks.jieshuquan.converter.BookItemConverter;
-import com.thoughtworks.jieshuquan.model.BookItem;
 import com.thoughtworks.jieshuquan.service.BookService;
 import com.thoughtworks.jieshuquan.service.model.Book;
 
@@ -163,14 +161,7 @@ public class BorrowFragment extends Fragment {
             public void done(List<Book> list, AVException e) {
                 if (e == null && list.size() > 0) {
                     showContentView();
-                    final BookItemConverter converter = new BookItemConverter();
-                    ImmutableList<BookItem> bookItemList = from(list).transform(new Function<Book, BookItem>() {
-                        @Override
-                        public BookItem apply(Book input) {
-                            return converter.convert(input);
-                        }
-                    }).toList();
-                    mBorrowBooksAdapter.setBookList(bookItemList);
+                    mBorrowBooksAdapter.setBookList(list);
                     mBorrowBooksAdapter.notifyDataSetChanged();
                 } else if (list.size() == 0) {
                     showInfoView(getString(R.string.msg_default_empty));

@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.model.CommentItem;
+import com.thoughtworks.jieshuquan.service.model.BookComment;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -33,11 +33,11 @@ public class CommentViewHolder {
         ButterKnife.inject(this, view);
     }
 
-    public void populate(CommentItem item) {
-        Glide.with(mContext).load(item.getUserIconUrl())
+    public void populate(BookComment bookComment) {
+        Glide.with(mContext).load(bookComment.getUserIconUrl())
                 .placeholder(R.drawable.avatar_placeholder).crossFade().into(mUserIcon);
-        mUserName.setText(item.getUserName());
-        mCommentTime.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.US).format(item.getCommentTime()));
-        mCommentContent.setText(item.getCommentContent());
+        mUserName.setText(bookComment.getUserName());
+        mCommentTime.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.US).format(bookComment.getCommentTime()));
+        mCommentContent.setText(bookComment.getCommentContent());
     }
 }

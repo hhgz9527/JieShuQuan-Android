@@ -18,13 +18,10 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.FindCallback;
-import com.google.common.base.Function;
-import com.google.common.collect.ImmutableList;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
+import com.thoughtworks.jieshuquan.adapter.BookEntitysAdapter;
 import com.thoughtworks.jieshuquan.adapter.BooksAdapter;
-import com.thoughtworks.jieshuquan.converter.BookItemConverter;
-import com.thoughtworks.jieshuquan.model.BookItem;
 import com.thoughtworks.jieshuquan.service.BookService;
 import com.thoughtworks.jieshuquan.service.model.BookEntity;
 
@@ -50,7 +47,7 @@ public class MineBookActivity extends AppCompatActivity {
     @InjectView(R.id.info_text)
     TextView mInfoText;
 
-    private BooksAdapter mBooksAdapter;
+    private BookEntitysAdapter mBooksAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,14 +66,7 @@ public class MineBookActivity extends AppCompatActivity {
             public void done(List<BookEntity> list, AVException e) {
                 if (e == null && list.size() > 0) {
                     showContentView();
-                    final BookItemConverter converter = new BookItemConverter();
-                    ImmutableList<BookItem> bookItemList = from(list).transform(new Function<BookEntity, BookItem>() {
-                        @Override
-                        public BookItem apply(BookEntity input) {
-                            return converter.convert(input);
-                        }
-                    }).toList();
-                    mBooksAdapter.setBookList(bookItemList);
+                    mBooksAdapter.setBookList(list);
                     mBooksAdapter.notifyDataSetChanged();
                 } else if (list.size() == 0) {
                     showInfoView(getString(R.string.msg_default_empty));
@@ -112,14 +102,14 @@ public class MineBookActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        mBooksAdapter = new BooksAdapter(this);
+        mBooksAdapter = new BookEntitysAdapter(this);
         mGridView.setAdapter(mBooksAdapter);
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                BookItem book = (BookItem) parent.getItemAtPosition(position);
+                BookEntity bookEntity = (BookEntity) parent.getItemAtPosition(position);
                 Intent intent = new Intent(MineBookActivity.this, DetailActivity.class);
-                intent.putExtra(Constants.EXTRA_BOOK_ID, book.getId());
+                //intent.putExtra(Constants.EXTRA_BOOK_ID, book.getId());
                 startActivity(intent);
             }
         });
