@@ -122,12 +122,22 @@ public class MineFragment extends Fragment {
         currentUser.fetchInBackground(new GetCallback<AVObject>() {
             @Override
             public void done(AVObject avObject, AVException e) {
-                AVFile avatar = currentUser.getAVFile(Constants.KAVATAR);
-                String avatar_url = avatar.getUrl();
+                Object ob = currentUser.get(Constants.KAVATAR);
+                if(ob instanceof AVFile) {
+                    AVFile avatar = currentUser.getAVFile(Constants.KAVATAR);
 
-                if (!TextUtils.isEmpty(avatar_url)) {
-                    Glide.with(getActivity()).load(avatar_url).into(mHeadView);
+
+
+                    if (avatar!=null) {
+                        String avatar_url = avatar.getUrl();
+
+                        if (!TextUtils.isEmpty(avatar_url)) {
+                            Glide.with(getActivity()).load(avatar_url).into(mHeadView);
+                        }
+                    }
                 }
+
+
             }
         });
 
