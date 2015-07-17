@@ -27,7 +27,7 @@ import butterknife.OnClick;
 
 public class LoginFragment extends Fragment {
 
-    public static final String TAG = LoginFragment.class.getSimpleName();
+    protected final String ACCOUNT_SUFFIX = "@thoughtworks.com";
 
     @InjectView(R.id.account_name)
     EditText accountName;
@@ -63,6 +63,7 @@ public class LoginFragment extends Fragment {
     @OnClick(R.id.login_btn)
     void login() {
         String nameString = accountName.getText().toString();
+        nameString = nameString.endsWith(ACCOUNT_SUFFIX) ? nameString : nameString + ACCOUNT_SUFFIX;
         if (TextUtils.isEmpty(nameString) || !android.util.Patterns.EMAIL_ADDRESS.matcher(nameString).matches()) {
             accountName.setError(getString(R.string.msg_error_account_name));
             return;
