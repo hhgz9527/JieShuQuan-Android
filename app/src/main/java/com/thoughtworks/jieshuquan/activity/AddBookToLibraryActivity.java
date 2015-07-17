@@ -3,6 +3,8 @@ package com.thoughtworks.jieshuquan.activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -38,6 +40,9 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
     @InjectView(R.id.borrowSwith)
     Switch borrowSwith;
 
+    @InjectView(R.id.toolbar)
+    Toolbar mToolbar;
+
     private String mIsbn;
     private Book mBook;
 
@@ -51,6 +56,16 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
             this.mIsbn = intent.getStringExtra("ISBN");
             this.getBookInfoFromDouBan(this.mIsbn);
         }
+
+        mToolbar.setTitle(R.string.title_activity_add_book_to_library);
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddBookToLibraryActivity.this.finish();
+            }
+        });
     }
 
     private void getBookInfoFromDouBan(String ibns) {
