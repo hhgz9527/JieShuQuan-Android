@@ -19,6 +19,7 @@ import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.activity.MainActivity;
 import com.thoughtworks.jieshuquan.service.AuthService;
+import com.thoughtworks.jieshuquan.utils.ShowUtils;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -76,11 +77,11 @@ public class LoginFragment extends Fragment {
         AuthService.getInstance().login(nameString, pwdString, new LogInCallback() {
             public void done(AVUser user, AVException e) {
                 if (user != null) {
-                    LoginFragment.this.showErrorToast(getString(R.string.msg_login_success));
+                    ShowUtils.showShortToast(getString(R.string.msg_login_success));
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     getActivity().startActivity(intent);
                 } else {
-                    LoginFragment.this.showErrorToast(e.toString());
+                    ShowUtils.showShortToast(e.toString());
                 }
             }
         });
@@ -100,7 +101,5 @@ public class LoginFragment extends Fragment {
         }
     }
 
-    private void showErrorToast(String errorMessage) {
-        Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_SHORT).show();
-    }
+
 }
