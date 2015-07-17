@@ -175,9 +175,9 @@ public class MineFragment extends Fragment {
 
     @OnClick(R.id.head)
     void showHeadIcon() {
-        new AlertDialog.Builder(this.getActivity()).setTitle("选择头像").
-                setIcon(android.R.drawable.ic_dialog_info).
-                setItems(new String[]{"相册", "相机"}, new DialogInterface.OnClickListener() {
+        new AlertDialog.Builder(this.getActivity()).setTitle(getResources().getString(R.string.choose_avatar)).
+                setItems(new String[]{getResources().getString(R.string.choose_avatar_from_gallery),
+                        getResources().getString(R.string.choose_avatar_from_camera)}, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         switch (i) {
@@ -185,7 +185,7 @@ public class MineFragment extends Fragment {
                                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                                 intent.setType("image/*");
-                                startActivityForResult(Intent.createChooser(intent, "选择图片"), i);
+                                startActivityForResult(Intent.createChooser(intent, getResources().getString(R.string.choose_avatar)), i);
                             }
                             break;
 
@@ -197,7 +197,7 @@ public class MineFragment extends Fragment {
                         }
 
                     }
-                }).setNegativeButton("取消", null).show();
+                }).show();
     }
 
     @Override
