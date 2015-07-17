@@ -38,7 +38,13 @@ public class PopularActivity extends ActionBarActivity {
 
         mToolbar.setTitle(R.string.title_activity_popular);
         setSupportActionBar(mToolbar);
-
+        mToolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopularActivity.this.finish();
+            }
+        });
         adapter = new PopularAdapter(this);
         popularListView.setAdapter(adapter);
 

@@ -42,18 +42,18 @@ public class BookEntity extends AVObject {
     }
 
     public Book getBook() {
-        return getAVObject(Constants.KBOOK);
+        return getAVObject(Constants.KBOOKENTITY_BOOK);
     }
 
     public void setBook(Book book) {
-        put(Constants.KBOOK, book);
+        put(Constants.KBOOKENTITY_BOOK, book);
     }
 
     public AVUser getUser() {
-        return getAVObject(Constants.KUSER);
+        return getAVObject(Constants.KBOOKENTITY_USER);
     }
 
     public void setUser(AVUser user) {
-        put(Constants.KUSER, user);
+        put(Constants.KBOOKENTITY_USER, user);
     }
 }

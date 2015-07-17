@@ -43,7 +43,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_scanner">ScannerActivity</string>
-    <string name="title_activity_add_book_to_library">AddBookToLibraryActivity</string>
+    <string name="title_activity_add_book_to_library">Add Book</string>
 
     <!--Mine Fragment-->
     <string name="mine_list_my_books">My books</string>

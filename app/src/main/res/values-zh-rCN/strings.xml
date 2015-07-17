@@ -58,7 +58,7 @@
     <string name="discover_add_book_message_footer">》</string>
     <string name="common_error">错误</string>
     <string name="title_activity_scanner">扫描</string>
-    <string name="title_activity_add_book_to_library">添加到我的书库</string>
+    <string name="title_activity_add_book_to_library">添加书籍</string>
 
     <string name="title_activity_send_twitter">发推文</string>
     <string name="send_message">发消息</string>
