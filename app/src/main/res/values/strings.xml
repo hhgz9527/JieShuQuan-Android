@@ -12,7 +12,6 @@
     <string name="btn_change_state">Change</string>
     <string name="btn_delete">Delete</string>
 
-    <string name="action_settings">Settings</string>
     <string name="action_login">Login</string>
     <string name="action_send_mail">Send Mail</string>
 
@@ -84,5 +83,10 @@
     <string name="choose_avatar_from_gallery">从相册里选择</string>
     <string name="choose_avatar_from_camera">使用相机拍照</string>
     <string name="specail_thanks">特别感谢</string>
+    <string name="title_activity_feedback">FeedbackActivity</string>
+
+    <string name="feedback_hint">请填写你的反馈信息...</string>
+    <string name="feedback">反馈</string>
+    <string name="submit">提交</string>
 
 </resources>

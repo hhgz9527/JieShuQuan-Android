@@ -170,11 +170,8 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/color_white</item>
-        <item name="android:paddingTop">@dimen/text_padding_defalut</item>
-        <item name="android:paddingBottom">@dimen/text_padding_defalut</item>
+        <item name="android:padding">@dimen/list_item_text_padding</item>
         <item name="android:minHeight">@dimen/button_height</item>
-        <item name="android:paddingLeft">@dimen/text_padding_defalut</item>
-        <item name="android:paddingRight">@dimen/text_padding_defalut</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textSize">@dimen/list_item_text_size</item>
     </style>

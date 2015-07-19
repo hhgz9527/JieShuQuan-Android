@@ -75,7 +75,6 @@ dependencies {
     //avoscloud-search 为 LeanCloud 应用内搜索包
     compile 'cn.leancloud.android:avoscloud-search:v3.3+@aar'
 
-
     // pull to refresh
     repositories {
         mavenCentral()

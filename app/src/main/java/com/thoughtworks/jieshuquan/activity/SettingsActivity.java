@@ -2,6 +2,7 @@ package com.thoughtworks.jieshuquan.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -41,8 +42,14 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+    @OnClick(R.id.feedback)
+    protected void onFeedbackClick() {
+        Intent intent = new Intent(this, FeedbackActivity.class);
+        startActivity(intent);
+    }
+
     @OnClick(R.id.logout)
-    public void onLogoutClick() {
+    protected void onLogoutClick() {
         AuthService.getInstance().logout();
 
         Intent intent = new Intent(this, LoginActivity.class);
