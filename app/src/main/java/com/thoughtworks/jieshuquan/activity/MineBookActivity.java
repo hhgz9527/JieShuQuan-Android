@@ -109,7 +109,9 @@ public class MineBookActivity extends AppCompatActivity {
                                     int position, long id) {
                 BookEntity bookEntity = (BookEntity) parent.getItemAtPosition(position);
                 Intent intent = new Intent(MineBookActivity.this, DetailActivity.class);
-                //intent.putExtra(Constants.EXTRA_BOOK_ID, book.getId());
+                Bundle mBundle = new Bundle();
+                mBundle.putParcelable(Constants.BOOK_ENTITY, bookEntity);
+                intent.putExtras(mBundle);
                 startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 package com.thoughtworks.jieshuquan.activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.adapter.BookCommentsAdapter;
 import com.thoughtworks.jieshuquan.service.model.Book;
+import com.thoughtworks.jieshuquan.service.model.BookEntity;
 import com.thoughtworks.jieshuquan.viewholder.BookDetailViewHolder;
 
 import butterknife.ButterKnife;
@@ -36,17 +38,20 @@ public class DetailActivity extends AppCompatActivity {
 
     View mDetailHeaderView;
 
-    private String mBookId;
     private BookDetailViewHolder mBookDetailViewHolder;
     private BookCommentsAdapter mBookCommentsAdapter;
+
+    private BookEntity mBookEntity;
+    private Book mBook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.inject(this);
-        mBookId = getIntent().getStringExtra(Constants.EXTRA_BOOK_ID);
         initViews();
+        Intent intent = getIntent();
+        mBookEntity  = getIntent().getParcelableExtra(Constants.BOOK_ENTITY);
         loadData();
     }
 
