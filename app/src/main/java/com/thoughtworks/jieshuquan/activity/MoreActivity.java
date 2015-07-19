@@ -2,7 +2,6 @@ package com.thoughtworks.jieshuquan.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -15,8 +14,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-
-public class SettingsActivity extends AppCompatActivity {
+public class MoreActivity extends AppCompatActivity {
 
     @InjectView(R.id.toolbar)
     Toolbar mToolbar;
@@ -24,20 +22,20 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_more);
         ButterKnife.inject(this);
 
         initToolbar();
     }
 
     private void initToolbar() {
-        mToolbar.setTitle(R.string.title_activity_settings);
+        mToolbar.setTitle(R.string.title_activity_more);
         mToolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SettingsActivity.this.finish();
+                MoreActivity.this.finish();
             }
         });
     }

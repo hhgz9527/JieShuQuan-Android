@@ -29,7 +29,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.activity.MineBookActivity;
-import com.thoughtworks.jieshuquan.activity.SettingsActivity;
+import com.thoughtworks.jieshuquan.activity.MoreActivity;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -233,7 +233,7 @@ public class MineFragment extends Fragment {
 
     @OnClick(R.id.list_my_setting)
     void showSetting() {
-        Intent intent = new Intent(getActivity(), SettingsActivity.class);
+        Intent intent = new Intent(getActivity(), MoreActivity.class);
         startActivity(intent);
     }
 

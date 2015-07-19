@@ -4,7 +4,7 @@
     <string name="title_activity_login">登陆</string>
     <string name="title_activity_forget_pwd">找回密码</string>
     <string name="title_activity_register">注册</string>
-    <string name="title_activity_settings">设置</string>
+    <string name="title_activity_more">更多</string>
     <string name="title_activity_mine_books">我的书籍</string>
     <string name="title_activity_detail">书籍详情</string>
 

@@ -47,8 +47,8 @@
             android:label="@string/title_activity_add_book_to_library"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SettingsActivity"
-            android:label="@string/title_activity_settings"
+            android:name=".activity.MoreActivity"
+            android:label="@string/title_activity_more"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.MineBookActivity"
