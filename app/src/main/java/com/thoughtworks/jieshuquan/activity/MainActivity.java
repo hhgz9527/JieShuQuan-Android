@@ -190,12 +190,6 @@ public class MainActivity extends AppCompatActivity implements FragmentCallbacks
         startActivity(showSendTwitterIntent);
     }
 
-    private void showLoginActivity() {
-        Intent showLoginIntent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivityForResult(showLoginIntent, Constants.LOGIN_ACTIVITY_RESULT_TAG);
-    }
-
-
     private void registerPushService() {
         PushService.setDefaultPushCallback(this, MainActivity.class);
         PushService.subscribe(this, "public", MainActivity.class);

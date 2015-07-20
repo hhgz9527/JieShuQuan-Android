@@ -40,6 +40,16 @@ public class MoreActivity extends AppCompatActivity {
         });
     }
 
+    @OnClick(R.id.modify_password)
+    protected void onModifyPasswordClick() {
+
+    }
+
+    @OnClick(R.id.modify_nickname) 
+    protected void onModifyNickName() {
+
+    }
+
     @OnClick(R.id.feedback)
     protected void onFeedbackClick() {
         Intent intent = new Intent(this, FeedbackActivity.class);
