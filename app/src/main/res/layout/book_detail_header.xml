@@ -35,7 +35,7 @@
             android:layout_width="1px"
             android:layout_height="@dimen/book_detail_tab_height"
             android:layout_centerHorizontal="true"
-            android:background="@color/divide_color" />
+            android:background="@color/color_divide" />
 
         <FrameLayout
             android:id="@+id/tab_delte"
@@ -64,7 +64,7 @@
         android:layout_height="1px"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
-        android:background="@color/divide_color" />
+        android:background="@color/color_divide" />
 
     <TextView
         android:id="@+id/book_comments_title"

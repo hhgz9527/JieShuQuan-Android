@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="line">
-            <stroke android:color="@color/divide_color" />
+            <stroke android:color="@color/color_divide" />
             <size android:height="1dp" />
         </shape>
     </item>

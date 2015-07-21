@@ -42,12 +42,14 @@ public class MoreActivity extends AppCompatActivity {
 
     @OnClick(R.id.modify_password)
     protected void onModifyPasswordClick() {
-
+        Intent intent = new Intent(this, ModifyPasswordActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.modify_nickname) 
     protected void onModifyNickName() {
-
+        Intent intent = new Intent(this, ModifyNicknameActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.feedback)

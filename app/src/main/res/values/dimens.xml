@@ -56,9 +56,10 @@
     <dimen name="button_height">48dp</dimen>
     <dimen name="button_text_size">18sp</dimen>
 
+    <dimen name="list_item_margin">@dimen/mine_list_setting_margin</dimen>
     <dimen name="list_item_text_padding">10dip</dimen>
     <dimen name="list_item_text_size">16sp</dimen>
-    <dimen name="feedback_content_text_size">16sp</dimen>
+    <dimen name="more_content_text_size">16sp</dimen>
 
     <dimen name="book_item_label_height">34dp</dimen>
     <dimen name="top_books_view_height">150dp</dimen>

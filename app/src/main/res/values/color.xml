@@ -34,11 +34,11 @@
     <color name="color_lt_grey">#FFEAEBEC</color>
     <color name="color_red">#ffff4444</color>
     <color name="color_blue">#ff007AFF</color>
-    <color name="divide_color">#FFC6C6CB</color>
+    <color name="color_divide">#FFC6C6CB</color>
 
     <!-- Some special color -->
-
-    <color name="colorPrimary">#008972</color>
+    <color name="color_primary">#008972</color>
+    <color name="color_primary_dark">#006a58</color>
     <color name="primary_text_color">#7c7c7c</color>
 
     <color name="tab_bar_background">#F8F8F8</color>
@@ -56,4 +56,7 @@
     <color name="state_available">#FF90C781</color>
     <color name="state_disable">#FFE6857B</color>
 
+    <!-- Logout-->
+    <color name="logout_color_red">#df0000</color>
+    <color name="logout_color_red_dark">#ca0000</color>
 </resources>

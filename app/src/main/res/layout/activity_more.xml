@@ -25,7 +25,7 @@
 
         <LinearLayout
             style="@style/SectionContainer"
-            android:layout_marginTop="@dimen/mine_list_setting_margin">
+            android:layout_marginTop="@dimen/list_item_margin">
 
             <TextView
                 android:id="@+id/feedback"
@@ -41,10 +41,12 @@
         <Button
             android:id="@+id/logout"
             style="@style/Button"
-            android:layout_marginTop="@dimen/mine_list_setting_margin"
+            android:layout_marginLeft="@dimen/list_item_margin"
+            android:layout_marginRight="@dimen/list_item_margin"
+            android:layout_marginTop="@dimen/list_item_margin"
             android:background="@drawable/logout_bg_selector"
             android:text="@string/logout"
-            android:textColor="@color/color_red" />
+            android:textColor="@color/color_white" />
     </LinearLayout>
 
 
