@@ -1,5 +1,7 @@
 package com.thoughtworks.jieshuquan.service;
 
+import android.text.Editable;
+
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.avos.avoscloud.RequestPasswordResetCallback;
@@ -52,12 +54,10 @@ public class AuthService {
     }
 
     //Modify NickName
-    public void updateNickName(String name, SaveCallback callback){
-        AVUser.getCurrentUser().put("username",name);
+    public void updateNickName(Editable name, SaveCallback callback){
+        AVUser.getCurrentUser().put("nickname",name);
         AVUser.getCurrentUser().saveEventually(callback);
     }
-
-    // feedback
 
     public void logout() {
         AVUser.logOut();

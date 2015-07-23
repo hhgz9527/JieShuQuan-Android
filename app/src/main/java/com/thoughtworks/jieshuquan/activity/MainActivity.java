@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.PushService;
+import com.avos.avoscloud.feedback.FeedbackAgent;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.fragment.BorrowFragment;
@@ -196,9 +197,13 @@ public class MainActivity extends AppCompatActivity implements FragmentCallbacks
         PushService.subscribe(this, "private", MainActivity.class);
         PushService.subscribe(this, "protected", MainActivity.class);
 
-        // track user
+        // track AVUser
         Intent intent = getIntent();
         AVAnalytics.trackAppOpened(intent);
+
+        // open AVOS feedback sync
+        FeedbackAgent agent = new FeedbackAgent(this);
+        agent.sync();
     }
 
 }

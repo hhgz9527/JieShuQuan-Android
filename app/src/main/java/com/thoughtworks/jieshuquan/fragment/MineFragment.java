@@ -164,6 +164,11 @@ public class MineFragment extends Fragment {
         startActivity(intent);
     }
 
+    @OnClick(R.id.list_my_borrow)
+    void showMyBorrow() {
+        Toast.makeText(getActivity(), "My Borrow", Toast.LENGTH_SHORT).show();
+    }
+
     @OnClick(R.id.list_my_rent)
     void showMyRent() {
         Toast.makeText(getActivity(), "My Rent", Toast.LENGTH_SHORT).show();

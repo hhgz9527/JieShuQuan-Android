@@ -46,6 +46,7 @@
 
     <!--Mine Fragment-->
     <string name="mine_list_my_books">My books</string>
+    <string name="mine_list_my_borrow">My borrow</string>
     <string name="mine_list_my_rent">My rent</string>
     <string name="mine_list_my_setting">Settings</string>
 
@@ -71,28 +72,33 @@
 
     <string name="state_available">Available</string>
     <string name="state_disable">Disable</string>
-    <string name="submit_feedback">提交反馈</string>
-    <string name="modify_nickname">修改昵称</string>
-    <string name="modify_password">修改密码</string>
-    <string name="logout">注销登录</string>
-    <string name="choose_avatar">选择头像</string>
-    <string name="choose_avatar_from_gallery">从相册里选择</string>
-    <string name="choose_avatar_from_camera">使用相机拍照</string>
-    <string name="specail_thanks">特别感谢</string>
+    <string name="submit_feedback">Feedback</string>
+    <string name="modify_nickname">Modify NickName</string>
+    <string name="modify_password">Modify Password</string>
+    <string name="logout">Logout</string>
+    <string name="choose_avatar">Select Avatar</string>
+    <string name="choose_avatar_from_gallery">Select From Gallery</string>
+    <string name="choose_avatar_from_camera">Take Photo</string>
+    <string name="specail_thanks">Thanks</string>
     <string name="title_activity_feedback">FeedbackActivity</string>
 
-    <string name="feedback_hint">请填写你的反馈信息...</string>
-    <string name="feedback">反馈</string>
-    <string name="submit">提交</string>
+    <string name="feedback_hint">Write Your Feedback</string>
+    <string name="feedback">Feedback</string>
+    <string name="submit">Submit</string>
     <string name="title_activity_modify_password">ModifyPasswordActivity</string>
     <string name="title_activity_modify_nickname">ModifyNicknameActivity</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="current_password">当前密码</string>
-    <string name="new_password">新密码</string>
-    <string name="repeat_password">再次输入</string>
-    <string name="done">完成</string>
-    <string name="new_nickname">输入新昵称</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="repeat_password">Repeat New Password</string>
+    <string name="done">Done</string>
+
+    <string name="new_nickname">New Nickname</string>
+    <string name="modify_nickname_empty">nickname show not empty</string>
+    <string name="modify_nickname_success">modify nickname success</string>
+    <string name="modify_password_current_password_empty">current password should not empty</string>
+    <string name="modify_password_newpassword_error">new password should not empty and should equal to repeat</string>
+    <string name="modify_password_success">modify password success</string>
 
 </resources>

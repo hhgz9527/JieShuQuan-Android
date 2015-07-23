@@ -111,6 +111,9 @@
             android:label="@string/title_activity_modify_nickname"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name="com.avos.avoscloud.feedback.ThreadActivity" >
+        </activity>
     </application>
 
 </manifest>
