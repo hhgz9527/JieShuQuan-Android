@@ -10,6 +10,14 @@ public class BookComment {
     private String commentTime;
     private String commentContent;
 
+    public BookComment(String bookId, String userName, String userIconUrl, String commentTime, String commentContent) {
+        this.bookId = bookId;
+        this.userName = userName;
+        this.userIconUrl = userIconUrl;
+        this.commentTime = commentTime;
+        this.commentContent = commentContent;
+    }
+
     public String getBookId() {
         return bookId;
     }

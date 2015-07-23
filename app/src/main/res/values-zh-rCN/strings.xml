@@ -43,13 +43,18 @@
 
     <!--Mine Fragment-->
     <string name="mine_list_my_books">我的书籍</string>
-    <string name="mine_list_my_rent">我的借阅</string>
+    <string name="mine_list_my_borrow">借入</string>
+    <string name="mine_list_my_rent">借出</string>
     <string name="mine_list_my_setting">设置</string>
 
     <!--Setting-->
     <string name="pref_header_general">通用</string>
     <string name="pref_version_title">版本</string>
-
+    <string name="current_password">当前密码</string>
+    <string name="new_password">新密码</string>
+    <string name="repeat_password">再次输入</string>
+    <string name="done">完成</string>
+    <string name="new_nickname">输入新昵称</string>
 
     <string name="add_to_library_success">成功添加到书库</string>
     <string name="add_to_library_already_have">您已经添加了此书</string>
@@ -74,5 +79,11 @@
 
     <string name="state_available">可借</string>
     <string name="state_disable">暂不可借</string>
+
+    <string name="modify_nickname_empty">昵称不能为空</string>
+    <string name="modify_nickname_success">修改昵称成功</string>
+    <string name="modify_password_current_password_empty">老密码不能为空</string>
+    <string name="modify_password_newpassword_error">新密码不能为空并且两次输入应该一致</string>
+    <string name="modify_password_success">修改密码成功</string>
 
 </resources>

@@ -107,11 +107,12 @@ public class MineBookActivity extends AppCompatActivity {
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                BookEntity bookEntity = (BookEntity) parent.getItemAtPosition(position);
+                AVObject bookEntity = (AVObject) parent.getItemAtPosition(position);
                 Intent intent = new Intent(MineBookActivity.this, DetailActivity.class);
-                Bundle mBundle = new Bundle();
-                mBundle.putParcelable(Constants.BOOK_ENTITY, bookEntity);
-                intent.putExtras(mBundle);
+//                String bookString = bookEntity.toString();
+//                intent.putExtra(Constants.BOOK_ENTITY, bookString);
+
+                intent.putExtra("book", bookEntity);
                 startActivity(intent);
             }
         });

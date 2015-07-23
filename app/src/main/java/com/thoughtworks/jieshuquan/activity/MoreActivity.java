@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.avos.avoscloud.feedback.FeedbackAgent;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.login.LoginActivity;
 import com.thoughtworks.jieshuquan.service.AuthService;
@@ -54,8 +55,8 @@ public class MoreActivity extends AppCompatActivity {
 
     @OnClick(R.id.feedback)
     protected void onFeedbackClick() {
-        Intent intent = new Intent(this, FeedbackActivity.class);
-        startActivity(intent);
+        FeedbackAgent agent = new FeedbackAgent(this);
+        agent.startDefaultThreadActivity();
     }
 
     @OnClick(R.id.logout)

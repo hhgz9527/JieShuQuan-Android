@@ -75,7 +75,7 @@ public class AddBookToLibraryActivity extends ActionBarActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 if (statusCode != 200) {
-                    // TODO: show network error
+                    Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
                     return;
                 }
 

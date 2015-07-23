@@ -1,5 +1,6 @@
 package com.thoughtworks.jieshuquan.activity;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.SaveCallback;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.service.AuthService;
+import com.thoughtworks.jieshuquan.utils.ShowUtils;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -24,6 +26,11 @@ public class ModifyNicknameActivity extends ToolbarBaseActivity {
     @InjectView(R.id.new_nickname)
     protected EditText nicknameEt;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ButterKnife.inject(this);
+    }
 
     @Override
     protected int getToolbarTitle() {
@@ -45,10 +52,17 @@ public class ModifyNicknameActivity extends ToolbarBaseActivity {
             AuthService.getInstance().updateNickName(nickName, new SaveCallback() {
                 @Override
                 public void done(AVException e) {
+                    if(e == null) {
+                        ShowUtils.showShortToast(getString(R.string.update_info_success));
+                        finish();
+                    } else {
+                        ShowUtils.showShortToast(getString(R.string.update_info_fail));
+                    }
                     hideLoadingScreen();
-                    finish();
                 }
             });
+        } else {
+            ShowUtils.showShortToast(getString(R.string.content_is_empty));
         }
     }
 }

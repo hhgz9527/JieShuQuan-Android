@@ -1,6 +1,5 @@
 package com.thoughtworks.jieshuquan.activity;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,13 +10,29 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.AVUtils;
+import com.avos.avoscloud.GetCallback;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.adapter.BookCommentsAdapter;
+import com.thoughtworks.jieshuquan.service.DoubanService;
 import com.thoughtworks.jieshuquan.service.model.Book;
+import com.thoughtworks.jieshuquan.service.model.BookComment;
 import com.thoughtworks.jieshuquan.service.model.BookEntity;
 import com.thoughtworks.jieshuquan.viewholder.BookDetailViewHolder;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -50,9 +65,14 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         ButterKnife.inject(this);
         initViews();
-        Intent intent = getIntent();
-        mBookEntity  = getIntent().getParcelableExtra(Constants.BOOK_ENTITY);
-        loadData();
+//        String bookString  = getIntent().getStringExtra(Constants.BOOK_ENTITY);
+//        try {
+//            mBookEntity = new BookEntity();
+//            AVUtils.copyPropertiesFromJsonStringToAVObject(bookString, mBookEntity);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        loadBookData();
     }
 
     private void initViews() {
@@ -72,12 +92,7 @@ public class DetailActivity extends AppCompatActivity {
 
             }
         });
-        Book book = new Book();
-        book.setBookImageHref("http:\\/\\/img3.douban.com\\/mpic\\/s6523000.jpg");
-        book.setBookAuthor("ABC");
-        book.setBookName("算法导论");
-        book.setBookPress("机械工业出版社");
-        mBookDetailViewHolder.populate(book);
+
     }
 
     private void initToolbar() {
@@ -92,8 +107,57 @@ public class DetailActivity extends AppCompatActivity {
         });
     }
 
-    private void loadData() {
+    private void loadBookData() {
+        if (mBookEntity != null) {
+            mBook = mBookEntity.getBook();
+            mBook.fetchIfNeededInBackground(new GetCallback<AVObject>() {
+                @Override
+                public void done(AVObject avObject, AVException e) {
+                    if (e == null){
+                        mBook = (Book)avObject;
+                        mBookDetailViewHolder.populate(mBook);
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                }
+            });
+        }
+    }
 
+    private void loadBookComments() {
+        if (mBook != null){
+            String bookId = mBook.getBookDoubanId();
+            DoubanService.getInstance().getBookComments(bookId,0,new JsonHttpResponseHandler(){
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    if (statusCode != 200) {
+                        Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    try {
+                        JSONArray reviewsArray = response.getJSONArray("reviews");
+                        List<BookComment> bookCommentList = new ArrayList<BookComment>();
+
+                        for(int i = 0; i < reviewsArray.length(); i++) {
+                            JSONObject jsonObject = reviewsArray.getJSONObject(i);
+                            JSONObject userInfo = jsonObject.getJSONObject("author");
+
+                            BookComment bookComment = new BookComment(mBook.getBookDoubanId(),
+                                    userInfo.getString("author"),
+                                    userInfo.getString("avatar"),
+                                    jsonObject.getString("published"),
+                                    jsonObject.getString("summary"));
+                            bookCommentList.add(bookComment);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+        }
     }
 
     @OnClick(R.id.book_comments_all)
