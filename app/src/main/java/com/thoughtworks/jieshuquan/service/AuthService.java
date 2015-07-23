@@ -3,7 +3,9 @@ package com.thoughtworks.jieshuquan.service;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.avos.avoscloud.RequestPasswordResetCallback;
+import com.avos.avoscloud.SaveCallback;
 import com.avos.avoscloud.SignUpCallback;
+import com.avos.avoscloud.UpdatePasswordCallback;
 import com.thoughtworks.jieshuquan.Constants;
 
 /**
@@ -43,6 +45,19 @@ public class AuthService {
     public void resetPassword (String email, RequestPasswordResetCallback callback){
         AVUser.requestPasswordResetInBackground(email,callback);
     }
+
+    //Modify Password
+    public void  updatePassword(String oldPwd, String newPwd, UpdatePasswordCallback callback){
+        AVUser.getCurrentUser().updatePasswordInBackground(oldPwd,newPwd,callback);
+    }
+
+    //Modify NickName
+    public void updateNickName(String name, SaveCallback callback){
+        AVUser.getCurrentUser().put("username",name);
+        AVUser.getCurrentUser().saveEventually(callback);
+    }
+
+    // feedback
 
     public void logout() {
         AVUser.logOut();
