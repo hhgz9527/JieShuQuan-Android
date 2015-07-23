@@ -31,6 +31,6 @@ public class FeedbackActivity extends ToolbarBaseActivity {
 
     @OnClick(R.id.submit_feedback)
     protected void onSumbitFeedbackClick(View view) {
-        ProgressDialog dialog = ProgressDialog.show(this, "请稍微", "正在提交反馈");
+        showLoadingScreen("请稍微", "正在更新");
     }
 }

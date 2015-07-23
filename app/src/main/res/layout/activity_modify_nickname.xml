@@ -19,6 +19,7 @@
         android:textSize="@dimen/more_content_text_size" />
 
     <Button
+        android:id="@+id/modify_nickname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/done"

@@ -95,5 +95,7 @@
     <string name="repeat_password">再次输入</string>
     <string name="done">完成</string>
     <string name="new_nickname">输入新昵称</string>
+    <string name="please_wait">请稍微</string>
+    <string name="updating_info">正在更新信息</string>
 
 </resources>

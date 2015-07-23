@@ -1,5 +1,6 @@
 package com.thoughtworks.jieshuquan.activity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +17,7 @@ public abstract class ToolbarBaseActivity extends AppCompatActivity {
 
     protected Toolbar toolbar;
     protected ViewGroup rootView;
+    protected ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,32 @@ public abstract class ToolbarBaseActivity extends AppCompatActivity {
                 onNavigationOnClick(v);
             }
         });
+    }
+
+    protected void showLoadingScreen(String title, String msg) {
+        if (progressDialog != null && !progressDialog.isShowing()) {
+            progressDialog.setTitle(title);
+            progressDialog.setMessage(msg);
+            progressDialog.show();
+            return ;
+        }
+
+        if(progressDialog == null) {
+            progressDialog = ProgressDialog.show(this, title, msg);
+            return ;
+        }
+    }
+
+    protected void hideLoadingScreen() {
+        if(progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.hide();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        hideLoadingScreen();
     }
 
     protected void onNavigationOnClick(View v) {
