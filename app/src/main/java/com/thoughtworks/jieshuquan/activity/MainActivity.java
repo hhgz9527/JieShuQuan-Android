@@ -21,7 +21,6 @@ import com.thoughtworks.jieshuquan.fragment.DiscoverFragment;
 import com.thoughtworks.jieshuquan.fragment.FragmentCallbacks;
 import com.thoughtworks.jieshuquan.fragment.MineFragment;
 import com.thoughtworks.jieshuquan.fragment.PeopleFragment;
-import com.thoughtworks.jieshuquan.login.LoginActivity;
 import com.thoughtworks.jieshuquan.login.LoginFragment;
 import com.thoughtworks.jieshuquan.view.TabBar;
 
@@ -110,8 +109,6 @@ public class MainActivity extends AppCompatActivity implements FragmentCallbacks
             exitTime = System.currentTimeMillis();
         } else {
             super.onBackPressed();
-            finish();
-            System.exit(0);
         }
     }
 

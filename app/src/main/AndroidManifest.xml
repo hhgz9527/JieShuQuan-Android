@@ -23,7 +23,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.JFQ" >
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".login.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             // 声明为 spring board的入口点
@@ -33,6 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".login.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_login"

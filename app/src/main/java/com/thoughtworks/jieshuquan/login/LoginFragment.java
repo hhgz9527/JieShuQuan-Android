@@ -10,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
-import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.activity.MainActivity;
 import com.thoughtworks.jieshuquan.service.AuthService;
@@ -81,6 +79,7 @@ public class LoginFragment extends Fragment {
                     ShowUtils.showShortToast(getString(R.string.msg_login_success));
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     getActivity().startActivity(intent);
+                    getActivity().finish();
                 } else {
                     ShowUtils.showShortToast(e.toString());
                 }

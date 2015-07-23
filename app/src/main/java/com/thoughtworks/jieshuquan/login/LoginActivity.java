@@ -1,12 +1,9 @@
 package com.thoughtworks.jieshuquan.login;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.avos.avoscloud.AVUser;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.activity.MainActivity;
 
 import butterknife.ButterKnife;
 
@@ -21,18 +18,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityLis
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
 
-        init();
-    }
-
-    protected void init() {
-        if (AVUser.getCurrentUser() == null) {
-            //need login
-            showLoginFragment();
-        } else {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            this.finish();
-        }
+        showLoginFragment();
     }
 
     @Override

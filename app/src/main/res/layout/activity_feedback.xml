@@ -16,6 +16,7 @@
         android:textSize="@dimen/more_content_text_size"
         android:hint="@string/feedback_hint"/>
     <Button
+        android:id="@+id/submit_feedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/submit"

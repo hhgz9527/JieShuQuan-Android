@@ -86,6 +86,7 @@
     <string name="submit">提交</string>
     <string name="title_activity_modify_password">ModifyPasswordActivity</string>
     <string name="title_activity_modify_nickname">ModifyNicknameActivity</string>
+    <string name="title_activity_splash">SplashActivity</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
