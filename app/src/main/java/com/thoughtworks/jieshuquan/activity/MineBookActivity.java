@@ -68,7 +68,7 @@ public class MineBookActivity extends AppCompatActivity {
                     showContentView();
                     mBooksAdapter.setBookList(list);
                     mBooksAdapter.notifyDataSetChanged();
-                } else if (list.size() == 0) {
+                } else if (list ==null || list.size() == 0) {
                     showInfoView(getString(R.string.msg_default_empty));
                 } else if (e != null) {
                     showInfoView(e.getMessage());
