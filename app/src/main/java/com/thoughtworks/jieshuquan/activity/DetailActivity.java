@@ -120,6 +120,7 @@ public class DetailActivity extends AppCompatActivity {
                                     if (e == null) {
                                         mBook = (Book) avObject;
                                         mBookDetailViewHolder.populate(mBook);
+                                        loadBookComments();
                                     } else {
                                         Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
                                         finish();
@@ -157,7 +158,7 @@ public class DetailActivity extends AppCompatActivity {
                             JSONObject userInfo = jsonObject.getJSONObject("author");
 
                             BookComment bookComment = new BookComment(mBook.getBookDoubanId(),
-                                    userInfo.getString("author"),
+                                    userInfo.getString("name"),
                                     userInfo.getString("avatar"),
                                     jsonObject.getString("published"),
                                     jsonObject.getString("summary"));
