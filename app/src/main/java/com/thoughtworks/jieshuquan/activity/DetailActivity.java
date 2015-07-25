@@ -14,7 +14,8 @@ import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVUtils;
+import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.FindCallback;
 import com.avos.avoscloud.GetCallback;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.thoughtworks.jieshuquan.Constants;
@@ -65,14 +66,8 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         ButterKnife.inject(this);
         initViews();
-//        String bookString  = getIntent().getStringExtra(Constants.BOOK_ENTITY);
-//        try {
-//            mBookEntity = new BookEntity();
-//            AVUtils.copyPropertiesFromJsonStringToAVObject(bookString, mBookEntity);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        loadBookData();
+        String bookEntityId = getIntent().getStringExtra("bookEntityId");
+        loadBookData(bookEntityId);
     }
 
     private void initViews() {
@@ -107,29 +102,46 @@ public class DetailActivity extends AppCompatActivity {
         });
     }
 
-    private void loadBookData() {
-        if (mBookEntity != null) {
-            mBook = mBookEntity.getBook();
-            mBook.fetchIfNeededInBackground(new GetCallback<AVObject>() {
+    private void loadBookData(String bookEntityId) {
+        if (bookEntityId != null) {
+            final AVQuery<BookEntity> query = new AVQuery<>("BookEntity");
+            query.whereEqualTo(Constants.KOBJECT_ID, bookEntityId);
+            query.findInBackground(new FindCallback<BookEntity>() {
                 @Override
-                public void done(AVObject avObject, AVException e) {
-                    if (e == null){
-                        mBook = (Book)avObject;
-                        mBookDetailViewHolder.populate(mBook);
-                    }
-                    else {
+                public void done(List<BookEntity> list, AVException e) {
+                    if (e == null && list.size() > 0) {
+                        mBookEntity = list.get(0);
+                        // get BookInfo
+                        if (mBookEntity != null) {
+                            mBook = mBookEntity.getBook();
+                            mBook.fetchIfNeededInBackground(new GetCallback<AVObject>() {
+                                @Override
+                                public void done(AVObject avObject, AVException e) {
+                                    if (e == null) {
+                                        mBook = (Book) avObject;
+                                        mBookDetailViewHolder.populate(mBook);
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }
+                                }
+                            });
+                        }
+                    } else {
                         Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
                         finish();
+
                     }
                 }
             });
         }
+
     }
 
     private void loadBookComments() {
-        if (mBook != null){
+        if (mBook != null) {
             String bookId = mBook.getBookDoubanId();
-            DoubanService.getInstance().getBookComments(bookId,0,new JsonHttpResponseHandler(){
+            DoubanService.getInstance().getBookComments(bookId, 0, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     if (statusCode != 200) {
@@ -140,7 +152,7 @@ public class DetailActivity extends AppCompatActivity {
                         JSONArray reviewsArray = response.getJSONArray("reviews");
                         List<BookComment> bookCommentList = new ArrayList<BookComment>();
 
-                        for(int i = 0; i < reviewsArray.length(); i++) {
+                        for (int i = 0; i < reviewsArray.length(); i++) {
                             JSONObject jsonObject = reviewsArray.getJSONObject(i);
                             JSONObject userInfo = jsonObject.getJSONObject("author");
 

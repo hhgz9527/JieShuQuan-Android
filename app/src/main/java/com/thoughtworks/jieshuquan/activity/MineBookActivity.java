@@ -68,22 +68,10 @@ public class MineBookActivity extends AppCompatActivity {
                     showContentView();
                     mBooksAdapter.setBookList(list);
                     mBooksAdapter.notifyDataSetChanged();
-                } else if (list ==null || list.size() == 0) {
+                } else if (list == null || list.size() == 0) {
                     showInfoView(getString(R.string.msg_default_empty));
                 } else if (e != null) {
                     showInfoView(e.getMessage());
-                }
-            }
-        });
-
-        AVUser user = AVUser.getCurrentUser();
-        AVQuery<AVObject> query = new AVQuery<>(Constants.BOOK_ENTITY);
-        query.whereEqualTo(Constants.KBOOKENTITY_USER, user);
-        query.findInBackground(new FindCallback<AVObject>() {
-            @Override
-            public void done(List<AVObject> list, AVException e) {
-                if (e == null) {
-                    Log.d(TAG, list.toString());
                 }
             }
         });
@@ -107,12 +95,9 @@ public class MineBookActivity extends AppCompatActivity {
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                AVObject bookEntity = (AVObject) parent.getItemAtPosition(position);
+                BookEntity bookEntity = (BookEntity) parent.getItemAtPosition(position);
                 Intent intent = new Intent(MineBookActivity.this, DetailActivity.class);
-//                String bookString = bookEntity.toString();
-//                intent.putExtra(Constants.BOOK_ENTITY, bookString);
-
-                intent.putExtra("book", bookEntity);
+                intent.putExtra("bookEntityId", bookEntity.getObjectId());
                 startActivity(intent);
             }
         });

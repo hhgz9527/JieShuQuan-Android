@@ -56,24 +56,24 @@ dependencies {
     compile 'in.srain.cube:grid-view-with-header-footer:1.0.12'
 
     //avoscloud-sdk 为 LeanCloud基础包
-    compile 'cn.leancloud.android:avoscloud-sdk:v3.4+'
+    compile 'cn.leancloud.android:avoscloud-sdk:v3.5+'
 
     //avoscloud-push 与 Java-WebSocket 为推送与IM需要的包
-    compile 'cn.leancloud.android:avoscloud-push:v3.4+@aar'
+    compile 'cn.leancloud.android:avoscloud-push:v3.5+@aar'
     compile 'cn.leancloud.android:Java-WebSocket:1.2.0-leancloud'
 
     //avoscloud-statistics 为 LeanCloud 统计包
-    compile 'cn.leancloud.android:avoscloud-statistics:v3.4+@aar'
+    compile 'cn.leancloud.android:avoscloud-statistics:v3.5+@aar'
 
     //avoscloud-feedback 为 LeanCloud 用户反馈包
-    compile 'cn.leancloud.android:avoscloud-feedback:v3.4+@aar'
+    compile 'cn.leancloud.android:avoscloud-feedback:v3.5+@aar'
 
     //avoscloud-sns 为 LeanCloud 第三方登陆包
-    compile 'cn.leancloud.android:avoscloud-sns:v3.4+@aar'
+    compile 'cn.leancloud.android:avoscloud-sns:v3.5+@aar'
     compile 'cn.leancloud.android:qq-sdk:1.6.1-leancloud'
 
     //avoscloud-search 为 LeanCloud 应用内搜索包
-    compile 'cn.leancloud.android:avoscloud-search:v3.4+@aar'
+    compile 'cn.leancloud.android:avoscloud-search:v3.5+@aar'
 
     // pull to refresh
     repositories {
