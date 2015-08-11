@@ -1,6 +1,5 @@
 package com.thoughtworks.jieshuquan.activity;
 
-import android.app.ProgressDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
