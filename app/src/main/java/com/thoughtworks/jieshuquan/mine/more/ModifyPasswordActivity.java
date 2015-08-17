@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.activity;
+package com.thoughtworks.jieshuquan.mine.more;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.UpdatePasswordCallback;
 import com.thoughtworks.jieshuquan.R;
+import com.thoughtworks.jieshuquan.activity.ToolbarBaseActivity;
 import com.thoughtworks.jieshuquan.service.AuthService;
 
 import butterknife.ButterKnife;

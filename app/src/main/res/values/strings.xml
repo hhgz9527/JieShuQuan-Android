@@ -6,6 +6,8 @@
     <string name="title_activity_register">registerActivity</string>
     <string name="title_activity_more">More</string>
     <string name="title_activity_mine_books">My Books</string>
+    <string name="title_activity_mine_rent">My Rent</string>
+    <string name="title_activity_mine_borrow">My Borrow</string>
     <string name="title_activity_detail">Detail</string>
 
     <string name="btn_login">Login</string>
@@ -48,7 +50,7 @@
     <string name="mine_list_my_books">My books</string>
     <string name="mine_list_my_borrow">My borrow</string>
     <string name="mine_list_my_rent">My rent</string>
-    <string name="mine_list_my_setting">Settings</string>
+    <string name="mine_list_my_more">More</string>
 
     <string name="add_to_library_success">add to library success</string>
     <string name="add_to_library_already_have">already have this book</string>

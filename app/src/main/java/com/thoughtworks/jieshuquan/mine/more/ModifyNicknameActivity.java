@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.activity;
+package com.thoughtworks.jieshuquan.mine.more;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.SaveCallback;
 import com.thoughtworks.jieshuquan.R;
+import com.thoughtworks.jieshuquan.activity.ToolbarBaseActivity;
 import com.thoughtworks.jieshuquan.service.AuthService;
 import com.thoughtworks.jieshuquan.utils.ShowUtils;
 

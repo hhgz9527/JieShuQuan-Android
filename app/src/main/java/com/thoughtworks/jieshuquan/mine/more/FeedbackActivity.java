@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.activity;
+package com.thoughtworks.jieshuquan.mine.more;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.thoughtworks.jieshuquan.R;
+import com.thoughtworks.jieshuquan.activity.ToolbarBaseActivity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

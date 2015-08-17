@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.activity;
+package com.thoughtworks.jieshuquan.mine.more;
 
 import android.content.Intent;
 import android.os.Bundle;
