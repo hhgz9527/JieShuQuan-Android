@@ -13,7 +13,7 @@ import com.thoughtworks.jieshuquan.Constants;
 public class BookEntity extends AVObject {
 
     public boolean isBookAvailability() {
-        return getBoolean(Constants.KBOOK_AVAILABILITY);
+        return getInt(Constants.KBOOK_AVAILABILITY) == 1 ? true : false;
     }
 
     public void setBookAvailability(boolean bookAvailability) {

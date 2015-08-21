@@ -106,5 +106,8 @@
     <string name="update_info_fail">信息更新失败</string>
     <string name="update_info_success">信息更新成功</string>
     <string name="content_is_empty">还没有输入信息哦</string>
+    <string name="book_detail_delete_success">Delete book success</string>
+    <string name="book_detail_borrow">borrow</string>
+    <string name="book_detail_borrowlist">show borrow list</string>
 
 </resources>

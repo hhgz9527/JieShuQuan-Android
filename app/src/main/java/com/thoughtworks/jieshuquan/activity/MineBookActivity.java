@@ -60,6 +60,17 @@ public class MineBookActivity extends AppCompatActivity {
         initData();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Constants.BOOK_DETAIL_ACTIVITY_RESULT_TAG) {
+            initData();
+        }
+
+    }
+
+
     private void initData() {
         BookService.getInstance().fetchBookEntitiesForCurrentUser(new FindCallback<BookEntity>() {
             @Override
@@ -97,8 +108,10 @@ public class MineBookActivity extends AppCompatActivity {
                                     int position, long id) {
                 BookEntity bookEntity = (BookEntity) parent.getItemAtPosition(position);
                 Intent intent = new Intent(MineBookActivity.this, DetailActivity.class);
-                intent.putExtra("bookEntityId", bookEntity.getObjectId());
-                startActivity(intent);
+                intent.putExtra(Constants.KBOOK_ENTITY_ID, bookEntity.getObjectId());
+                intent.putExtra(Constants.KBOOK_TYPE,Constants.K_TYPE_MYBOOK);
+                startActivityForResult(intent, Constants.BOOK_DETAIL_ACTIVITY_RESULT_TAG);
+
             }
         });
         mGridView.setOnScrollListener(new AbsListView.OnScrollListener() {

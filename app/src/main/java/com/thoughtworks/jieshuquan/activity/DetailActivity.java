@@ -1,5 +1,6 @@
 package com.thoughtworks.jieshuquan.activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,12 +16,15 @@ import android.widget.Toast;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.FindCallback;
 import com.avos.avoscloud.GetCallback;
+import com.avos.avoscloud.SaveCallback;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.adapter.BookCommentsAdapter;
+import com.thoughtworks.jieshuquan.service.BookService;
 import com.thoughtworks.jieshuquan.service.DoubanService;
 import com.thoughtworks.jieshuquan.service.model.Book;
 import com.thoughtworks.jieshuquan.service.model.BookComment;
@@ -59,15 +63,23 @@ public class DetailActivity extends AppCompatActivity {
 
     private BookEntity mBookEntity;
     private Book mBook;
+    private int mType; // type 1 from book list   2,my book
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.inject(this);
+        mType = getIntent().getIntExtra(Constants.KBOOK_TYPE, 0);
+        if (mType == Constants.K_TYPE_MYBOOK) {
+            String bookEntityId = getIntent().getStringExtra(Constants.KBOOK_ENTITY_ID);
+            loadBookEntityData(bookEntityId);
+        } else if (mType == Constants.K_TYPE_BOOK_LIST) {
+            String bookId = getIntent().getStringExtra(Constants.KBOOK_ID);
+            loadBookDate(bookId);
+        }
+
         initViews();
-        String bookEntityId = getIntent().getStringExtra("bookEntityId");
-        loadBookData(bookEntityId);
     }
 
     private void initViews() {
@@ -76,17 +88,50 @@ public class DetailActivity extends AppCompatActivity {
         mCommentsListView.setAdapter(mBookCommentsAdapter);
         mDetailHeaderView = LayoutInflater.from(this).inflate(R.layout.book_detail_header, mCommentsListView, false);
         mCommentsListView.addHeaderView(mDetailHeaderView);
-        mBookDetailViewHolder = new BookDetailViewHolder(this, mDetailHeaderView, new BookDetailViewHolder.CallBack() {
+        mBookDetailViewHolder = new BookDetailViewHolder(mType, this, new BookDetailViewHolder.CallBack() {
             @Override
             public void onChangeState(String bookId) {
+                boolean bookStatus = mBookEntity.isBookAvailability();
+                BookService.getInstance().instance.updateBookAvailability(mBookEntity, !bookStatus, new SaveCallback() {
+                    @Override
+                    public void done(AVException e) {
+                        if (e == null) {
+                            mBookDetailViewHolder.changeBookStatus(mBookEntity.isBookAvailability());
+                            Toast.makeText(getApplicationContext(), R.string.update_info_success, Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onBorrow(String bookId) {
+
+                String book = bookId;
+                System.out.print(book);
+                //Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onDelete(String bookId) {
-
+                mBookEntity.deleteInBackground(new DeleteCallback() {
+                    @Override
+                    public void done(AVException e) {
+                        if (e == null) {
+                            Toast.makeText(getApplicationContext(), R.string.book_detail_delete_success, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent();
+                            setResult(Constants.BOOK_DETAIL_ACTIVITY_RESULT_TAG, intent);
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
-        });
+        }, mDetailHeaderView);
 
     }
 
@@ -102,7 +147,7 @@ public class DetailActivity extends AppCompatActivity {
         });
     }
 
-    private void loadBookData(String bookEntityId) {
+    private void loadBookEntityData(String bookEntityId) {
         if (bookEntityId != null) {
             final AVQuery<BookEntity> query = new AVQuery<>("BookEntity");
             query.whereEqualTo(Constants.KOBJECT_ID, bookEntityId);
@@ -119,7 +164,7 @@ public class DetailActivity extends AppCompatActivity {
                                 public void done(AVObject avObject, AVException e) {
                                     if (e == null) {
                                         mBook = (Book) avObject;
-                                        mBookDetailViewHolder.populate(mBook);
+                                        mBookDetailViewHolder.populate(mBook, mBookEntity.isBookAvailability());
                                         loadBookComments();
                                     } else {
                                         Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
@@ -137,6 +182,35 @@ public class DetailActivity extends AppCompatActivity {
             });
         }
 
+    }
+
+    private void loadBookDate(String bookId) {
+        if (bookId != null) {
+            final AVQuery<Book> query = new AVQuery<>("Book");
+            query.whereEqualTo(Constants.KOBJECT_ID, bookId);
+            query.findInBackground(new FindCallback<Book>() {
+                @Override
+                public void done(List<Book> list, AVException e) {
+                    if (e == null && list.size() > 0) {
+                        mBook = list.get(0);
+                        BookService.getInstance().fetchAllAvaliableBookEntities(mBook, new FindCallback() {
+                            @Override
+                            public void done(List list, AVException e) {
+                                if (e == null) {
+                                    mBookDetailViewHolder.populate(mBook, list.size() > 0);
+                                } else {
+                                    Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            }
+                        });
+                    } else {
+                        Toast.makeText(getApplicationContext(), R.string.common_http_error, Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                }
+            });
+        }
     }
 
     private void loadBookComments() {

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.service.model.Book;
 
@@ -25,6 +26,7 @@ public class BookDetailViewHolder {
     public interface CallBack {
         void onChangeState(String bookId);
         void onDelete(String bookId);
+        void onBorrow(String bookId);
     }
 
     @InjectView(R.id.book_image)
@@ -42,16 +44,30 @@ public class BookDetailViewHolder {
     @InjectView(R.id.tab_delte)
     ViewGroup mTabDelete;
 
+    @InjectView(R.id.book_detail_change_textView)
+    TextView mChangeText;
+
+    @InjectView(R.id.book_detail_delete_textView)
+    TextView mDeleteText;
+
     private Context mContext;
     private CallBack mCallBack;
+    private int mType;
 
-    public BookDetailViewHolder(Context context, View view, CallBack callBack) {
+    public BookDetailViewHolder(int type, Context context, CallBack callBack, View view) {
         mContext = context;
         mCallBack = callBack;
+        mType = type;
         ButterKnife.inject(this, view);
+
+        if (mType == Constants.K_TYPE_BOOK_LIST){
+            mChangeText.setText(R.string.book_detail_borrowlist);
+            mDeleteText.setVisibility(View.INVISIBLE);
+            mTabDelete.setEnabled(false);
+        }
     }
 
-    public void populate(Book book) {
+    public void populate(Book book, boolean canBorrow) {
         Glide.with(mContext).load(book.getBookImageHref())
                 .placeholder(R.drawable.book_placeholder).crossFade().into(mBookImage);
         mBookName.setText(book.getBookName());
@@ -59,22 +75,33 @@ public class BookDetailViewHolder {
         mBookAuther.setText(String.format(Locale.US, autherFmt, book.getBookAuthor()));
         final String pressFmt = mContext.getString(R.string.book_detail_press_fmt);
         mBookPress.setText(String.format(Locale.US, pressFmt, book.getBookPress()));
-        populateState("111111111", true);
+        populateState(book.getBookDoubanId(), canBorrow);
+    }
+
+    public void changeBookStatus(boolean available){
+        SpannableString spannableString = createStateSpanable(available);
+        mBookState.setText(spannableString);
     }
 
     private void populateState(final String bookId, final boolean available) {
         SpannableString spannableString = createStateSpanable(available);
         mBookState.setText(spannableString);
-        if (available) {
-            mTabChangeState.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+
+        if (mType == Constants.K_TYPE_BOOK_LIST) {
+            mTabChangeState.setEnabled(available);
+        }
+        mTabChangeState.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mType == Constants.K_TYPE_BOOK_LIST){
+                    mCallBack.onBorrow(bookId);
+                } else if (mType == Constants.K_TYPE_MYBOOK) {
                     mCallBack.onChangeState(bookId);
                 }
-            });
-        } else {
-            mTabChangeState.setEnabled(false);
-        }
+            }
+        });
+
+
         mTabDelete.setOnClickListener(new View.OnClickListener() {
 
             @Override

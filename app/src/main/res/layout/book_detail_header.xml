@@ -20,6 +20,7 @@
             android:clickable="true">
 
             <TextView
+                android:id="@+id/book_detail_change_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -47,6 +48,7 @@
             android:clickable="true">
 
             <TextView
+                android:id="@+id/book_detail_delete_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

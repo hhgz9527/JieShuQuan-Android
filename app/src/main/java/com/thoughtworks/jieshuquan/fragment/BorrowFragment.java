@@ -2,6 +2,7 @@ package com.thoughtworks.jieshuquan.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -18,10 +19,13 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.FindCallback;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableList;
+import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
+import com.thoughtworks.jieshuquan.activity.DetailActivity;
 import com.thoughtworks.jieshuquan.adapter.BooksAdapter;
 import com.thoughtworks.jieshuquan.service.BookService;
 import com.thoughtworks.jieshuquan.service.model.Book;
+import com.thoughtworks.jieshuquan.service.model.BookEntity;
 
 import java.util.List;
 
@@ -34,6 +38,7 @@ import static com.google.common.collect.FluentIterable.from;
 public class BorrowFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private FragmentCallbacks mListener;
+    private List<Book> mBookList;
 
     private BooksAdapter mBorrowBooksAdapter;
 
@@ -76,8 +81,12 @@ public class BorrowFragment extends Fragment implements SwipeRefreshLayout.OnRef
         booksGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(parent.getContext(), "" + position,
-                        Toast.LENGTH_SHORT).show();
+
+                Book book = mBookList.get(position);
+                Intent intent = new Intent(getActivity(), DetailActivity.class);
+                intent.putExtra(Constants.KBOOK_ID, book.getObjectId());
+                intent.putExtra(Constants.KBOOK_TYPE,Constants.K_TYPE_BOOK_LIST);
+                startActivity(intent);
             }
         });
         booksGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -171,6 +180,7 @@ public class BorrowFragment extends Fragment implements SwipeRefreshLayout.OnRef
             public void done(List<Book> list, AVException e) {
                 if (e == null && list.size() > 0) {
                     showContentView();
+                    mBookList = list;
                     mBorrowBooksAdapter.setBookList(list);
                     mBorrowBooksAdapter.notifyDataSetChanged();
                 } else if (list != null && list.size() == 0) {

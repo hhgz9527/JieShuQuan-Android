@@ -85,5 +85,8 @@
     <string name="modify_password_current_password_empty">老密码不能为空</string>
     <string name="modify_password_newpassword_error">新密码不能为空并且两次输入应该一致</string>
     <string name="modify_password_success">修改密码成功</string>
+    <string name="book_detail_delete_success">删除成功</string>
+    <string name="book_detail_borrow">借阅</string>
+    <string name="book_detail_borrowlist">查看借阅列表</string>
 
 </resources>

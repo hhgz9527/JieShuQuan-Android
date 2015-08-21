@@ -38,6 +38,7 @@ public interface Constants {
     public final int LOGIN_ACTIVITY_RESULT_TAG = 200;
     public final int SCANER_ACTIVITY_RESULT_TAG = 100;
     public final int POPULAR_ACTIVITY_RESULT_TAG = 300;
+    public final int BOOK_DETAIL_ACTIVITY_RESULT_TAG = 400;
 
     public final String KSUCCESS = "success";
 
@@ -69,4 +70,10 @@ public interface Constants {
     
     
     public static final String EXTRA_BOOK_ID = "book_id";
+    public static final int K_TYPE_MYBOOK = 101;
+    public static final int K_TYPE_BOOK_LIST = 102;
+    public static final String KBOOK_TYPE = "bookType";
+    public static final String KBOOK_ENTITY_ID = "bookEntityId";
+    public static final String KBOOK_ID = "bookId";
+
 }

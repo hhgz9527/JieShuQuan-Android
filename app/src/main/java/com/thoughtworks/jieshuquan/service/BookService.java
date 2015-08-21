@@ -21,7 +21,7 @@ import java.util.concurrent.CountDownLatch;
  */
 public class BookService {
 
-    private static BookService instance;
+    public static BookService instance;
 
     public static BookService getInstance() {
         if (instance == null) {
@@ -195,28 +195,6 @@ public class BookService {
 
 
     /*
-    改变自己拥有图书可借状态
-    * */
-    public void updateBookAvailability(final Book book, final SaveCallback callback) {
-        final AVQuery<AVObject> query = new AVQuery<AVObject>("BookEntity");
-        query.whereEqualTo(Constants.KBOOKENTITY_USER, AVUser.getCurrentUser());
-        query.whereEqualTo(Constants.KBOOKENTITY_BOOK, book);
-        query.findInBackground(new FindCallback<AVObject>() {
-            @Override
-            public void done(List<AVObject> list, AVException e) {
-                if (e == null) {
-                    BookEntity bookEntity = (BookEntity) list.get(0);
-                    bookEntity.setBookAvailability(true);
-                    bookEntity.saveInBackground(callback);
-                } else {
-                    callback.done(e);
-                }
-            }
-        });
-    }
-
-
-    /*
     根据收到的结束请求，来处理bookEntity的 availability 状态
     * */
     public void updateBookAvailability(BorrowRecord borrowRecord, final boolean availability, final SaveCallback callback) {
@@ -332,6 +310,15 @@ public class BookService {
         final AVQuery<AVObject> query = new AVQuery<AVObject>("Book");
         query.whereEqualTo(Constants.KBOOKNAME, bookName);
         query.findInBackground(callback);
+
+    }
+
+    /*
+        改变自己拥有图书可借状态
+        * */
+    public void updateBookAvailability(BookEntity bookEntity, final boolean canBorrow, final SaveCallback callback) {
+        bookEntity.setBookAvailability(canBorrow);
+        bookEntity.saveInBackground(callback);
 
     }
 }
