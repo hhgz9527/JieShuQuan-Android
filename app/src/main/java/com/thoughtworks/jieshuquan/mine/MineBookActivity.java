@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.FindCallback;
+import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
 import com.thoughtworks.jieshuquan.activity.DetailActivity;
 import com.thoughtworks.jieshuquan.adapter.BookEntitysAdapter;
@@ -24,8 +25,6 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-
-import static com.google.common.collect.FluentIterable.from;
 
 public class MineBookActivity extends AppCompatActivity {
 
