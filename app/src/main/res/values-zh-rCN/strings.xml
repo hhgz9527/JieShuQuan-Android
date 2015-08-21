@@ -6,6 +6,8 @@
     <string name="title_activity_register">注册</string>
     <string name="title_activity_more">更多</string>
     <string name="title_activity_mine_books">我的书籍</string>
+    <string name="title_activity_mine_rent">我的借入</string>
+    <string name="title_activity_mine_borrow">我的借出</string>
     <string name="title_activity_detail">书籍详情</string>
 
     <string name="btn_login">登陆</string>
@@ -45,7 +47,7 @@
     <string name="mine_list_my_books">我的书籍</string>
     <string name="mine_list_my_borrow">借入</string>
     <string name="mine_list_my_rent">借出</string>
-    <string name="mine_list_my_setting">设置</string>
+    <string name="mine_list_my_more">更多</string>
 
     <!--Setting-->
     <string name="pref_header_general">通用</string>

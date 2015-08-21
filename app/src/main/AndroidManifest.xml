@@ -51,12 +51,20 @@
             android:label="@string/title_activity_add_book_to_library"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.MoreActivity"
+            android:name=".mine.more.MoreActivity"
             android:label="@string/title_activity_more"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.MineBookActivity"
+            android:name=".mine.MineBookActivity"
             android:label="@string/title_activity_mine_books"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mine.MineBorrowActivity"
+            android:label="@string/title_activity_mine_borrow"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mine.MineRentActivity"
+            android:label="@string/title_activity_mine_rent"
             android:screenOrientation="portrait" />
 
         <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver" >
@@ -101,17 +109,17 @@
                 android:value=".activity.MainActivity" />
         </activity>
         <activity
-            android:name=".activity.FeedbackActivity"
+            android:name=".mine.more.FeedbackActivity"
             android:label="@string/title_activity_feedback"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activity.ModifyPasswordActivity"
+            android:name=".mine.more.ModifyPasswordActivity"
             android:label="@string/title_activity_modify_password"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activity.ModifyNicknameActivity"
+            android:name=".mine.more.ModifyNicknameActivity"
             android:label="@string/title_activity_modify_nickname"
             android:screenOrientation="portrait">
         </activity>

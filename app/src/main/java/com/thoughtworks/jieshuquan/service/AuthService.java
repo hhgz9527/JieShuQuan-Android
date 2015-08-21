@@ -1,7 +1,5 @@
 package com.thoughtworks.jieshuquan.service;
 
-import android.text.Editable;
-
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.avos.avoscloud.RequestPasswordResetCallback;
@@ -10,9 +8,6 @@ import com.avos.avoscloud.SignUpCallback;
 import com.avos.avoscloud.UpdatePasswordCallback;
 import com.thoughtworks.jieshuquan.Constants;
 
-/**
- * Created by leihuang on 5/27/15.
- */
 public class AuthService {
 
     private static AuthService instance;
@@ -28,12 +23,12 @@ public class AuthService {
     }
 
     // Register
-    public void signUp(String email, String password,String office, SignUpCallback callback) {
+    public void signUp(String email, String password, String office, SignUpCallback callback) {
         AVUser user = new AVUser();
         user.setUsername(this.getName(email));
         user.setEmail(email);
         user.setPassword(password);
-        user.put(Constants.KUSER_OFFICE,office);
+        user.put(Constants.KUSER_OFFICE, office);
         user.signUpInBackground(callback);
     }
 
@@ -44,18 +39,18 @@ public class AuthService {
     }
 
     //Reset Password
-    public void resetPassword (String email, RequestPasswordResetCallback callback){
-        AVUser.requestPasswordResetInBackground(email,callback);
+    public void resetPassword(String email, RequestPasswordResetCallback callback) {
+        AVUser.requestPasswordResetInBackground(email, callback);
     }
 
     //Modify Password
-    public void  updatePassword(String oldPwd, String newPwd, UpdatePasswordCallback callback){
-        AVUser.getCurrentUser().updatePasswordInBackground(oldPwd,newPwd,callback);
+    public void updatePassword(String oldPwd, String newPwd, UpdatePasswordCallback callback) {
+        AVUser.getCurrentUser().updatePasswordInBackground(oldPwd, newPwd, callback);
     }
 
     //Modify NickName
-    public void updateNickName(String name, SaveCallback callback){
-        AVUser.getCurrentUser().put("nickname",name);
+    public void updateNickName(String name, SaveCallback callback) {
+        AVUser.getCurrentUser().put("nickname", name);
         AVUser.getCurrentUser().saveEventually(callback);
     }
 

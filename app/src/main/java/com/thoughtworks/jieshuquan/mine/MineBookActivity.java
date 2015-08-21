@@ -1,11 +1,10 @@
-package com.thoughtworks.jieshuquan.activity;
+package com.thoughtworks.jieshuquan.mine;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -14,14 +13,10 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.FindCallback;
-import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
+import com.thoughtworks.jieshuquan.activity.DetailActivity;
 import com.thoughtworks.jieshuquan.adapter.BookEntitysAdapter;
-import com.thoughtworks.jieshuquan.adapter.BooksAdapter;
 import com.thoughtworks.jieshuquan.service.BookService;
 import com.thoughtworks.jieshuquan.service.model.BookEntity;
 

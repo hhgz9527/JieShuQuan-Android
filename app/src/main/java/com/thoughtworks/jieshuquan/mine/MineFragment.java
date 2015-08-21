@@ -1,4 +1,4 @@
-package com.thoughtworks.jieshuquan.fragment;
+package com.thoughtworks.jieshuquan.mine;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -28,8 +28,8 @@ import com.bumptech.glide.Glide;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.thoughtworks.jieshuquan.Constants;
 import com.thoughtworks.jieshuquan.R;
-import com.thoughtworks.jieshuquan.activity.MineBookActivity;
-import com.thoughtworks.jieshuquan.activity.MoreActivity;
+import com.thoughtworks.jieshuquan.fragment.FragmentCallbacks;
+import com.thoughtworks.jieshuquan.mine.more.MoreActivity;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -166,12 +166,14 @@ public class MineFragment extends Fragment {
 
     @OnClick(R.id.list_my_borrow)
     void showMyBorrow() {
-        Toast.makeText(getActivity(), "My Borrow", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), MineBorrowActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.list_my_rent)
     void showMyRent() {
-        Toast.makeText(getActivity(), "My Rent", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), MineRentActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.head)
